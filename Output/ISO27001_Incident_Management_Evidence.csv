@@ -1,0 +1,13 @@
+Incident ID,Date Reported,Incident Type,Severity,Reporter,Assigned To,Status,Resolution Date,Root Cause,Lessons Learned,Control Reference
+INC-2024-001,2024-01-15,Phishing Email,Medium,Alice Johnson,Security Team,Closed,2024-01-16,Social Engineering,Enhanced email security training implemented,5.25
+INC-2024-002,2024-02-03,Unauthorized Access Attempt,High,System Monitor,Bob Smith,Closed,2024-02-04,Weak Password,Enforced stronger password policy,5.25
+INC-2024-003,2024-02-20,Data Breach Attempt,Critical,Carol Davis,Security Team,Closed,2024-02-22,Unpatched System,Implemented automated patch management,5.25
+INC-2024-004,2024-03-10,Malware Detection,Medium,Emma Brown,IT Security,Closed,2024-03-11,Email Attachment,Updated antivirus signatures and user training,5.25
+INC-2024-005,2024-03-25,System Outage,High,David Wilson,Operations Team,Closed,2024-03-25,Hardware Failure,Redundancy procedures reviewed and improved,5.26
+INC-2024-006,2024-04-12,Suspicious Network Activity,Medium,Henry Chen,Security Team,Closed,2024-04-13,Port Scanning,Network monitoring thresholds adjusted,5.26
+INC-2024-007,2024-05-08,Lost Laptop,Medium,Frank Miller,HR & Security,Closed,2024-05-09,Physical Security,Enhanced device encryption and tracking,5.27
+INC-2024-008,2024-06-14,Insider Threat Alert,High,Grace Lee,Security Team,Closed,2024-06-16,Privilege Abuse,Access controls and monitoring enhanced,5.27
+INC-2024-009,2024-07-22,Ransomware Attempt,Critical,Ivy Taylor,Incident Response Team,Closed,2024-07-24,Email Vector,Backup procedures tested and validated,5.27
+INC-2024-010,2024-08-05,Data Leakage,High,Jack Anderson,Security & Legal,Closed,2024-08-07,Misconfigured Database,Database security configurations reviewed,5.28
+INC-2024-011,2024-08-18,Account Compromise,Medium,Kate Rodriguez,Security Team,Closed,2024-08-19,Credential Stuffing,Multi-factor authentication mandate expanded,5.28
+INC-2024-012,2024-09-02,DDoS Attack,Medium,Liam Thompson,Network Team,Closed,2024-09-02,External Attack,DDoS protection capabilities enhanced,5.28

@@ -1,0 +1,13 @@
+Log ID,Timestamp,Event Type,Source System,User/Process,Event Description,Risk Level,Action Taken,Control Reference
+LOG-001,2024-09-17 14:23:15,Login Success,Active Directory,alice.johnson,Successful login from office IP,Low,None,5.16
+LOG-002,2024-09-17 14:25:33,Failed Login,Active Directory,unknown.user,Failed login attempt - invalid credentials,Medium,Account locked after 3 attempts,5.16
+LOG-003,2024-09-17 14:30:45,File Access,File Server,bob.smith,Accessed confidential financial report,Medium,Access logged and monitored,5.15
+LOG-004,2024-09-17 14:35:12,Admin Privilege Use,Domain Controller,emma.brown,Created new user account,High,Manager approval verified,5.18
+LOG-005,2024-09-17 14:40:28,Network Connection,Firewall,external.user,Blocked connection from suspicious IP,High,IP added to blacklist,5.15
+LOG-006,2024-09-17 14:45:56,Data Transfer,Email Gateway,carol.davis,Large file attachment sent externally,Medium,DLP scan completed - clean,5.14
+LOG-007,2024-09-17 14:50:14,System Change,Configuration Manager,henry.chen,Modified firewall rules,High,Change request CR-2024-089 approved,5.37
+LOG-008,2024-09-17 14:55:39,Malware Detection,Antivirus System,workstation-042,Malware quarantined on user device,High,Device isolated and cleaned,5.25
+LOG-009,2024-09-17 15:00:22,Backup Completion,Backup System,backup.service,Daily backup completed successfully,Low,Backup integrity verified,5.30
+LOG-010,2024-09-17 15:05:47,Database Query,Database Server,jack.anderson,Executed financial report query,Medium,Query logged for audit trail,5.33
+LOG-011,2024-09-17 15:10:33,VPN Connection,VPN Gateway,david.wilson,Remote VPN connection established,Medium,MFA verified successfully,5.16
+LOG-012,2024-09-17 15:15:18,Policy Violation,DLP System,frank.miller,Attempted to send SSN in email,High,Email blocked and incident created,5.34

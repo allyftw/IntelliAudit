@@ -1,0 +1,11 @@
+Review ID,Review Type,Review Date,Reviewer,Scope,Findings Count,Non-Conformities,Recommendations,Status,Follow-up Date,Control Reference
+REV-2024-001,Internal Audit,2024-06-15,External Auditor,Full ISMS,23,3,12,Closed,2024-08-15,5.35
+REV-2024-002,Management Review,2024-07-20,Senior Management,ISMS Performance,15,1,8,Closed,2024-09-20,5.35
+REV-2024-003,Policy Compliance Review,2024-08-10,Compliance Officer,Security Policies,18,2,6,Open,2024-10-10,5.36
+REV-2024-004,Access Control Review,2024-09-01,Security Team,User Access Rights,45,5,15,Open,2024-11-01,5.36
+REV-2024-005,Vendor Security Review,2024-08-25,Security Team,Supplier Agreements,12,1,4,Closed,2024-10-25,5.22
+REV-2024-006,Incident Response Review,2024-07-30,Security Team,Incident Procedures,8,0,3,Closed,2024-09-30,5.36
+REV-2024-007,Business Continuity Review,2024-08-15,Operations Team,BCP Procedures,10,2,7,Open,2024-10-15,5.30
+REV-2024-008,Risk Assessment Review,2024-09-05,Risk Committee,Risk Register,25,3,9,Open,2024-11-05,5.35
+REV-2024-009,Data Protection Review,2024-08-20,Privacy Officer,GDPR Compliance,14,1,5,Closed,2024-10-20,5.34
+REV-2024-010,Physical Security Review,2024-07-10,Security Team,Facility Access,7,0,2,Closed,2024-09-10,5.36

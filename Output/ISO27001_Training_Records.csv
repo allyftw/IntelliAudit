@@ -1,0 +1,16 @@
+Employee ID,Employee Name,Training Title,Training Date,Completion Status,Score,Trainer,Next Training Due,Control Reference
+USR001,Alice Johnson,Information Security Awareness,2024-03-15,Completed,95%,Security Team,2025-03-15,5.4
+USR002,Bob Smith,Information Security Awareness,2024-03-20,Completed,88%,Security Team,2025-03-20,5.4
+USR003,Carol Davis,Information Security Awareness,2024-03-18,Completed,92%,Security Team,2025-03-18,5.4
+USR004,David Wilson,Information Security Awareness,2024-03-22,Completed,87%,Security Team,2025-03-22,5.4
+USR005,Emma Brown,Advanced Security Training,2024-04-10,Completed,96%,External Trainer,2025-04-10,5.4
+USR006,Frank Miller,Information Security Awareness,2024-03-25,Completed,85%,Security Team,2025-03-25,5.4
+USR007,Grace Lee,Information Security Awareness,2024-03-17,Completed,93%,Security Team,2025-03-17,5.4
+USR008,Henry Chen,Advanced Security Training,2024-04-12,Completed,98%,External Trainer,2025-04-12,5.4
+USR009,Ivy Taylor,Information Security Awareness,2024-03-28,Completed,89%,Security Team,2025-03-28,5.4
+USR010,Jack Anderson,Information Security Awareness,2024-03-19,Completed,91%,Security Team,2025-03-19,5.4
+USR011,Kate Rodriguez,Security Leadership Training,2024-05-05,Completed,97%,External Trainer,2025-05-05,5.4
+USR012,Liam Thompson,Information Security Awareness,2024-03-30,Completed,84%,Security Team,2025-03-30,5.4
+USR001,Alice Johnson,Phishing Simulation,2024-06-15,Completed,100%,Security Team,2024-12-15,5.4
+USR002,Bob Smith,Phishing Simulation,2024-06-16,Failed,45%,Security Team,2024-09-16,5.4
+USR003,Carol Davis,Data Protection Training,2024-07-10,Completed,94%,Privacy Officer,2025-07-10,5.34

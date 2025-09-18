@@ -1,0 +1,13 @@
+Supplier ID,Supplier Name,Service Type,Risk Level,Contract Start,Contract End,Last Assessment,Next Review,Security Requirements Met,SLA Compliance,Control Reference
+SUP-001,CloudTech Solutions,Cloud Infrastructure,High,2023-01-01,2025-12-31,2024-07-15,2024-10-15,Yes,98.5%,5.19
+SUP-002,SecureComms Inc,Telecommunications,Medium,2023-06-01,2024-11-30,2024-08-20,2024-11-20,Yes,99.2%,5.19
+SUP-003,DataGuard Services,Backup and Recovery,High,2022-09-15,2025-09-14,2024-09-01,2024-12-01,Yes,97.8%,5.19
+SUP-004,NetworkPro Systems,Network Management,Medium,2024-02-01,2026-01-31,2024-08-15,2024-11-15,Yes,98.9%,5.19
+SUP-005,CyberShield Security,Security Monitoring,High,2023-04-01,2025-03-31,2024-09-10,2024-12-10,Yes,99.1%,5.19
+SUP-006,OfficeSupply Corp,Office Equipment,Low,2023-01-15,2024-12-31,2024-06-15,2025-01-15,N/A,95.5%,5.20
+SUP-007,LegalAdvisors LLP,Legal Services,Medium,2022-11-01,2025-10-31,2024-05-15,2024-11-15,Yes,100%,5.20
+SUP-008,CloudStorage Plus,Data Storage,High,2023-08-01,2026-07-31,2024-08-30,2024-11-30,Yes,99.3%,5.21
+SUP-009,TechMaintenance Ltd,Hardware Support,Medium,2024-01-01,2025-12-31,2024-07-01,2024-10-01,Yes,96.7%,5.21
+SUP-010,SoftwareLicensing Co,Software Licensing,Low,2023-12-01,2024-11-30,2024-09-01,2024-12-01,Yes,98.1%,5.22
+SUP-011,ConsultingExperts Inc,IT Consulting,Medium,2024-03-15,2025-03-14,2024-09-15,2024-12-15,Yes,99.5%,5.22
+SUP-012,RemoteSupport Services,Technical Support,Medium,2023-07-01,2025-06-30,2024-08-01,2024-11-01,Yes,97.3%,5.23

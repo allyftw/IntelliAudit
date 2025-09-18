@@ -1,0 +1,11 @@
+BCP ID,Plan Name,Plan Type,Owner,Last Updated,Last Tested,Test Result,RTO (Hours),RPO (Hours),Status,Control Reference
+BCP-001,IT Disaster Recovery Plan,Technical Recovery,IT Operations,2024-08-15,2024-09-01,Successful,4,1,Active,5.30
+BCP-002,Business Operations Continuity,Business Process,Operations Manager,2024-07-20,2024-08-15,Successful,8,2,Active,5.30
+BCP-003,Communication Crisis Plan,Communication,PR Manager,2024-06-30,2024-07-30,Partial Success,2,0.5,Active,5.30
+BCP-004,Vendor Backup Plan,Supplier Management,Procurement,2024-08-01,2024-08-20,Successful,12,4,Active,5.30
+BCP-005,Remote Work Continuity,Remote Operations,HR Manager,2024-05-15,2024-06-15,Successful,1,0.25,Active,5.30
+BCP-006,Financial Systems Recovery,Financial Process,Finance Manager,2024-07-10,2024-08-10,Successful,6,2,Active,5.30
+BCP-007,Customer Service Continuity,Customer Support,Customer Service Manager,2024-06-20,2024-07-20,Successful,2,0.5,Active,5.30
+BCP-008,Data Center Evacuation,Physical Security,Facilities Manager,2024-08-05,2024-09-05,Successful,24,8,Active,5.30
+BCP-009,Cybersecurity Incident Response,Security Incident,Security Team,2024-09-01,2024-09-10,Successful,1,0.25,Active,5.24
+BCP-010,Supply Chain Disruption,Supply Chain,Supply Chain Manager,2024-07-25,2024-08-25,Needs Improvement,48,24,Under Review,5.30

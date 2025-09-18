@@ -1,0 +1,11 @@
+Asset ID,Asset Name,Confidentiality Level,Integrity Level,Availability Level,Classification Rationale,Labeling Applied,Handling Instructions,Control Reference
+AST-002,HR Database,High,High,Medium,Contains personal employee data and salary information,Yes,Encrypted storage and access controls required,5.12
+AST-005,Customer Data Repository,High,High,High,Contains customer PII and payment information,Yes,Encryption in transit and at rest mandatory,5.12
+AST-007,Source Code Repository,Medium,High,Medium,Proprietary software code and algorithms,Yes,Version control and access logging required,5.12
+AST-013,Intellectual Property Documents,High,High,Low,Trade secrets and patent information,Yes,Restricted access and DLP monitoring,5.12
+AST-003,Financial Records System,High,High,High,Financial statements and accounting data,Yes,Audit trail and backup requirements,5.12
+AST-008,Email Server,Medium,Medium,High,Business communications and correspondence,Yes,Regular backup and monitoring required,5.12
+AST-001,Primary Database Server,Medium,High,High,Critical business application data,Yes,High availability and monitoring required,5.12
+AST-011,CRM Software License,Low,Medium,Medium,Customer relationship management data,Yes,Standard access controls sufficient,5.12
+AST-014,Network Switch,Low,High,High,Network infrastructure component,No,Physical security and monitoring required,5.12
+AST-012,Security Camera System,Medium,Medium,Medium,Physical security monitoring data,Yes,Retention policy and access controls applied,5.12

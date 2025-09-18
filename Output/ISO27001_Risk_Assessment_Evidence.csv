@@ -1,0 +1,13 @@
+Risk ID,Risk Description,Asset Affected,Threat Source,Likelihood,Impact,Risk Level,Mitigation Status,Owner,Last Review,Control Reference
+RSK-001,Unauthorized access to customer database,Customer Data Repository,External Hacker,Medium,High,High,Mitigated,Security Team,2024-09-01,5.15
+RSK-002,Data loss due to hardware failure,Primary Database Server,Hardware Failure,Low,High,Medium,Mitigated,IT Operations,2024-09-05,5.29
+RSK-003,Phishing attack on employees,Employee Email Accounts,Cybercriminal,High,Medium,High,Partially Mitigated,Security Team,2024-08-20,5.25
+RSK-004,Insider threat from privileged user,Financial Records System,Malicious Insider,Low,High,Medium,Mitigated,HR & Security,2024-09-10,5.18
+RSK-005,Ransomware attack on systems,All IT Systems,Cybercriminal,Medium,Critical,High,Partially Mitigated,Security Team,2024-08-15,5.27
+RSK-006,Supplier data breach,Cloud Infrastructure,Third Party,Medium,High,High,Mitigated,Procurement,2024-09-08,5.19
+RSK-007,Physical theft of equipment,Mobile Devices,Opportunistic Thief,Medium,Medium,Medium,Mitigated,Security Team,2024-08-25,5.11
+RSK-008,Network intrusion,Network Infrastructure,External Attacker,Medium,High,High,Mitigated,Network Team,2024-09-12,5.15
+RSK-009,Compliance violation,Regulatory Processes,Regulatory Body,Low,High,Medium,Mitigated,Compliance Team,2024-09-03,5.31
+RSK-010,Business disruption,Critical Business Processes,Natural Disaster,Low,Critical,Medium,Mitigated,Operations,2024-08-30,5.30
+RSK-011,Intellectual property theft,Source Code Repository,Competitor,Medium,High,High,Mitigated,Legal Team,2024-09-07,5.32
+RSK-012,Privacy breach,Personal Data Systems,Human Error,Medium,High,High,Partially Mitigated,Privacy Officer,2024-09-02,5.34
