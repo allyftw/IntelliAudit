@@ -34,19 +34,36 @@ class SimpleAuditOrchestrator:
         """Run a full audit with all agents for specified controls"""
         
         if control_ids is None:
-            # Default set of key ISO 27001 controls
-            control_ids = [
-                "5.1",   # Information security policies
-                "5.15",  # Access control
-                "5.16",  # Identity management
-                "5.18",  # Access rights
-                "5.24",  # Information security incident management planning
-                "5.25",  # Assessment and decision on information security events
-                "5.9",   # Inventory of information and other associated assets
-                "5.12",  # Classification of information
-                "5.19",  # Information security in supplier relationships
-                "5.35",  # Independent review of information security
-            ]
+            # Get all available controls from the knowledge base
+            if 'controls' in self.search_agent.knowledge_base:
+                controls_df = self.search_agent.knowledge_base['controls']
+                # Convert control IDs to strings and remove duplicates
+                control_ids = list(set([str(cid) for cid in controls_df['Control ID'].tolist()]))
+                # Sort the control IDs numerically (handle both dot and hyphen formats)
+                def sort_control_id(control_id):
+                    try:
+                        # Handle formats like "5.1" or "5-1"
+                        if '.' in control_id:
+                            return float(control_id)
+                        elif '-' in control_id:
+                            parts = control_id.split('-')
+                            return float(f"{parts[0]}.{parts[1]}")
+                        else:
+                            return float(control_id)
+                    except:
+                        return float('inf')  # Put unparseable IDs at the end
+                
+                control_ids.sort(key=sort_control_id)
+                print(f"Auto-discovered {len(control_ids)} controls from knowledge base")
+            else:
+                # Fallback to default set if no controls found
+                control_ids = [
+                    "5.1", "5.2", "5.3", "5.4", "5.5", "5.6", "5.7", "5.8", "5.9", "5.10",
+                    "5.11", "5.12", "5.13", "5.14", "5.15", "5.16", "5.17", "5.18", "5.19", "5.20",
+                    "5.21", "5.22", "5.23", "5.24", "5.25", "5.26", "5.27", "5.28", "5.29", "5.30",
+                    "5.31", "5.32", "5.33", "5.34", "5.35", "5.36", "5.37"
+                ]
+                print(f"Using fallback control list with {len(control_ids)} controls")
         
         print(f"\n=== Starting Multi-Agent ISO 27001 Audit ===")
         print(f"Controls to evaluate: {', '.join(control_ids)}")

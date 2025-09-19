@@ -1,11 +1,14 @@
 """
 Defender Agent - Responds to audit findings and defends the organization
 Seeks additional evidence and provides alternative explanations
+Now includes LangGraph thought process tracking
 """
 
 import json
 from typing import Dict, List, Any, Tuple
 from datetime import datetime, timedelta
+from langgraph.graph import StateGraph, END
+from langchain_core.messages import HumanMessage, AIMessage
 try:
     from search_agent import SearchAgent
 except ImportError:
@@ -15,24 +18,138 @@ class DefenderAgent:
     def __init__(self, search_agent: SearchAgent):
         self.search_agent = search_agent
         self.defense_strategies = {}
+        self.thought_process = []
+        self.graph = self._create_langgraph()
         
-    def defend_control(self, control_id: str, auditor_findings: Dict[str, Any]) -> Dict[str, Any]:
-        """Defend against auditor findings for a specific control"""
+    def _create_langgraph(self):
+        """Create LangGraph for defender agent thought process"""
+        workflow = StateGraph(dict)
+        
+        workflow.add_node("analyze_audit_findings", self._analyze_audit_findings_node)
+        workflow.add_node("gather_counter_evidence", self._gather_counter_evidence_node)
+        workflow.add_node("formulate_defense", self._formulate_defense_node)
+        workflow.add_node("build_arguments", self._build_arguments_node)
+        
+        workflow.set_entry_point("analyze_audit_findings")
+        workflow.add_edge("analyze_audit_findings", "gather_counter_evidence")
+        workflow.add_edge("gather_counter_evidence", "formulate_defense")
+        workflow.add_edge("formulate_defense", "build_arguments")
+        workflow.add_edge("build_arguments", END)
+        
+        return workflow.compile()
+    
+    def _analyze_audit_findings_node(self, state: Dict[str, Any]) -> Dict[str, Any]:
+        """Analyze the auditor's findings to understand what needs defending"""
+        control_id = state.get('control_id', '')
+        auditor_findings = state.get('auditor_findings', {})
+        
+        auditor_status = auditor_findings.get('status', '')
+        compliance_score = auditor_findings.get('compliance_score', 0)
+        findings = auditor_findings.get('findings', [])
+        
+        thought = f"Analyzing auditor findings for {control_id}: status={auditor_status}, score={compliance_score}"
+        
+        # Identify key concerns that need addressing
+        critical_issues = [f for f in findings if 'CRITICAL' in f]
+        major_issues = [f for f in findings if 'MAJOR' in f]
+        minor_issues = [f for f in findings if 'MINOR' in f]
+        
+        analysis = {
+            'severity_breakdown': {
+                'critical': len(critical_issues),
+                'major': len(major_issues), 
+                'minor': len(minor_issues)
+            },
+            'defense_required': auditor_status in ['NON_COMPLIANT', 'PARTIALLY_COMPLIANT'],
+            'score_gap': max(0, 85 - compliance_score)  # Gap to full compliance
+        }
+        
+        self.thought_process.append({
+            'timestamp': datetime.now().isoformat(),
+            'agent': 'DefenderAgent',
+            'node': 'analyze_audit_findings',
+            'thought': thought,
+            'analysis': analysis
+        })
+        
+        state['audit_analysis'] = analysis
+        return state
+    
+    def _gather_counter_evidence_node(self, state: Dict[str, Any]) -> Dict[str, Any]:
+        """Gather additional evidence to counter auditor findings"""
+        control_id = state.get('control_id', '')
+        auditor_findings = state.get('auditor_findings', {})
+        audit_analysis = state.get('audit_analysis', {})
+        
+        thought = f"Gathering counter-evidence for {control_id}"
+        self.thought_process.append({
+            'timestamp': datetime.now().isoformat(),
+            'agent': 'DefenderAgent',
+            'node': 'gather_counter_evidence',
+            'thought': thought
+        })
         
         # Get additional evidence through targeted searches
         additional_evidence = self._gather_additional_evidence(control_id, auditor_findings)
         
-        # Analyze auditor's findings and prepare counter-arguments
+        thought = f"Found {len(additional_evidence)} additional evidence items to support defense"
+        self.thought_process.append({
+            'timestamp': datetime.now().isoformat(),
+            'agent': 'DefenderAgent',
+            'node': 'gather_counter_evidence',
+            'thought': thought,
+            'evidence_count': len(additional_evidence)
+        })
+        
+        state['additional_evidence'] = additional_evidence
+        return state
+    
+    def _formulate_defense_node(self, state: Dict[str, Any]) -> Dict[str, Any]:
+        """Formulate the overall defense strategy"""
+        control_id = state.get('control_id', '')
+        auditor_findings = state.get('auditor_findings', {})
+        audit_analysis = state.get('audit_analysis', {})
+        
+        defense_position = self._determine_defense_position(auditor_findings)
+        
+        thought = f"Formulated defense position: {defense_position}"
+        self.thought_process.append({
+            'timestamp': datetime.now().isoformat(),
+            'agent': 'DefenderAgent',
+            'node': 'formulate_defense',
+            'thought': thought,
+            'defense_position': defense_position
+        })
+        
+        # Initialize defense structure
         defense = {
             'agent': 'Defender',
             'control_id': control_id,
             'auditor_status': auditor_findings.get('status'),
-            'defense_position': self._determine_defense_position(auditor_findings),
+            'defense_position': defense_position,
             'counter_arguments': [],
-            'additional_evidence': additional_evidence,
+            'additional_evidence': state.get('additional_evidence', []),
             'mitigating_factors': [],
             'alternative_explanations': []
         }
+        
+        state['defense_framework'] = defense
+        return state
+    
+    def _build_arguments_node(self, state: Dict[str, Any]) -> Dict[str, Any]:
+        """Build specific arguments based on control type"""
+        control_id = state.get('control_id', '')
+        auditor_findings = state.get('auditor_findings', {})
+        additional_evidence = state.get('additional_evidence', [])
+        defense = state.get('defense_framework', {})
+        
+        thought = f"Building specific defense arguments for control type: {control_id}"
+        self.thought_process.append({
+            'timestamp': datetime.now().isoformat(),
+            'agent': 'DefenderAgent',
+            'node': 'build_arguments',
+            'thought': thought
+        })
         
         # Build specific defenses based on control type and findings
         if control_id == "5.1":  # Information security policies
@@ -47,6 +164,34 @@ class DefenderAgent:
             defense = self._defend_supplier_control(defense, auditor_findings, additional_evidence)
         else:
             defense = self._defend_generic_control(defense, auditor_findings, additional_evidence)
+        
+        thought = f"Defense complete: {len(defense.get('counter_arguments', []))} counter-arguments, {len(defense.get('mitigating_factors', []))} mitigating factors"
+        self.thought_process.append({
+            'timestamp': datetime.now().isoformat(),
+            'agent': 'DefenderAgent',
+            'node': 'build_arguments',
+            'thought': thought,
+            'final_defense': defense
+        })
+        
+        state['final_defense'] = defense
+        return state
+    
+    def defend_control(self, control_id: str, auditor_findings: Dict[str, Any]) -> Dict[str, Any]:
+        """Defend against auditor findings for a specific control with LangGraph tracking"""
+        # Initialize state for LangGraph
+        initial_state = {
+            'control_id': control_id,
+            'auditor_findings': auditor_findings,
+            'timestamp': datetime.now().isoformat()
+        }
+        
+        # Execute the LangGraph workflow
+        final_state = self.graph.invoke(initial_state)
+        
+        # Return the final defense
+        defense = final_state.get('final_defense', {})
+        defense['thought_process_id'] = len(self.thought_process)
         
         return defense
     
@@ -372,6 +517,14 @@ class DefenderAgent:
         ])
         
         return challenges
+    
+    def get_thought_process(self) -> List[Dict[str, Any]]:
+        """Return the complete thought process for this agent"""
+        return self.thought_process
+    
+    def clear_thought_process(self):
+        """Clear the thought process history"""
+        self.thought_process = []
 
 # Example usage
 if __name__ == "__main__":

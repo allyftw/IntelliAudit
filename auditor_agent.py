@@ -1,11 +1,14 @@
 """
 Auditor Agent - Evaluates compliance controls and flags potential violations
 Requests supporting evidence from Search Agent and argues findings
+Now includes LangGraph thought process tracking
 """
 
 import json
 from typing import Dict, List, Any, Tuple
 from datetime import datetime, timedelta
+from langgraph.graph import StateGraph, END
+from langchain_core.messages import HumanMessage, AIMessage
 try:
     from search_agent import SearchAgent
 except ImportError:
@@ -16,52 +19,180 @@ class AuditorAgent:
         self.search_agent = search_agent
         self.findings = []
         self.current_audit_id = f"AUDIT-{datetime.now().strftime('%Y%m%d-%H%M%S')}"
+        self.thought_process = []
+        self.graph = self._create_langgraph()
         
-    def evaluate_control(self, control_id: str) -> Dict[str, Any]:
-        """Evaluate a specific ISO 27001 control for compliance"""
+    def _create_langgraph(self):
+        """Create LangGraph for auditor agent thought process"""
+        workflow = StateGraph(dict)
+        
+        workflow.add_node("gather_evidence", self._gather_evidence_node)
+        workflow.add_node("analyze_control", self._analyze_control_node)
+        workflow.add_node("evaluate_compliance", self._evaluate_compliance_node)
+        workflow.add_node("determine_findings", self._determine_findings_node)
+        
+        workflow.set_entry_point("gather_evidence")
+        workflow.add_edge("gather_evidence", "analyze_control")
+        workflow.add_edge("analyze_control", "evaluate_compliance")
+        workflow.add_edge("evaluate_compliance", "determine_findings")
+        workflow.add_edge("determine_findings", END)
+        
+        return workflow.compile()
+    
+    def _gather_evidence_node(self, state: Dict[str, Any]) -> Dict[str, Any]:
+        """Gather evidence for the control being evaluated"""
+        control_id = state.get('control_id', '')
+        
+        thought = f"Gathering evidence for control {control_id}"
+        self.thought_process.append({
+            'timestamp': datetime.now().isoformat(),
+            'agent': 'AuditorAgent',
+            'node': 'gather_evidence',
+            'thought': thought,
+            'control_id': control_id
+        })
         
         # Get control details and evidence
         search_result = self.search_agent.query("", f"control:{control_id}")
         
-        if not search_result['result']['control']:
-            return {
-                'control_id': control_id,
-                'status': 'NOT_FOUND',
-                'findings': [f"Control {control_id} not found in knowledge base"],
-                'evidence_count': 0,
-                'compliance_score': 0
-            }
+        if not search_result.get('result', {}).get('control'):
+            thought = f"Control {control_id} not found in knowledge base - marking as NOT_FOUND"
+            self.thought_process.append({
+                'timestamp': datetime.now().isoformat(),
+                'agent': 'AuditorAgent',
+                'node': 'gather_evidence',
+                'thought': thought,
+                'issue': 'control_not_found'
+            })
+            state['evidence_found'] = False
+            state['error'] = f"Control {control_id} not found in knowledge base"
+            return state
         
         control = search_result['result']['control']
         evidence = search_result['result']['evidence']
         
-        # Analyze evidence based on control requirements
-        findings = []
-        compliance_score = 0
+        thought = f"Found control: {control.get('Control Name', '')} with {len(evidence)} evidence items"
+        self.thought_process.append({
+            'timestamp': datetime.now().isoformat(),
+            'agent': 'AuditorAgent',
+            'node': 'gather_evidence',
+            'thought': thought,
+            'evidence_count': len(evidence)
+        })
         
-        if control_id == "5.1":  # Information security policies
-            compliance_score, control_findings = self._evaluate_policy_control(evidence)
-            findings.extend(control_findings)
-        elif control_id in ["5.15", "5.16", "5.17", "5.18"]:  # Access control
-            compliance_score, control_findings = self._evaluate_access_control(evidence)
-            findings.extend(control_findings)
-        elif control_id in ["5.24", "5.25", "5.26", "5.27", "5.28"]:  # Incident management
-            compliance_score, control_findings = self._evaluate_incident_control(evidence)
-            findings.extend(control_findings)
-        elif control_id in ["5.9", "5.10", "5.11", "5.12", "5.13", "5.14"]:  # Asset management
-            compliance_score, control_findings = self._evaluate_asset_control(evidence)
-            findings.extend(control_findings)
-        elif control_id in ["5.19", "5.20", "5.21", "5.22", "5.23"]:  # Supplier management
-            compliance_score, control_findings = self._evaluate_supplier_control(evidence)
-            findings.extend(control_findings)
+        state['control'] = control
+        state['evidence'] = evidence
+        state['evidence_found'] = True
+        return state
+    
+    def _analyze_control_node(self, state: Dict[str, Any]) -> Dict[str, Any]:
+        """Analyze the control requirements and categorize"""
+        if not state.get('evidence_found'):
+            return state
+            
+        control_id = state.get('control_id', '')
+        control = state.get('control', {})
+        
+        # Determine control category
+        if control_id == "5.1":
+            category = "policy_control"
+        elif control_id in ["5.15", "5.16", "5.17", "5.18"]:
+            category = "access_control"
+        elif control_id in ["5.24", "5.25", "5.26", "5.27", "5.28"]:
+            category = "incident_control"
+        elif control_id in ["5.9", "5.10", "5.11", "5.12", "5.13", "5.14"]:
+            category = "asset_control"
+        elif control_id in ["5.19", "5.20", "5.21", "5.22", "5.23"]:
+            category = "supplier_control"
         else:
-            # Generic evaluation
-            compliance_score, control_findings = self._evaluate_generic_control(evidence)
-            findings.extend(control_findings)
+            category = "generic_control"
+        
+        thought = f"Categorized control {control_id} as {category} - will apply specific evaluation criteria"
+        self.thought_process.append({
+            'timestamp': datetime.now().isoformat(),
+            'agent': 'AuditorAgent',
+            'node': 'analyze_control',
+            'thought': thought,
+            'category': category
+        })
+        
+        state['control_category'] = category
+        return state
+    
+    def _evaluate_compliance_node(self, state: Dict[str, Any]) -> Dict[str, Any]:
+        """Evaluate compliance based on control category and evidence"""
+        if not state.get('evidence_found'):
+            return state
+            
+        control_category = state.get('control_category', 'generic_control')
+        evidence = state.get('evidence', [])
+        
+        thought = f"Evaluating compliance for {control_category} with {len(evidence)} evidence items"
+        self.thought_process.append({
+            'timestamp': datetime.now().isoformat(),
+            'agent': 'AuditorAgent',
+            'node': 'evaluate_compliance',
+            'thought': thought
+        })
+        
+        # Apply category-specific evaluation
+        if control_category == "policy_control":
+            compliance_score, findings = self._evaluate_policy_control(evidence)
+        elif control_category == "access_control":
+            compliance_score, findings = self._evaluate_access_control(evidence)
+        elif control_category == "incident_control":
+            compliance_score, findings = self._evaluate_incident_control(evidence)
+        elif control_category == "asset_control":
+            compliance_score, findings = self._evaluate_asset_control(evidence)
+        elif control_category == "supplier_control":
+            compliance_score, findings = self._evaluate_supplier_control(evidence)
+        else:
+            compliance_score, findings = self._evaluate_generic_control(evidence)
+        
+        thought = f"Compliance evaluation complete: score {compliance_score}/100, {len(findings)} findings"
+        self.thought_process.append({
+            'timestamp': datetime.now().isoformat(),
+            'agent': 'AuditorAgent',
+            'node': 'evaluate_compliance',
+            'thought': thought,
+            'compliance_score': compliance_score,
+            'findings_count': len(findings)
+        })
+        
+        state['compliance_score'] = compliance_score
+        state['findings'] = findings
+        return state
+    
+    def _determine_findings_node(self, state: Dict[str, Any]) -> Dict[str, Any]:
+        """Determine final status and compile results"""
+        if not state.get('evidence_found'):
+            state['final_result'] = {
+                'control_id': state.get('control_id', ''),
+                'status': 'NOT_FOUND',
+                'findings': [state.get('error', 'Control not found')],
+                'evidence_count': 0,
+                'compliance_score': 0
+            }
+            return state
+            
+        control_id = state.get('control_id', '')
+        control = state.get('control', {})
+        evidence = state.get('evidence', [])
+        compliance_score = state.get('compliance_score', 0)
+        findings = state.get('findings', [])
         
         status = self._determine_status(compliance_score, findings)
         
-        return {
+        thought = f"Final determination for {control_id}: {status} (score: {compliance_score})"
+        self.thought_process.append({
+            'timestamp': datetime.now().isoformat(),
+            'agent': 'AuditorAgent',
+            'node': 'determine_findings',
+            'thought': thought,
+            'final_status': status
+        })
+        
+        state['final_result'] = {
             'control_id': control_id,
             'control_name': control.get('Control Name', ''),
             'status': status,
@@ -70,6 +201,25 @@ class AuditorAgent:
             'evidence_count': len(evidence),
             'evidence_summary': self._summarize_evidence(evidence)
         }
+        
+        return state
+    
+    def evaluate_control(self, control_id: str) -> Dict[str, Any]:
+        """Evaluate a specific ISO 27001 control for compliance with LangGraph tracking"""
+        # Initialize state for LangGraph
+        initial_state = {
+            'control_id': control_id,
+            'timestamp': datetime.now().isoformat()
+        }
+        
+        # Execute the LangGraph workflow
+        final_state = self.graph.invoke(initial_state)
+        
+        # Return the final result
+        result = final_state.get('final_result', {})
+        result['thought_process_id'] = len(self.thought_process)
+        
+        return result
     
     def _evaluate_policy_control(self, evidence: List[Dict]) -> Tuple[int, List[str]]:
         """Evaluate policy-related controls"""
@@ -456,6 +606,14 @@ class AuditorAgent:
             arguments['key_arguments'].append("Control requirements are satisfactorily met")
         
         return arguments
+    
+    def get_thought_process(self) -> List[Dict[str, Any]]:
+        """Return the complete thought process for this agent"""
+        return self.thought_process
+    
+    def clear_thought_process(self):
+        """Clear the thought process history"""
+        self.thought_process = []
 
 # Example usage
 if __name__ == "__main__":

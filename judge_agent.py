@@ -1,11 +1,15 @@
 """
 Judge Agent - Makes final determinations based on Auditor and Defender arguments
 Decides when interactions have reached conclusion and generates structured reports
+Now includes LangGraph thought process tracking and feedback loop implementation
 """
 
 import json
 from typing import Dict, List, Any, Tuple
 from datetime import datetime, timedelta
+from langgraph.graph import StateGraph, END
+from langchain_core.messages import HumanMessage, AIMessage
+import os
 try:
     from search_agent import SearchAgent
 except ImportError:
@@ -20,22 +24,277 @@ class JudgeAgent:
         self.defender_agent = defender_agent
         self.judgments = []
         self.current_session_id = f"JUDGE-{datetime.now().strftime('%Y%m%d-%H%M%S')}"
+        self.thought_process = []
+        self.feedback_history = {}
+        self.max_feedback_rounds = 2  # Maximum rounds of feedback
+        self.graph = self._create_langgraph()
     
-    def evaluate_control_dispute(self, control_id: str) -> Dict[str, Any]:
-        """Evaluate arguments from both Auditor and Defender for a control"""
+    def _create_langgraph(self):
+        """Create LangGraph for judge agent thought process with feedback loops"""
+        workflow = StateGraph(dict)
         
-        # Get auditor's findings
+        workflow.add_node("initial_evaluation", self._initial_evaluation_node)
+        workflow.add_node("analyze_arguments", self._analyze_arguments_node)
+        workflow.add_node("make_preliminary_judgment", self._make_preliminary_judgment_node)
+        workflow.add_node("provide_feedback", self._provide_feedback_node)
+        workflow.add_node("evaluate_improvement", self._evaluate_improvement_node)
+        workflow.add_node("finalize_judgment", self._finalize_judgment_node)
+        
+        workflow.set_entry_point("initial_evaluation")
+        workflow.add_edge("initial_evaluation", "analyze_arguments")
+        workflow.add_edge("analyze_arguments", "make_preliminary_judgment")
+        
+        # Conditional edges for feedback loop
+        workflow.add_conditional_edges(
+            "make_preliminary_judgment",
+            self._should_provide_feedback,
+            {
+                "provide_feedback": "provide_feedback",
+                "finalize": "finalize_judgment"
+            }
+        )
+        
+        workflow.add_edge("provide_feedback", "evaluate_improvement")
+        workflow.add_conditional_edges(
+            "evaluate_improvement", 
+            self._should_continue_feedback,
+            {
+                "continue": "initial_evaluation",
+                "finalize": "finalize_judgment"
+            }
+        )
+        
+        workflow.add_edge("finalize_judgment", END)
+        
+        return workflow.compile()
+    
+    def _initial_evaluation_node(self, state: Dict[str, Any]) -> Dict[str, Any]:
+        """Initial evaluation of auditor and defender arguments"""
+        control_id = state.get('control_id', '')
+        round_number = state.get('round_number', 1)
+        
+        thought = f"Starting evaluation of control {control_id} - Round {round_number}"
+        self.thought_process.append({
+            'timestamp': datetime.now().isoformat(),
+            'agent': 'JudgeAgent',
+            'node': 'initial_evaluation',
+            'thought': thought,
+            'round': round_number
+        })
+        
+        # Get auditor's findings (fresh evaluation if feedback was provided)
+        if round_number > 1 and control_id in self.feedback_history:
+            # Clear previous thought processes for re-evaluation
+            self.auditor_agent.clear_thought_process()
+            self.defender_agent.clear_thought_process()
+        
         auditor_findings = self.auditor_agent.evaluate_control(control_id)
         auditor_arguments = self.auditor_agent.get_arguments_for_judge(control_id)
         
         # Get defender's response
         defender_arguments = self.defender_agent.get_arguments_for_judge(control_id, auditor_findings)
         
-        # Make judgment
-        judgment = self._make_judgment(control_id, auditor_arguments, defender_arguments, auditor_findings)
+        thought = f"Gathered arguments - Auditor: {auditor_arguments.get('position', 'Unknown')}, Defender: {defender_arguments.get('position', 'Unknown')}"
+        self.thought_process.append({
+            'timestamp': datetime.now().isoformat(),
+            'agent': 'JudgeAgent',
+            'node': 'initial_evaluation',
+            'thought': thought
+        })
         
-        # Record the judgment
+        state['auditor_findings'] = auditor_findings
+        state['auditor_arguments'] = auditor_arguments
+        state['defender_arguments'] = defender_arguments
+        
+        return state
+    
+    def _analyze_arguments_node(self, state: Dict[str, Any]) -> Dict[str, Any]:
+        """Analyze the strength and quality of arguments from both sides"""
+        control_id = state.get('control_id', '')
+        auditor_args = state.get('auditor_arguments', {})
+        defender_args = state.get('defender_arguments', {})
+        auditor_findings = state.get('auditor_findings', {})
+        
+        thought = "Analyzing argument strength and evidence quality"
+        self.thought_process.append({
+            'timestamp': datetime.now().isoformat(),
+            'agent': 'JudgeAgent',
+            'node': 'analyze_arguments',
+            'thought': thought
+        })
+        
+        # Analyze arguments using existing methods
+        auditor_score = self._score_arguments(auditor_args, 'auditor')
+        defender_score = self._score_arguments(defender_args, 'defender')
+        evidence_quality = self._assess_evidence_quality(auditor_findings)
+        
+        analysis = {
+            'auditor_score': auditor_score,
+            'defender_score': defender_score,
+            'evidence_quality': evidence_quality,
+            'score_gap': abs(auditor_score - defender_score),
+            'confidence_indicators': self._assess_confidence_indicators(auditor_args, defender_args, auditor_findings)
+        }
+        
+        thought = f"Analysis complete - Auditor: {auditor_score}, Defender: {defender_score}, Evidence: {evidence_quality}"
+        self.thought_process.append({
+            'timestamp': datetime.now().isoformat(),
+            'agent': 'JudgeAgent',
+            'node': 'analyze_arguments',
+            'thought': thought,
+            'analysis': analysis
+        })
+        
+        state['argument_analysis'] = analysis
+        return state
+    
+    def _make_preliminary_judgment_node(self, state: Dict[str, Any]) -> Dict[str, Any]:
+        """Make a preliminary judgment that may trigger feedback"""
+        control_id = state.get('control_id', '')
+        auditor_args = state.get('auditor_arguments', {})
+        defender_args = state.get('defender_arguments', {})
+        auditor_findings = state.get('auditor_findings', {})
+        analysis = state.get('argument_analysis', {})
+        
+        thought = "Making preliminary judgment based on current arguments"
+        self.thought_process.append({
+            'timestamp': datetime.now().isoformat(),
+            'agent': 'JudgeAgent',
+            'node': 'make_preliminary_judgment',
+            'thought': thought
+        })
+        
+        # Make judgment using existing logic
+        judgment = self._make_judgment(control_id, auditor_args, defender_args, auditor_findings)
+        
+        # Assess if this judgment is satisfactory or needs improvement
+        judgment['needs_improvement'] = self._assess_judgment_quality(judgment, analysis)
+        judgment['feedback_worthy'] = self._should_provide_feedback_logic(judgment, analysis, state.get('round_number', 1))
+        
+        thought = f"Preliminary judgment: {judgment.get('final_determination', 'Unknown')} - Feedback needed: {judgment.get('feedback_worthy', False)}"
+        self.thought_process.append({
+            'timestamp': datetime.now().isoformat(),
+            'agent': 'JudgeAgent',
+            'node': 'make_preliminary_judgment',
+            'thought': thought,
+            'preliminary_judgment': judgment
+        })
+        
+        state['preliminary_judgment'] = judgment
+        return state
+    
+    def _should_provide_feedback(self, state: Dict[str, Any]) -> str:
+        """Determine if feedback should be provided to agents"""
+        judgment = state.get('preliminary_judgment', {})
+        return "provide_feedback" if judgment.get('feedback_worthy', False) else "finalize"
+    
+    def _provide_feedback_node(self, state: Dict[str, Any]) -> Dict[str, Any]:
+        """Provide specific feedback to auditor and defender agents"""
+        control_id = state.get('control_id', '')
+        judgment = state.get('preliminary_judgment', {})
+        analysis = state.get('argument_analysis', {})
+        round_number = state.get('round_number', 1)
+        
+        thought = f"Providing feedback to improve argument quality for round {round_number + 1}"
+        self.thought_process.append({
+            'timestamp': datetime.now().isoformat(),
+            'agent': 'JudgeAgent',
+            'node': 'provide_feedback',
+            'thought': thought
+        })
+        
+        # Generate specific feedback
+        feedback = self._generate_feedback(control_id, judgment, analysis, state)
+        
+        # Store feedback history
+        if control_id not in self.feedback_history:
+            self.feedback_history[control_id] = []
+        
+        self.feedback_history[control_id].append({
+            'round': round_number,
+            'feedback': feedback,
+            'timestamp': datetime.now().isoformat()
+        })
+        
+        thought = f"Feedback generated: {len(feedback.get('auditor_feedback', []))} items for auditor, {len(feedback.get('defender_feedback', []))} items for defender"
+        self.thought_process.append({
+            'timestamp': datetime.now().isoformat(),
+            'agent': 'JudgeAgent',
+            'node': 'provide_feedback',
+            'thought': thought,
+            'feedback': feedback
+        })
+        
+        state['feedback'] = feedback
+        state['round_number'] = round_number + 1
+        return state
+    
+    def _evaluate_improvement_node(self, state: Dict[str, Any]) -> Dict[str, Any]:
+        """Evaluate if the feedback process should continue"""
+        control_id = state.get('control_id', '')
+        round_number = state.get('round_number', 2)
+        
+        thought = f"Evaluating whether to continue feedback process for round {round_number}"
+        
+        # Check if we've reached max rounds
+        continue_feedback = (round_number <= self.max_feedback_rounds and 
+                           len(self.feedback_history.get(control_id, [])) < self.max_feedback_rounds)
+        
+        self.thought_process.append({
+            'timestamp': datetime.now().isoformat(),
+            'agent': 'JudgeAgent',
+            'node': 'evaluate_improvement',
+            'thought': thought,
+            'continue_feedback': continue_feedback,
+            'round_number': round_number
+        })
+        
+        state['continue_feedback'] = continue_feedback
+        return state
+    
+    def _should_continue_feedback(self, state: Dict[str, Any]) -> str:
+        """Determine if feedback loop should continue"""
+        return "continue" if state.get('continue_feedback', False) else "finalize"
+    
+    def _finalize_judgment_node(self, state: Dict[str, Any]) -> Dict[str, Any]:
+        """Finalize the judgment after feedback rounds are complete"""
+        control_id = state.get('control_id', '')
+        judgment = state.get('preliminary_judgment', {})
+        
+        thought = f"Finalizing judgment for {control_id} after {state.get('round_number', 1)} rounds"
+        self.thought_process.append({
+            'timestamp': datetime.now().isoformat(),
+            'agent': 'JudgeAgent',
+            'node': 'finalize_judgment',
+            'thought': thought,
+            'final_judgment': judgment
+        })
+        
+        # Add feedback history to judgment
+        judgment['feedback_rounds'] = len(self.feedback_history.get(control_id, []))
+        judgment['feedback_history'] = self.feedback_history.get(control_id, [])
+        
+        # Record the final judgment
         self.judgments.append(judgment)
+        
+        state['final_judgment'] = judgment
+        return state
+    
+    def evaluate_control_dispute(self, control_id: str) -> Dict[str, Any]:
+        """Evaluate arguments from both Auditor and Defender with feedback loops"""
+        # Initialize state for LangGraph
+        initial_state = {
+            'control_id': control_id,
+            'round_number': 1,
+            'timestamp': datetime.now().isoformat()
+        }
+        
+        # Execute the LangGraph workflow
+        final_state = self.graph.invoke(initial_state)
+        
+        # Return the final judgment
+        judgment = final_state.get('final_judgment', {})
+        judgment['thought_process_id'] = len(self.thought_process)
         
         return judgment
     
@@ -513,6 +772,187 @@ class JudgeAgent:
             'blocking_issues_count': blocking_issues,
             'key_blockers': [j['control_id'] for j in judgments if j['final_determination'] in ['NON_COMPLIANT', 'INSUFFICIENT_EVIDENCE']]
         }
+    
+    def _assess_judgment_quality(self, judgment: Dict[str, Any], analysis: Dict[str, Any]) -> bool:
+        """Assess if a judgment needs improvement based on various factors"""
+        confidence = judgment.get('confidence_level', 'MEDIUM')
+        evidence_quality = analysis.get('evidence_quality', 'ADEQUATE')
+        score_gap = analysis.get('score_gap', 0)
+        
+        # Judgment needs improvement if:
+        # 1. Low confidence
+        # 2. Poor evidence quality  
+        # 3. Large gap between auditor and defender scores
+        # 4. Insufficient evidence
+        
+        needs_improvement = (
+            confidence == 'LOW' or
+            evidence_quality in ['INSUFFICIENT', 'LIMITED'] or
+            score_gap > 40 or
+            judgment.get('final_determination') == 'INSUFFICIENT_EVIDENCE'
+        )
+        
+        return needs_improvement
+    
+    def _should_provide_feedback_logic(self, judgment: Dict[str, Any], analysis: Dict[str, Any], round_number: int) -> bool:
+        """Determine if feedback should be provided based on judgment quality and round number"""
+        if round_number >= self.max_feedback_rounds:
+            return False
+            
+        needs_improvement = judgment.get('needs_improvement', False)
+        evidence_quality = analysis.get('evidence_quality', 'ADEQUATE')
+        
+        # Provide feedback if judgment needs improvement and we haven't exceeded max rounds
+        return needs_improvement and evidence_quality != 'INSUFFICIENT'
+    
+    def _assess_confidence_indicators(self, auditor_args: Dict, defender_args: Dict, auditor_findings: Dict) -> Dict[str, Any]:
+        """Assess various confidence indicators for the judgment"""
+        evidence_count = auditor_findings.get('evidence_count', 0)
+        compliance_score = auditor_findings.get('compliance_score', 0)
+        
+        indicators = {
+            'sufficient_evidence': evidence_count >= 3,
+            'clear_compliance_signal': compliance_score > 80 or compliance_score < 40,
+            'strong_auditor_position': len(auditor_args.get('evidence_analysis', [])) > 2,
+            'strong_defender_response': len(defender_args.get('counter_arguments', [])) > 2,
+            'additional_evidence_provided': defender_args.get('additional_evidence_count', 0) > 3
+        }
+        
+        return indicators
+    
+    def _generate_feedback(self, control_id: str, judgment: Dict[str, Any], analysis: Dict[str, Any], state: Dict[str, Any]) -> Dict[str, Any]:
+        """Generate specific feedback for auditor and defender agents"""
+        auditor_feedback = []
+        defender_feedback = []
+        
+        evidence_quality = analysis.get('evidence_quality', 'ADEQUATE')
+        auditor_score = analysis.get('auditor_score', 50)
+        defender_score = analysis.get('defender_score', 50)
+        confidence = judgment.get('confidence_level', 'MEDIUM')
+        
+        # Feedback for auditor
+        if evidence_quality in ['INSUFFICIENT', 'LIMITED']:
+            auditor_feedback.append("Seek additional evidence sources to strengthen compliance assessment")
+            auditor_feedback.append("Consider alternative evidence types that may support or refute compliance")
+        
+        if auditor_score < 60:
+            auditor_feedback.append("Provide more detailed analysis of compliance gaps")
+            auditor_feedback.append("Strengthen arguments with specific examples and measurable criteria")
+        
+        if confidence == 'LOW':
+            auditor_feedback.append("Increase confidence by providing more specific compliance benchmarks")
+            auditor_feedback.append("Clarify assessment methodology and scoring rationale")
+        
+        # Feedback for defender
+        if defender_score < 60:
+            defender_feedback.append("Provide more compelling counter-arguments with stronger evidence")
+            defender_feedback.append("Address auditor's specific concerns more directly")
+        
+        if judgment.get('final_determination') == 'NON_COMPLIANT':
+            defender_feedback.append("Focus on identifying compensating controls or alternative implementations")
+            defender_feedback.append("Provide evidence of ongoing remediation efforts or improvement plans")
+        
+        if analysis.get('score_gap', 0) > 30:
+            defender_feedback.append("Bridge the gap with auditor by addressing their key concerns systematically")
+            defender_feedback.append("Provide more substantial evidence to support compliance position")
+        
+        return {
+            'auditor_feedback': auditor_feedback,
+            'defender_feedback': defender_feedback,
+            'general_feedback': [
+                f"Focus on {control_id} specific requirements and implementation details",
+                "Ensure arguments are evidence-based and measurable",
+                "Consider both current state and future compliance trajectory"
+            ]
+        }
+    
+    def get_thought_process(self) -> List[Dict[str, Any]]:
+        """Return the complete thought process for this agent"""
+        return self.thought_process
+    
+    def clear_thought_process(self):
+        """Clear the thought process history"""
+        self.thought_process = []
+    
+    def generate_langgraph_report(self, report_dir: str = "Report") -> str:
+        """Generate consolidated LangGraph thought process report"""
+        os.makedirs(report_dir, exist_ok=True)
+        
+        timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+        report_path = os.path.join(report_dir, f"LangGraph_Report_{timestamp}.txt")
+        
+        with open(report_path, 'w', encoding='utf-8') as f:
+            f.write("=" * 80 + "\n")
+            f.write("LANGGRAPH MULTI-AGENT THOUGHT PROCESS REPORT\n")
+            f.write("=" * 80 + "\n\n")
+            f.write(f"Generated: {datetime.now().isoformat()}\n")
+            f.write(f"Session ID: {self.current_session_id}\n\n")
+            
+            # Consolidate thought processes from all agents
+            all_thoughts = []
+            
+            # Add search agent thoughts
+            search_thoughts = self.search_agent.get_thought_process()
+            all_thoughts.extend(search_thoughts)
+            
+            # Add auditor agent thoughts  
+            auditor_thoughts = self.auditor_agent.get_thought_process()
+            all_thoughts.extend(auditor_thoughts)
+            
+            # Add defender agent thoughts
+            defender_thoughts = self.defender_agent.get_thought_process()
+            all_thoughts.extend(defender_thoughts)
+            
+            # Add judge agent thoughts
+            all_thoughts.extend(self.thought_process)
+            
+            # Sort by timestamp
+            all_thoughts.sort(key=lambda x: x.get('timestamp', ''))
+            
+            f.write("CONSOLIDATED THOUGHT PROCESS BY CONTROL\n")
+            f.write("-" * 50 + "\n\n")
+            
+            # Group by control if available
+            control_thoughts = {}
+            for thought in all_thoughts:
+                control_id = thought.get('control_id', 'general')
+                if control_id not in control_thoughts:
+                    control_thoughts[control_id] = []
+                control_thoughts[control_id].append(thought)
+            
+            for control_id, thoughts in control_thoughts.items():
+                f.write(f"CONTROL {control_id.upper()}\n")
+                f.write("=" * 40 + "\n\n")
+                
+                for thought in thoughts:
+                    f.write(f"[{thought.get('timestamp', 'Unknown')}] ")
+                    f.write(f"{thought.get('agent', 'Unknown')} - {thought.get('node', 'Unknown')}\n")
+                    f.write(f"Thought: {thought.get('thought', 'No thought recorded')}\n")
+                    
+                    # Add additional context if available
+                    for key, value in thought.items():
+                        if key not in ['timestamp', 'agent', 'node', 'thought', 'control_id']:
+                            f.write(f"  {key}: {value}\n")
+                    f.write("\n")
+                
+                f.write("-" * 60 + "\n\n")
+            
+            # Summary statistics
+            f.write("SUMMARY STATISTICS\n")
+            f.write("-" * 30 + "\n")
+            f.write(f"Total thought entries: {len(all_thoughts)}\n")
+            f.write(f"Search agent entries: {len(search_thoughts)}\n")
+            f.write(f"Auditor agent entries: {len(auditor_thoughts)}\n") 
+            f.write(f"Defender agent entries: {len(defender_thoughts)}\n")
+            f.write(f"Judge agent entries: {len(self.thought_process)}\n")
+            f.write(f"Controls evaluated: {len(control_thoughts)}\n")
+            f.write(f"Feedback rounds conducted: {sum(len(history) for history in self.feedback_history.values())}\n")
+            
+            f.write("\n" + "=" * 80 + "\n")
+            f.write("End of LangGraph Report\n")
+            f.write("=" * 80 + "\n")
+        
+        return report_path
 
 # Example usage
 if __name__ == "__main__":

@@ -57,6 +57,11 @@ class AuditOrchestrator:
         report_file = self._save_audit_report(audit_report)
         print(f"\nAudit report saved to: {report_file}")
         
+        # Generate LangGraph thought process report
+        print("\n--- Generating LangGraph thought process report ---")
+        langgraph_report_file = self.judge_agent.generate_langgraph_report(self.report_dir)
+        print(f"LangGraph report saved to: {langgraph_report_file}")
+        
         # Print executive summary
         self._print_executive_summary(audit_report)
         
@@ -91,13 +96,21 @@ class AuditOrchestrator:
             for arg in defender_arguments['counter_arguments'][:3]:
                 print(f"  - {arg}")
         
-        # Step 3: Judge decision
-        print(f"\n--- Judge Agent making final determination ---")
+        # Step 3: Judge decision with feedback loops
+        print(f"\n--- Judge Agent making final determination with feedback loops ---")
         judgment = self.judge_agent.evaluate_control_dispute(control_id)
         
         print(f"Final Determination: {judgment['final_determination']}")
         print(f"Confidence Level: {judgment['confidence_level']}")
         print(f"Follow-up Required: {judgment['follow_up_required']}")
+        print(f"Feedback Rounds: {judgment.get('feedback_rounds', 0)}")
+        
+        if judgment.get('feedback_rounds', 0) > 0:
+            print("Feedback History:")
+            for i, feedback_round in enumerate(judgment.get('feedback_history', []), 1):
+                print(f"  Round {i}: {len(feedback_round.get('feedback', {}).get('auditor_feedback', []))} auditor items, "
+                      f"{len(feedback_round.get('feedback', {}).get('defender_feedback', []))} defender items")
+        
         print("Rationale:")
         for rationale in judgment['rationale']:
             print(f"  - {rationale}")
@@ -290,6 +303,16 @@ class AuditOrchestrator:
         """Get statistics about the audit system"""
         search_stats = self.search_agent.get_statistics()
         
+        # Get LangGraph statistics
+        langgraph_stats = {
+            'search_thoughts': len(self.search_agent.get_thought_process()),
+            'auditor_thoughts': len(self.auditor_agent.get_thought_process()),
+            'defender_thoughts': len(self.defender_agent.get_thought_process()),
+            'judge_thoughts': len(self.judge_agent.get_thought_process()),
+            'feedback_controls': len(self.judge_agent.feedback_history),
+            'total_feedback_rounds': sum(len(history) for history in self.judge_agent.feedback_history.values())
+        }
+        
         return {
             'knowledge_base_stats': search_stats,
             'agents_initialized': {
@@ -298,6 +321,7 @@ class AuditOrchestrator:
                 'defender_agent': True,
                 'judge_agent': True
             },
+            'langgraph_stats': langgraph_stats,
             'system_ready': True
         }
 
@@ -324,6 +348,11 @@ def main():
         print(f"  - Evidence Records: {stats['knowledge_base_stats']['total_evidence_records']}")
         print(f"  - Evidence Sources: {stats['knowledge_base_stats']['evidence_sources']}")
         
+        print(f"\nLangGraph System Status:")
+        print(f"  - All agents initialized with LangGraph workflows")
+        print(f"  - Feedback loop mechanism enabled (max {orchestrator.judge_agent.max_feedback_rounds} rounds)")
+        print(f"  - Thought process tracking active")
+        
         # Demonstrate agent interactions
         print("\n" + "=" * 50)
         orchestrator.demonstrate_agent_interactions("5.1")
@@ -332,8 +361,21 @@ def main():
         print("\n" + "=" * 50)
         audit_report = orchestrator.run_full_audit()
         
+        # Show final LangGraph statistics
+        final_stats = orchestrator.get_system_statistics()
+        langgraph_stats = final_stats['langgraph_stats']
+        print(f"\n--- LangGraph Execution Statistics ---")
+        print(f"Total thought process entries: {sum(langgraph_stats[k] for k in ['search_thoughts', 'auditor_thoughts', 'defender_thoughts', 'judge_thoughts'])}")
+        print(f"Search Agent thoughts: {langgraph_stats['search_thoughts']}")
+        print(f"Auditor Agent thoughts: {langgraph_stats['auditor_thoughts']}")
+        print(f"Defender Agent thoughts: {langgraph_stats['defender_thoughts']}")
+        print(f"Judge Agent thoughts: {langgraph_stats['judge_thoughts']}")
+        print(f"Controls with feedback: {langgraph_stats['feedback_controls']}")
+        print(f"Total feedback rounds: {langgraph_stats['total_feedback_rounds']}")
+        
         print(f"\n✓ Multi-agent audit completed successfully!")
-        print(f"✓ Report generated in Report directory")
+        print(f"✓ Audit report generated in Report directory")
+        print(f"✓ LangGraph thought process report generated")
         
         return audit_report
         

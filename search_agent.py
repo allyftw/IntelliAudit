@@ -1,6 +1,7 @@
 """
 Search Agent - Unbiased retrieval agent for ISO 27001 audit evidence
 Semantically searches and extracts relevant information from structured knowledge base
+Now includes LangGraph thought process tracking
 """
 
 import pandas as pd
@@ -10,6 +11,10 @@ from sentence_transformers import SentenceTransformer
 import numpy as np
 from sklearn.metrics.pairwise import cosine_similarity
 import re
+from datetime import datetime
+from langgraph.graph import StateGraph, END
+from langchain_core.messages import HumanMessage, AIMessage
+import json
 
 class SearchAgent:
     def __init__(self, output_dir: str = "Output"):
@@ -17,7 +22,9 @@ class SearchAgent:
         self.model = SentenceTransformer('all-MiniLM-L6-v2')
         self.knowledge_base = {}
         self.embeddings = {}
+        self.thought_process = []
         self.load_knowledge_base()
+        self.graph = self._create_langgraph()
     
     def load_knowledge_base(self):
         """Load all CSV files from the Output directory into the knowledge base"""
@@ -60,7 +67,7 @@ class SearchAgent:
         """Create embeddings for semantic search"""
         for key, df in self.knowledge_base.items():
             if key == 'controls':
-                # Combine control description and name for embedding
+                # Combine control description and name for embedding using new column names
                 texts = df.apply(lambda row: f"{row.get('Control Name', '')} {row.get('Control Description', '')}", axis=1).tolist()
             else:
                 # Combine all text columns for other evidence
@@ -98,28 +105,48 @@ class SearchAgent:
     
     def search_by_control(self, control_id: str) -> Dict[str, Any]:
         """Search for specific control and related evidence"""
-        # Find the control
+        # Find the control using the new Control/Sub Control format
         if 'controls' in self.knowledge_base:
             control_df = self.knowledge_base['controls']
-            control = control_df[control_df['Control ID'] == control_id]
-            if not control.empty:
-                control_info = control.iloc[0].to_dict()
+            
+            # Parse control_id (e.g., "5.1" -> Control=5, Sub Control=1)
+            try:
+                if '.' in control_id:
+                    control_num, sub_control_num = control_id.split('.')
+                    control_num = int(control_num)
+                    sub_control_num = int(sub_control_num)
+                    
+                    # Find matching control
+                    control = control_df[
+                        (control_df['Control'] == control_num) & 
+                        (control_df['Sub Control'] == sub_control_num)
+                    ]
+                else:
+                    # Fallback for old format
+                    control = control_df[control_df.get('Control ID', '') == control_id]
                 
-                # Find related evidence by searching for control reference
-                related_evidence = []
-                for key, df in self.knowledge_base.items():
-                    if key != 'controls' and 'Control Reference' in df.columns:
-                        matches = df[df['Control Reference'] == control_id]
-                        if not matches.empty:
-                            related_evidence.extend([
-                                {'source': key, 'record': row.to_dict()} 
-                                for _, row in matches.iterrows()
-                            ])
-                
-                return {
-                    'control': control_info,
-                    'evidence': related_evidence
-                }
+                if not control.empty:
+                    control_info = control.iloc[0].to_dict()
+                    # Add formatted control_id for consistency
+                    control_info['Control ID'] = f"{control_info.get('Control', '')}.{control_info.get('Sub Control', '')}"
+                    
+                    # Find related evidence by searching for control reference
+                    related_evidence = []
+                    for key, df in self.knowledge_base.items():
+                        if key != 'controls' and 'Control Reference' in df.columns:
+                            matches = df[df['Control Reference'] == control_id]
+                            if not matches.empty:
+                                related_evidence.extend([
+                                    {'source': key, 'record': row.to_dict()} 
+                                    for _, row in matches.iterrows()
+                                ])
+                    
+                    return {
+                        'control': control_info,
+                        'evidence': related_evidence
+                    }
+            except (ValueError, IndexError) as e:
+                print(f"Error parsing control_id {control_id}: {e}")
         
         return {'control': None, 'evidence': []}
     
@@ -147,41 +174,187 @@ class SearchAgent:
         stats['evidence_by_type'] = evidence_counts
         return stats
     
-    def query(self, query: str, search_type: str = "semantic") -> Dict[str, Any]:
-        """Main query interface for other agents"""
-        if search_type == "semantic":
-            results = self.semantic_search(query)
-            return {
-                'query': query,
-                'type': 'semantic_search',
-                'results': results,
-                'total_found': len(results)
-            }
-        elif search_type.startswith("control:"):
+    def _create_langgraph(self):
+        """Create LangGraph for search agent thought process"""
+        workflow = StateGraph(dict)
+        
+        workflow.add_node("analyze_query", self._analyze_query_node)
+        workflow.add_node("select_strategy", self._select_strategy_node)
+        workflow.add_node("execute_search", self._execute_search_node)
+        workflow.add_node("evaluate_results", self._evaluate_results_node)
+        
+        workflow.set_entry_point("analyze_query")
+        workflow.add_edge("analyze_query", "select_strategy")
+        workflow.add_edge("select_strategy", "execute_search")
+        workflow.add_edge("execute_search", "evaluate_results")
+        workflow.add_edge("evaluate_results", END)
+        
+        return workflow.compile()
+    
+    def _analyze_query_node(self, state: Dict[str, Any]) -> Dict[str, Any]:
+        """Analyze the incoming query to understand intent"""
+        query = state.get('query', '')
+        search_type = state.get('search_type', 'semantic')
+        
+        thought = f"Analyzing query: '{query}' with search type: '{search_type}'"
+        analysis = {
+            'intent': self._determine_intent(query, search_type),
+            'complexity': 'simple' if len(query.split()) < 5 else 'complex',
+            'domain_specific': any(term in query.lower() for term in ['policy', 'access', 'incident', 'asset', 'supplier'])
+        }
+        
+        self.thought_process.append({
+            'timestamp': datetime.now().isoformat(),
+            'agent': 'SearchAgent',
+            'node': 'analyze_query',
+            'thought': thought,
+            'analysis': analysis
+        })
+        
+        state['analysis'] = analysis
+        return state
+    
+    def _select_strategy_node(self, state: Dict[str, Any]) -> Dict[str, Any]:
+        """Select the appropriate search strategy"""
+        analysis = state.get('analysis', {})
+        search_type = state.get('search_type', 'semantic')
+        
+        if search_type.startswith('control:'):
+            strategy = 'control_lookup'
+        elif search_type.startswith('evidence:'):
+            strategy = 'evidence_type_filter'
+        elif analysis.get('domain_specific'):
+            strategy = 'semantic_with_domain_boost'
+        else:
+            strategy = 'semantic_general'
+        
+        thought = f"Selected search strategy: {strategy} based on analysis: {analysis}"
+        
+        self.thought_process.append({
+            'timestamp': datetime.now().isoformat(),
+            'agent': 'SearchAgent', 
+            'node': 'select_strategy',
+            'thought': thought,
+            'strategy': strategy
+        })
+        
+        state['strategy'] = strategy
+        return state
+    
+    def _execute_search_node(self, state: Dict[str, Any]) -> Dict[str, Any]:
+        """Execute the search using selected strategy"""
+        strategy = state.get('strategy', 'semantic_general')
+        query = state.get('query', '')
+        search_type = state.get('search_type', 'semantic')
+        
+        thought = f"Executing search with strategy: {strategy}"
+        
+        if strategy == 'control_lookup':
             control_id = search_type.replace("control:", "")
-            result = self.search_by_control(control_id)
-            return {
-                'query': query,
+            results = self.search_by_control(control_id)
+            search_results = {
                 'type': 'control_search',
                 'control_id': control_id,
-                'result': result
+                'result': results
             }
-        elif search_type.startswith("evidence:"):
+        elif strategy == 'evidence_type_filter':
             evidence_type = search_type.replace("evidence:", "")
             results = self.search_evidence_by_type(evidence_type)
-            return {
-                'query': query,
+            search_results = {
                 'type': 'evidence_search',
                 'evidence_type': evidence_type,
                 'results': results,
                 'total_found': len(results)
             }
         else:
-            return {
-                'query': query,
-                'type': 'unknown',
-                'error': f"Unknown search type: {search_type}"
+            results = self.semantic_search(query, top_k=10 if strategy == 'semantic_with_domain_boost' else 5)
+            search_results = {
+                'type': 'semantic_search',
+                'results': results,
+                'total_found': len(results)
             }
+        
+        self.thought_process.append({
+            'timestamp': datetime.now().isoformat(),
+            'agent': 'SearchAgent',
+            'node': 'execute_search', 
+            'thought': thought,
+            'results_count': search_results.get('total_found', len(search_results.get('results', [])))
+        })
+        
+        state['search_results'] = search_results
+        return state
+    
+    def _evaluate_results_node(self, state: Dict[str, Any]) -> Dict[str, Any]:
+        """Evaluate the quality and relevance of search results"""
+        search_results = state.get('search_results', {})
+        query = state.get('query', '')
+        
+        if search_results.get('type') == 'semantic_search':
+            results = search_results.get('results', [])
+            if results:
+                avg_similarity = sum(r.get('similarity', 0) for r in results) / len(results)
+                quality = 'high' if avg_similarity > 0.7 else 'medium' if avg_similarity > 0.4 else 'low'
+            else:
+                quality = 'none'
+        else:
+            # For control/evidence searches, quality based on whether results found
+            quality = 'high' if search_results.get('total_found', 0) > 0 else 'none'
+        
+        thought = f"Search quality assessment: {quality}. Found {search_results.get('total_found', 0)} results for query: '{query}'"
+        
+        self.thought_process.append({
+            'timestamp': datetime.now().isoformat(),
+            'agent': 'SearchAgent',
+            'node': 'evaluate_results',
+            'thought': thought,
+            'quality': quality,
+            'final_results': search_results
+        })
+        
+        state['final_results'] = search_results
+        state['quality'] = quality
+        return state
+    
+    def _determine_intent(self, query: str, search_type: str) -> str:
+        """Determine the intent of the search query"""
+        if search_type.startswith('control:'):
+            return 'control_lookup'
+        elif search_type.startswith('evidence:'):
+            return 'evidence_retrieval'
+        elif any(word in query.lower() for word in ['compliance', 'audit', 'assessment']):
+            return 'compliance_verification'
+        elif any(word in query.lower() for word in ['evidence', 'proof', 'documentation']):
+            return 'evidence_gathering'
+        else:
+            return 'general_search'
+    
+    def query(self, query: str, search_type: str = "semantic") -> Dict[str, Any]:
+        """Main query interface for other agents with LangGraph thought tracking"""
+        # Initialize state for LangGraph
+        initial_state = {
+            'query': query,
+            'search_type': search_type,
+            'timestamp': datetime.now().isoformat()
+        }
+        
+        # Execute the LangGraph workflow
+        final_state = self.graph.invoke(initial_state)
+        
+        # Return the results with additional metadata
+        results = final_state.get('final_results', {})
+        results['query'] = query
+        results['thought_process_id'] = len(self.thought_process)
+        
+        return results
+    
+    def get_thought_process(self) -> List[Dict[str, Any]]:
+        """Return the complete thought process for this agent"""
+        return self.thought_process
+    
+    def clear_thought_process(self):
+        """Clear the thought process history"""
+        self.thought_process = []
 
 # Example usage
 if __name__ == "__main__":

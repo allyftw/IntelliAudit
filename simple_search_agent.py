@@ -82,12 +82,36 @@ class SimpleSearchAgent:
         # Find the control
         if 'controls' in self.knowledge_base:
             control_df = self.knowledge_base['controls']
-            # Try both string and float comparison
-            try:
-                control_id_float = float(control_id)
-                control = control_df[control_df['Control ID'] == control_id_float]
-            except ValueError:
-                control = control_df[control_df['Control ID'] == control_id]
+            # Try multiple comparison formats (string, float, and format conversion)
+            control = pd.DataFrame()  # Empty dataframe to start
+            
+            # Try exact string match first
+            control = control_df[control_df['Control ID'] == control_id]
+            
+            # If not found, try converting between dot and hyphen formats
+            if control.empty:
+                if '.' in control_id:
+                    # Convert 5.1 to 5-1 format
+                    hyphen_format = control_id.replace('.', '-')
+                    control = control_df[control_df['Control ID'] == hyphen_format]
+                elif '-' in control_id:
+                    # Convert 5-1 to 5.1 format
+                    dot_format = control_id.replace('-', '.')
+                    control = control_df[control_df['Control ID'] == dot_format]
+            
+            # If still not found, try float conversion
+            if control.empty:
+                try:
+                    if '.' in control_id:
+                        control_id_float = float(control_id)
+                    elif '-' in control_id:
+                        parts = control_id.split('-')
+                        control_id_float = float(f"{parts[0]}.{parts[1]}")
+                    else:
+                        control_id_float = float(control_id)
+                    control = control_df[control_df['Control ID'] == control_id_float]
+                except ValueError:
+                    pass
             if not control.empty:
                 control_info = control.iloc[0].to_dict()
                 
@@ -95,12 +119,36 @@ class SimpleSearchAgent:
                 related_evidence = []
                 for key, df in self.knowledge_base.items():
                     if key != 'controls' and 'Control Reference' in df.columns:
-                        # Try both string and float comparison for evidence too
-                        try:
-                            control_id_float = float(control_id)
-                            matches = df[df['Control Reference'] == control_id_float]
-                        except ValueError:
-                            matches = df[df['Control Reference'] == control_id]
+                        # Try multiple formats for evidence matching too
+                        matches = pd.DataFrame()  # Empty dataframe to start
+                        
+                        # Try exact string match first
+                        matches = df[df['Control Reference'] == control_id]
+                        
+                        # If not found, try converting between formats
+                        if matches.empty:
+                            if '.' in control_id:
+                                # Convert 5.1 to 5-1 format
+                                hyphen_format = control_id.replace('.', '-')
+                                matches = df[df['Control Reference'] == hyphen_format]
+                            elif '-' in control_id:
+                                # Convert 5-1 to 5.1 format
+                                dot_format = control_id.replace('-', '.')
+                                matches = df[df['Control Reference'] == dot_format]
+                        
+                        # If still not found, try float conversion
+                        if matches.empty:
+                            try:
+                                if '.' in control_id:
+                                    control_id_float = float(control_id)
+                                elif '-' in control_id:
+                                    parts = control_id.split('-')
+                                    control_id_float = float(f"{parts[0]}.{parts[1]}")
+                                else:
+                                    control_id_float = float(control_id)
+                                matches = df[df['Control Reference'] == control_id_float]
+                            except ValueError:
+                                pass
                         if not matches.empty:
                             related_evidence.extend([
                                 {'source': key, 'record': row.to_dict()} 
