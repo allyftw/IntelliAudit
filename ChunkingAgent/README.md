@@ -55,3 +55,4 @@ This Lambda version maintains the same intelligent chunking algorithms from the 
 - AWS best practices for security and monitoring
 
 For detailed documentation, see `README_AWS_Lambda.md` or `QUICK_START.md`.
+
