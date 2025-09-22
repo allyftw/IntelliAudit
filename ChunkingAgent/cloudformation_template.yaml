@@ -1,0 +1,339 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: 'IntelliAudit File Chunking Lambda with S3 and DynamoDB - Complete Infrastructure'
+
+Parameters:
+  LambdaFunctionName:
+    Type: String
+    Default: 'intelliaudit-chunking-agent'
+    Description: 'Name of the Lambda function'
+    
+  S3BucketName:
+    Type: String
+    Description: 'Name of the S3 bucket for input files (must be globally unique)'
+    AllowedPattern: '^[a-z0-9][a-z0-9-]*[a-z0-9]$'
+    ConstraintDescription: 'Bucket name must be lowercase and contain only letters, numbers, and hyphens'
+    
+  DynamoDBTableName:
+    Type: String
+    Default: 'chunked-content'
+    Description: 'Name of the DynamoDB table for output'
+    
+  EnableS3Triggers:
+    Type: String
+    Default: 'true'
+    AllowedValues: ['true', 'false']
+    Description: 'Enable automatic Lambda triggers when files are uploaded to S3'
+
+Conditions:
+  CreateS3Triggers: !Equals [!Ref EnableS3Triggers, 'true']
+
+Resources:
+  # S3 Bucket for input files
+  InputFilesBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Ref S3BucketName
+      VersioningConfiguration:
+        Status: Enabled
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        BlockPublicPolicy: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
+      NotificationConfiguration:
+        !If
+          - CreateS3Triggers
+          - LambdaConfigurations:
+              - Event: s3:ObjectCreated:*
+                Function: !GetAtt ChunkingLambdaFunction.Arn
+                Filter:
+                  S3Key:
+                    Rules:
+                      - Name: suffix
+                        Value: .pdf
+              - Event: s3:ObjectCreated:*
+                Function: !GetAtt ChunkingLambdaFunction.Arn
+                Filter:
+                  S3Key:
+                    Rules:
+                      - Name: suffix
+                        Value: .txt
+              - Event: s3:ObjectCreated:*
+                Function: !GetAtt ChunkingLambdaFunction.Arn
+                Filter:
+                  S3Key:
+                    Rules:
+                      - Name: suffix
+                        Value: .docx
+              - Event: s3:ObjectCreated:*
+                Function: !GetAtt ChunkingLambdaFunction.Arn
+                Filter:
+                  S3Key:
+                    Rules:
+                      - Name: suffix
+                        Value: .csv
+              - Event: s3:ObjectCreated:*
+                Function: !GetAtt ChunkingLambdaFunction.Arn
+                Filter:
+                  S3Key:
+                    Rules:
+                      - Name: suffix
+                        Value: .xlsx
+          - !Ref AWS::NoValue
+      Tags:
+        - Key: Application
+          Value: IntelliAudit
+        - Key: Component
+          Value: InputStorage
+
+  # DynamoDB Table for storing chunks
+  ChunkedContentTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: !Ref DynamoDBTableName
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - AttributeName: id
+          AttributeType: S
+        - AttributeName: execution_id
+          AttributeType: S
+        - AttributeName: file_path
+          AttributeType: S
+        - AttributeName: created_at
+          AttributeType: S
+      KeySchema:
+        - AttributeName: id
+          KeyType: HASH
+      GlobalSecondaryIndexes:
+        - IndexName: execution-id-index
+          KeySchema:
+            - AttributeName: execution_id
+              KeyType: HASH
+            - AttributeName: created_at
+              KeyType: RANGE
+          Projection:
+            ProjectionType: ALL
+        - IndexName: file-path-index
+          KeySchema:
+            - AttributeName: file_path
+              KeyType: HASH
+            - AttributeName: created_at
+              KeyType: RANGE
+          Projection:
+            ProjectionType: ALL
+      StreamSpecification:
+        StreamViewType: NEW_AND_OLD_IMAGES
+      PointInTimeRecoverySpecification:
+        PointInTimeRecoveryEnabled: true
+      Tags:
+        - Key: Application
+          Value: IntelliAudit
+        - Key: Component
+          Value: ChunkStorage
+
+  # IAM Role for Lambda execution
+  LambdaExecutionRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: !Sub '${LambdaFunctionName}-execution-role'
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: lambda.amazonaws.com
+            Action: sts:AssumeRole
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+      Policies:
+        - PolicyName: S3ReadAccess
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Effect: Allow
+                Action:
+                  - s3:GetObject
+                  - s3:GetObjectVersion
+                  - s3:ListBucket
+                Resource:
+                  - !Sub '${InputFilesBucket}'
+                  - !Sub '${InputFilesBucket}/*'
+        - PolicyName: DynamoDBWriteAccess
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Effect: Allow
+                Action:
+                  - dynamodb:PutItem
+                  - dynamodb:BatchWriteItem
+                  - dynamodb:Query
+                  - dynamodb:Scan
+                  - dynamodb:GetItem
+                  - dynamodb:UpdateItem
+                Resource:
+                  - !GetAtt ChunkedContentTable.Arn
+                  - !Sub '${ChunkedContentTable.Arn}/index/*'
+
+  # Lambda Layer for Python dependencies (optional optimization)
+  PythonDependenciesLayer:
+    Type: AWS::Lambda::LayerVersion
+    Properties:
+      LayerName: !Sub '${LambdaFunctionName}-dependencies'
+      Description: 'Python dependencies for IntelliAudit chunking agent'
+      Content:
+        S3Bucket: !Ref AWS::NoValue  # To be uploaded separately
+        S3Key: !Ref AWS::NoValue     # To be uploaded separately
+      CompatibleRuntimes:
+        - python3.11
+        - python3.10
+      CompatibleArchitectures:
+        - x86_64
+
+  # Lambda Function
+  ChunkingLambdaFunction:
+    Type: AWS::Lambda::Function
+    Properties:
+      FunctionName: !Ref LambdaFunctionName
+      Runtime: python3.11
+      Handler: lambda_chunking_agent.lambda_handler
+      Role: !GetAtt LambdaExecutionRole.Arn
+      Code:
+        ZipFile: |
+          # Placeholder code - will be replaced during deployment
+          import json
+          def lambda_handler(event, context):
+              return {
+                  'statusCode': 200,
+                  'body': json.dumps('Placeholder - Deploy actual code')
+              }
+      Environment:
+        Variables:
+          S3_BUCKET_NAME: !Ref S3BucketName
+          DYNAMODB_TABLE_NAME: !Ref DynamoDBTableName
+      Timeout: 900  # 15 minutes
+      MemorySize: 1024  # 1GB RAM
+      ReservedConcurrencyLimit: 10  # Limit concurrent executions
+      DeadLetterQueue:
+        TargetArn: !GetAtt DeadLetterQueue.Arn
+      Tags:
+        - Key: Application
+          Value: IntelliAudit
+        - Key: Component
+          Value: ChunkingAgent
+    DependsOn: LambdaExecutionRole
+
+  # Dead Letter Queue for failed Lambda executions
+  DeadLetterQueue:
+    Type: AWS::SQS::Queue
+    Properties:
+      QueueName: !Sub '${LambdaFunctionName}-dlq'
+      MessageRetentionPeriod: 1209600  # 14 days
+      Tags:
+        - Key: Application
+          Value: IntelliAudit
+        - Key: Component
+          Value: ErrorHandling
+
+  # CloudWatch Log Group for Lambda
+  LambdaLogGroup:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      LogGroupName: !Sub '/aws/lambda/${LambdaFunctionName}'
+      RetentionInDays: 30
+
+  # Lambda permission for S3 to invoke the function
+  LambdaInvokePermission:
+    Type: AWS::Lambda::Permission
+    Condition: CreateS3Triggers
+    Properties:
+      FunctionName: !GetAtt ChunkingLambdaFunction.Arn
+      Action: lambda:InvokeFunction
+      Principal: s3.amazonaws.com
+      SourceArn: !Sub '${InputFilesBucket}'
+
+  # CloudWatch Alarms for monitoring
+  LambdaErrorAlarm:
+    Type: AWS::CloudWatch::Alarm
+    Properties:
+      AlarmName: !Sub '${LambdaFunctionName}-errors'
+      AlarmDescription: 'Lambda function errors'
+      MetricName: Errors
+      Namespace: AWS/Lambda
+      Statistic: Sum
+      Period: 300
+      EvaluationPeriods: 2
+      Threshold: 5
+      ComparisonOperator: GreaterThanThreshold
+      Dimensions:
+        - Name: FunctionName
+          Value: !Ref ChunkingLambdaFunction
+
+  LambdaDurationAlarm:
+    Type: AWS::CloudWatch::Alarm
+    Properties:
+      AlarmName: !Sub '${LambdaFunctionName}-duration'
+      AlarmDescription: 'Lambda function duration'
+      MetricName: Duration
+      Namespace: AWS/Lambda
+      Statistic: Average
+      Period: 300
+      EvaluationPeriods: 2
+      Threshold: 600000  # 10 minutes in milliseconds
+      ComparisonOperator: GreaterThanThreshold
+      Dimensions:
+        - Name: FunctionName
+          Value: !Ref ChunkingLambdaFunction
+
+Outputs:
+  LambdaFunctionArn:
+    Description: 'ARN of the Lambda function'
+    Value: !GetAtt ChunkingLambdaFunction.Arn
+    Export:
+      Name: !Sub '${AWS::StackName}-LambdaArn'
+      
+  LambdaFunctionName:
+    Description: 'Name of the Lambda function'
+    Value: !Ref ChunkingLambdaFunction
+    Export:
+      Name: !Sub '${AWS::StackName}-LambdaName'
+  
+  S3BucketName:
+    Description: 'Name of the S3 input bucket'
+    Value: !Ref InputFilesBucket
+    Export:
+      Name: !Sub '${AWS::StackName}-S3Bucket'
+  
+  S3BucketArn:
+    Description: 'ARN of the S3 input bucket'
+    Value: !GetAtt InputFilesBucket.Arn
+    Export:
+      Name: !Sub '${AWS::StackName}-S3BucketArn'
+  
+  DynamoDBTableName:
+    Description: 'Name of the DynamoDB table'
+    Value: !Ref ChunkedContentTable
+    Export:
+      Name: !Sub '${AWS::StackName}-TableName'
+  
+  DynamoDBTableArn:
+    Description: 'ARN of the DynamoDB table'
+    Value: !GetAtt ChunkedContentTable.Arn
+    Export:
+      Name: !Sub '${AWS::StackName}-TableArn'
+      
+  DeadLetterQueueUrl:
+    Description: 'URL of the Dead Letter Queue'
+    Value: !Ref DeadLetterQueue
+    Export:
+      Name: !Sub '${AWS::StackName}-DLQUrl'
+
+  # Useful commands for post-deployment
+  TestCommand:
+    Description: 'AWS CLI command to test the Lambda function'
+    Value: !Sub |
+      aws lambda invoke --function-name ${ChunkingLambdaFunction} --payload '{"s3_key": "test-file.txt", "bucket_name": "${InputFilesBucket}", "table_name": "${ChunkedContentTable}"}' response.json
+
+  UploadCommand:
+    Description: 'AWS CLI command to upload a test file'
+    Value: !Sub |
+      aws s3 cp your-test-file.pdf s3://${InputFilesBucket}/
