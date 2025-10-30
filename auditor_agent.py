@@ -21,10 +21,12 @@ class AuditorAgent:
         self.current_audit_id = f"AUDIT-{datetime.now().strftime('%Y%m%d-%H%M%S')}"
         self.thought_process = []
         self.graph = self._create_langgraph()
+        # Set up internal state and compile the LangGraph workflow
         
     def _create_langgraph(self):
         """Create LangGraph for auditor agent thought process"""
         workflow = StateGraph(dict)
+        # Define nodes representing each step in the audit thinking process
         
         workflow.add_node("gather_evidence", self._gather_evidence_node)
         workflow.add_node("analyze_control", self._analyze_control_node)
@@ -36,12 +38,14 @@ class AuditorAgent:
         workflow.add_edge("analyze_control", "evaluate_compliance")
         workflow.add_edge("evaluate_compliance", "determine_findings")
         workflow.add_edge("determine_findings", END)
+        # Link nodes in the order they should execute
         
         return workflow.compile()
     
     def _gather_evidence_node(self, state: Dict[str, Any]) -> Dict[str, Any]:
         """Gather evidence for the control being evaluated"""
         control_id = state.get('control_id', '')
+        # Record what we're about to do for traceability
         
         thought = f"Gathering evidence for control {control_id}"
         self.thought_process.append({
@@ -54,6 +58,7 @@ class AuditorAgent:
         
         # Get control details and evidence
         search_result = self.search_agent.query("", f"control:{control_id}")
+        # Pulls control metadata and any supporting evidence from the KB
         
         if not search_result.get('result', {}).get('control'):
             thought = f"Control {control_id} not found in knowledge base - marking as NOT_FOUND"
@@ -104,8 +109,19 @@ class AuditorAgent:
             category = "asset_control"
         elif control_id in ["5.19", "5.20", "5.21", "5.22", "5.23"]:
             category = "supplier_control"
+        elif control_id in ["5.29", "5.30"]:
+            category = "business_continuity_control"
+        elif control_id in ["5.31", "5.32", "5.33", "5.34", "5.35", "5.36", "5.37"]:
+            category = "compliance_review_control"
+        elif control_id in ["5.6", "5.7", "5.8"]:
+            category = "risk_assessment_control"
+        elif control_id in ["5.2", "5.3", "5.4", "5.5"]:
+            category = "training_records_control"
+        elif control_id in ["5.26", "5.27", "5.28"]:
+            category = "monitoring_logs_control"
         else:
             category = "generic_control"
+        # Categories pick which scoring logic to apply later
         
         thought = f"Categorized control {control_id} as {category} - will apply specific evaluation criteria"
         self.thought_process.append({
@@ -126,6 +142,7 @@ class AuditorAgent:
             
         control_category = state.get('control_category', 'generic_control')
         evidence = state.get('evidence', [])
+        # Choose evaluation function based on the category determined earlier
         
         thought = f"Evaluating compliance for {control_category} with {len(evidence)} evidence items"
         self.thought_process.append({
@@ -146,8 +163,19 @@ class AuditorAgent:
             compliance_score, findings = self._evaluate_asset_control(evidence)
         elif control_category == "supplier_control":
             compliance_score, findings = self._evaluate_supplier_control(evidence)
+        elif control_category == "business_continuity_control":
+            compliance_score, findings = self._evaluate_business_continuity_control(evidence)
+        elif control_category == "compliance_review_control":
+            compliance_score, findings = self._evaluate_compliance_review_control(evidence)
+        elif control_category == "risk_assessment_control":
+            compliance_score, findings = self._evaluate_risk_assessment_control(evidence)
+        elif control_category == "monitoring_logs_control":
+            compliance_score, findings = self._evaluate_monitoring_logs_control(evidence)
+        elif control_category == "training_records_control":
+            compliance_score, findings = self._evaluate_training_records_control(evidence)
         else:
             compliance_score, findings = self._evaluate_generic_control(evidence)
+        # Each function returns a score and short list of findings
         
         thought = f"Compliance evaluation complete: score {compliance_score}/100, {len(findings)} findings"
         self.thought_process.append({
@@ -474,11 +502,146 @@ class AuditorAgent:
                 findings.append("MAJOR: Some suppliers don't meet security requirements")
         
         return min(score, 100), findings
+
+    def _evaluate_business_continuity_control(self, evidence: List[Dict]) -> Tuple[int, List[str]]:
+        """Evaluate business continuity and disaster recovery controls"""
+        findings: List[str] = []
+        score = 0
+        bc_evidence = [e for e in evidence if e['source'] == 'business_continuity_evidence']
+        if not bc_evidence:
+            findings.append("MAJOR: No business continuity evidence found")
+            return 60, findings
+        rec = bc_evidence[0]['record'] if bc_evidence else {}
+        if rec:
+            score += 30
+            tests = rec.get('BCP Tests') or rec.get('Tests')
+            if isinstance(tests, (int, float)) and tests >= 1:
+                score += 25
+                findings.append("POSITIVE: Business continuity tests performed")
+            last_test = rec.get('Last Test') or rec.get('Last Exercise')
+            if last_test and self._is_recent_date(last_test, days=365):
+                score += 25
+                findings.append("POSITIVE: Recent continuity testing within last year")
+            results = rec.get('Results') or rec.get('Outcome')
+            if results and str(results).lower().startswith('success'):
+                score += 10
+                findings.append("POSITIVE: Recent tests successful")
+        return min(score, 100), findings
+
+    def _evaluate_compliance_review_control(self, evidence: List[Dict]) -> Tuple[int, List[str]]:
+        """Evaluate compliance review and audit controls"""
+        findings: List[str] = []
+        score = 0
+        cr_evidence = [e for e in evidence if e['source'] == 'compliance_review_evidence']
+        if not cr_evidence:
+            findings.append("MINOR: No compliance review evidence found")
+            return 70, findings
+        recs = [e['record'] for e in cr_evidence]
+        if recs:
+            score += 20
+            recent = [r for r in recs if self._is_recent_date(r.get('Review Date', ''), days=365)]
+            if recent:
+                score += 25
+                findings.append("POSITIVE: Recent compliance reviews conducted")
+            rates = []
+            for r in recs:
+                rate = r.get('Compliance Rate')
+                if isinstance(rate, str) and rate.endswith('%'):
+                    try:
+                        rates.append(float(rate[:-1]))
+                    except:
+                        pass
+            if rates and sum(r >= 90 for r in rates) / len(rates) >= 0.7:
+                score += 25
+                findings.append("POSITIVE: High compliance rates in reviews")
+        return min(score, 100), findings
+
+    def _evaluate_risk_assessment_control(self, evidence: List[Dict]) -> Tuple[int, List[str]]:
+        """Evaluate risk assessment controls"""
+        findings: List[str] = []
+        score = 0
+        ra_evidence = [e for e in evidence if e['source'] == 'risk_assessment_evidence']
+        if not ra_evidence:
+            findings.append("MAJOR: No risk assessment evidence found")
+            return 60, findings
+        recs = [e['record'] for e in ra_evidence]
+        if recs:
+            score += 25
+            recent = any(self._is_recent_date(r.get('Assessment Date', ''), days=365) for r in recs)
+            if recent:
+                score += 25
+                findings.append("POSITIVE: Recent risk assessment performed")
+            mitigations = sum(1 for r in recs if r.get('Mitigation Plan'))
+            if mitigations:
+                score += 20
+                findings.append("POSITIVE: Mitigation plans documented")
+        return min(score, 100), findings
+
+    def _evaluate_monitoring_logs_control(self, evidence: List[Dict]) -> Tuple[int, List[str]]:
+        """Evaluate security monitoring and logging controls"""
+        findings: List[str] = []
+        score = 0
+        mon_evidence = [e for e in evidence if e['source'] == 'monitoring_logs']
+        if not mon_evidence:
+            findings.append("MINOR: No monitoring logs evidence (verify scope)")
+            return 70, findings
+        recs = [e['record'] for e in mon_evidence]
+        score += 20
+        alerts = sum(1 for r in recs if r.get('Alerts') or r.get('Findings'))
+        if alerts is not None:
+            score += 10
+            findings.append("POSITIVE: Monitoring generating signals (indicates active logging)")
+        recent = any(self._is_recent_date(r.get('Log Date', '') or r.get('Date', ''), days=90) for r in recs)
+        if recent:
+            score += 25
+            findings.append("POSITIVE: Recent monitoring activity within last 90 days")
+        coverage = sum(1 for r in recs if r.get('Coverage') in ['Full', 'High'])
+        if coverage:
+            score += 15
+            findings.append("POSITIVE: High monitoring coverage reported")
+        return min(score, 100), findings
+
+    def _evaluate_training_records_control(self, evidence: List[Dict]) -> Tuple[int, List[str]]:
+        """Evaluate security awareness and training controls"""
+        findings: List[str] = []
+        score = 0
+        tr_evidence = [e for e in evidence if e['source'] == 'training_records']
+        if not tr_evidence:
+            findings.append("MINOR: No training records found")
+            return 70, findings
+        recs = [e['record'] for e in tr_evidence]
+        score += 20
+        completed = 0
+        total = 0
+        recent = False
+        for r in recs:
+            comp = r.get('Completed') or r.get('Completion Rate')
+            if isinstance(comp, str) and comp.endswith('%'):
+                try:
+                    val = float(comp[:-1])
+                    total += 1
+                    if val >= 90:
+                        completed += 1
+                except:
+                    pass
+            elif comp in ['Yes', 'True', True]:
+                total += 1
+                completed += 1
+            if self._is_recent_date(r.get('Date', '') or r.get('Completion Date', ''), days=365):
+                recent = True
+        if total > 0 and completed / total >= 0.8:
+            score += 30
+            findings.append("POSITIVE: High training completion rate")
+        if recent:
+            score += 20
+            findings.append("POSITIVE: Training activity within last year")
+        return min(score, 100), findings
     
     def _evaluate_generic_control(self, evidence: List[Dict]) -> Tuple[int, List[str]]:
         """Generic evaluation for other controls"""
         findings = []
         score = 50  # Default middle score
+        # Basic heuristic when no specific logic exists for a control type
         
         if evidence:
             score += 30
@@ -516,6 +679,7 @@ class AuditorAgent:
         """Determine compliance status based on score and findings"""
         critical_findings = [f for f in findings if f.startswith("CRITICAL")]
         major_findings = [f for f in findings if f.startswith("MAJOR")]
+        # Critical issues immediately fail; otherwise combine score and major issues
         
         if critical_findings:
             return "NON_COMPLIANT"
@@ -535,6 +699,7 @@ class AuditorAgent:
         for e in evidence:
             source = e['source']
             sources[source] = sources.get(source, 0) + 1
+        # Count how many records we have per evidence source type
         
         summary_parts = []
         for source, count in sources.items():
@@ -556,6 +721,7 @@ class AuditorAgent:
                 'not_found': 0
             }
         }
+        # Prepare a container to accumulate results and a simple summary
         
         for control_id in control_ids:
             result = self.evaluate_control(control_id)
@@ -571,6 +737,7 @@ class AuditorAgent:
                 audit_results['summary']['non_compliant'] += 1
             else:
                 audit_results['summary']['not_found'] += 1
+        # Tally counts of each outcome type
         
         # Calculate overall compliance rate
         total_evaluated = len(control_ids) - audit_results['summary']['not_found']
@@ -578,12 +745,14 @@ class AuditorAgent:
             compliance_rate = (audit_results['summary']['compliant'] + 
                              audit_results['summary']['partially_compliant'] * 0.5) / total_evaluated
             audit_results['summary']['overall_compliance_rate'] = round(compliance_rate * 100, 1)
+        # Weighted compliance: partial counts as half
         
         return audit_results
     
     def get_arguments_for_judge(self, control_id: str) -> Dict[str, Any]:
         """Prepare arguments for the Judge based on audit findings"""
         result = self.evaluate_control(control_id)
+        # Reuse the evaluation to build a concise position statement
         
         arguments = {
             'agent': 'Auditor',
@@ -604,6 +773,7 @@ class AuditorAgent:
         else:
             arguments['key_arguments'].append("Evidence demonstrates adequate control implementation")
             arguments['key_arguments'].append("Control requirements are satisfactorily met")
+        # These bullets summarize the stance to present to the Judge
         
         return arguments
     
