@@ -1,0 +1,347 @@
+{
+  "company_name": "ApexNova Technologies",
+  "organizational_chart": {
+    "Executive Leadership": {
+      "CEO": {
+        "name": "Jonathan Reeves",
+        "employee_id": "E0001",
+        "reports_to": null,
+        "direct_reports": [
+          "COO",
+          "CFO",
+          "CIO",
+          "CTO",
+          "CHRO",
+          "CISO",
+          "Chief Marketing Officer",
+          "Chief Product Officer",
+          "Chief Data Officer",
+          "General Counsel"
+        ]
+      },
+      "COO": {
+        "name": "Maya Sheridan",
+        "employee_id": "E0002",
+        "reports_to": "CEO",
+        "direct_reports": [
+          "Operations Manager",
+          "Procurement Manager",
+          "Logistics Manager"
+        ]
+      },
+      "CFO": {
+        "name": "William Hart",
+        "employee_id": "E0003",
+        "reports_to": "CEO",
+        "direct_reports": [
+          "Finance Controller",
+          "Financial Analyst Lead",
+          "AP/AR Manager",
+          "Payroll Manager",
+          "Internal Audit Manager"
+        ]
+      },
+      "CIO": {
+        "name": "Victor Chang",
+        "employee_id": "E0004",
+        "reports_to": "CEO",
+        "direct_reports": [
+          "IT Director",
+          "Infrastructure Manager",
+          "Service Desk Manager"
+        ]
+      },
+      "CTO": {
+        "name": "Elena Martinez",
+        "employee_id": "E0005",
+        "reports_to": "CEO",
+        "direct_reports": [
+          "Engineering Director",
+          "DevOps Manager",
+          "QA Manager"
+        ]
+      },
+      "CHRO": {
+        "name": "Lana Morales",
+        "employee_id": "E0006",
+        "reports_to": "CEO",
+        "direct_reports": [
+          "HR Manager",
+          "Recruiting Manager",
+          "HRIS Administrator"
+        ]
+      },
+      "CISO": {
+        "name": "Alexandra Pierce",
+        "employee_id": "E1001",
+        "reports_to": "CEO",
+        "direct_reports": [
+          "Deputy CISO",
+          "SOC Manager",
+          "GRC Lead",
+          "Security Engineering Lead",
+          "Security Awareness & Training Manager"
+        ]
+      },
+      "Chief Marketing Officer": {
+        "name": "Samantha Boyd",
+        "employee_id": "E0007",
+        "reports_to": "CEO",
+        "direct_reports": [
+          "Marketing Manager",
+          "Brand Manager",
+          "Content Strategy Lead"
+        ]
+      },
+      "Chief Product Officer": {
+        "name": "Derek Vance",
+        "employee_id": "E0008",
+        "reports_to": "CEO",
+        "direct_reports": [
+          "Product Manager Lead",
+          "UX Director",
+          "Product Analyst Lead"
+        ]
+      },
+      "Chief Data Officer": {
+        "name": "Tariq Ahmad",
+        "employee_id": "E0009",
+        "reports_to": "CEO",
+        "direct_reports": [
+          "Data Engineering Manager",
+          "BI Manager",
+          "ML Engineering Manager"
+        ]
+      },
+      "General Counsel": {
+        "name": "Sophia Bennett",
+        "employee_id": "E0010",
+        "reports_to": "CEO",
+        "direct_reports": [
+          "Legal Advisor",
+          "Compliance Officer",
+          "Privacy Officer"
+        ]
+      }
+    },
+
+    "Departments": {
+      "Information Security": {
+        "CISO": "Alexandra Pierce",
+        "Deputy CISO": "Marcus Lin",
+        "SOC Manager": "Priya Raman",
+        "GRC Lead": "Daniel Kova",
+        "Security Engineering Lead": "Maria Santos",
+        "Security Awareness Manager": "Olivia Price",
+        "Teams": {
+          "SOC Team": [
+            "Senior Security Analyst – Tom Becker",
+            "Security Analyst – Aisha Nadir",
+            "Threat Intelligence Analyst – Leo Markovic",
+            "Incident Responder – Lee Armitage"
+          ],
+          "GRC Team": [
+            "Security Compliance Specialist – Nina Fields",
+            "Security Policy Analyst – Ethan O’Malley"
+          ],
+          "Security Engineering Team": [
+            "Security Engineer – Chris Morgan",
+            "IAM Administrator – Zoe Carter",
+            "Vulnerability Analyst – Jared Kim"
+          ],
+          "Awareness Training Team": [
+            "Security Awareness Coordinator – Helen Dixon"
+          ]
+        }
+      },
+
+      "Information Technology": {
+        "IT Director": "Angela Porter",
+        "Infrastructure Manager": "Hiro Tanaka",
+        "Service Desk Manager": "Anthony Brooks",
+        "Teams": {
+          "Infrastructure": [
+            "Network Engineer – Jordan Patel",
+            "System Administrator – Kevin Wu",
+            "Cloud Engineer – Bea Larson",
+            "Database Administrator – Mark White"
+          ],
+          "Service Desk": [
+            "Desktop Support Lead – Irene Collins",
+            "Helpdesk Technician – Samir Qureshi",
+            "Helpdesk Technician – Emily Rhodes"
+          ]
+        }
+      },
+
+      "Software Engineering": {
+        "Engineering Director": "Carlos Mendes",
+        "DevOps Manager": "Rina Takahashi",
+        "QA Manager": "Mason Ellery",
+        "Teams": {
+          "Backend Engineering": [
+            "Backend Developer – Felix Novak",
+            "Backend Developer – Morgan Lee"
+          ],
+          "Frontend Engineering": [
+            "Frontend Developer – Ava Sinclair",
+            "UI Developer – Hanna Rhodes"
+          ],
+          "DevOps Team": [
+            "DevOps Engineer – Omar Said",
+            "Platform Engineer – Darius Klein"
+          ],
+          "QA Team": [
+            "QA Engineer – Lina Walsh",
+            "Automation Tester – Jonah Cruz"
+          ]
+        }
+      },
+
+      "Human Resources": {
+        "HR Manager": "Cynthia Ramirez",
+        "Recruiting Manager": "Paul Donovan",
+        "HRIS Administrator": "Jamie Walters",
+        "Teams": {
+          "HR Operations": [
+            "HR Specialist – Ally Chen",
+            "Benefits Coordinator – Henry Duke"
+          ],
+          "Recruiting": [
+            "Talent Acquisition Specialist – Jenny Park",
+            "Talent Sourcer – Kelly Tran"
+          ]
+        }
+      },
+
+      "Finance": {
+        "Finance Controller": "Ravi Desai",
+        "AP/AR Manager": "Chloe Nightingale",
+        "Payroll Manager": "Dale Simmons",
+        "Internal Audit Manager": "Helga Solberg",
+        "Teams": {
+          "Accounting": [
+            "AP Specialist – Mason Fry",
+            "AR Specialist – Elise Vaughn"
+          ],
+          "Financial Analysis": [
+            "Financial Analyst – Karen O’Neil",
+            "Budget Analyst – Luis Ortega"
+          ],
+          "Payroll": [
+            "Payroll Officer – Karen Black"
+          ],
+          "Internal Audit": [
+            "Internal Auditor – Ben Hoffman"
+          ]
+        }
+      },
+
+      "Operations": {
+        "Operations Manager": "Gregory Locke",
+        "Procurement Manager": "Sarah Holt",
+        "Logistics Manager": "Ian Weller",
+        "Teams": {
+          "Supply Chain": [
+            "Supply Chain Analyst – Trent Miles",
+            "Inventory Specialist – Nora Gaines"
+          ],
+          "Procurement": [
+            "Procurement Officer – Dana Li",
+            "Vendor Coordinator – Jacob Harris"
+          ],
+          "Logistics": [
+            "Shipping Coordinator – Emma Walker",
+            "Warehouse Supervisor – Tom Reilly"
+          ]
+        }
+      },
+
+      "Marketing": {
+        "Marketing Manager": "Monica Hale",
+        "Brand Manager": "Devin Sparks",
+        "Content Strategy Lead": "Vanessa Kim",
+        "Teams": {
+          "Creative Team": [
+            "Graphic Designer – Tara Phillips",
+            "Copywriter – Rachel West"
+          ],
+          "Digital Marketing": [
+            "SEO Specialist – Oliver Fox",
+            "Social Media Manager – Lauren Bishop"
+          ]
+        }
+      },
+
+      "Product Management": {
+        "Product Manager Lead": "Neel Kashyap",
+        "UX Director": "Hannah Meyer",
+        "Product Analyst Lead": "Victor Zhang",
+        "Teams": {
+          "Product Managers": [
+            "Product Manager – Emily Foster",
+            "Product Manager – Reza Yousefi"
+          ],
+          "UX/UI Team": [
+            "UX Designer – Irene Patel",
+            "UX Researcher – Quentin Moss"
+          ],
+          "Product Analysis": [
+            "Product Analyst – Lily Goodman"
+          ]
+        }
+      },
+
+      "Data & Analytics": {
+        "Data Engineering Manager": "Rishi Malhotra",
+        "BI Manager": "Joanna Field",
+        "ML Engineering Manager": "Nikolai Stein",
+        "Teams": {
+          "Data Engineering": [
+            "Data Engineer – Omar Idris",
+            "ETL Developer – Karina Wells"
+          ],
+          "Business Intelligence": [
+            "BI Developer – Arjun Desai",
+            "Data Analyst – Robin Clarke"
+          ],
+          "Machine Learning": [
+            "ML Engineer – Farah Yasin",
+            "Model Analyst – Eric Lutz"
+          ]
+        }
+      },
+
+      "Legal & Compliance": {
+        "Legal Advisor": "Renee Clarke",
+        "Compliance Officer": "Dante Cooper",
+        "Privacy Officer": "Giselle Marina",
+        "Teams": {
+          "Compliance": [
+            "Regulatory Analyst – Fiona Kane"
+          ],
+          "Privacy": [
+            "Data Privacy Specialist – Jordan Mills"
+          ],
+          "Legal": [
+            "Paralegal – Sara Jenkins"
+          ]
+        }
+      },
+
+      "Customer Support": {
+        "Support Manager": "Harvey Payne",
+        "Teams": {
+          "Customer Support": [
+            "Customer Support Agent – Priya Singh",
+            "Customer Support Agent – Dylan Murphy"
+          ],
+          "Technical Support": [
+            "Technical Support Specialist – Omar Johnson",
+            "Technical Support Specialist – Mira Lopez"
+          ]
+        }
+      }
+    }
+  }
+}

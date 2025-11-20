@@ -1,0 +1,144 @@
+{
+  "raci_matrix": [
+    {
+      "activity": "Incident Response",
+      "R": ["SOC Manager", "Incident Responder", "Security Analyst"],
+      "A": ["CISO"],
+      "C": ["IT Director", "Legal Advisor", "Communications Manager"],
+      "I": ["CEO", "COO", "CIO"]
+    },
+    {
+      "activity": "Access Management",
+      "R": ["IAM Administrator", "Security Engineering Lead"],
+      "A": ["GRC Lead"],
+      "C": ["HR Manager", "IT Director"],
+      "I": ["Department Managers"]
+    },
+    {
+      "activity": "Vulnerability Management",
+      "R": ["Security Engineer", "Vulnerability Analyst"],
+      "A": ["Security Engineering Lead"],
+      "C": ["DevOps Manager", "Infrastructure Manager"],
+      "I": ["CISO", "CIO"]
+    },
+    {
+      "activity": "Patch Management",
+      "R": ["System Administrator", "Cloud Engineer"],
+      "A": ["Infrastructure Manager"],
+      "C": ["Security Engineer", "DevOps Manager"],
+      "I": ["CISO", "COO"]
+    },
+    {
+      "activity": "Security Policy Management",
+      "R": ["GRC Lead", "Security Policy Analyst"],
+      "A": ["CISO"],
+      "C": ["Legal Advisor", "HR Manager"],
+      "I": ["All Employees"]
+    },
+    {
+      "activity": "Risk Management",
+      "R": ["GRC Lead"],
+      "A": ["CISO"],
+      "C": ["Internal Audit Manager", "Finance Controller", "Legal Advisor"],
+      "I": ["CEO", "Board"]
+    },
+    {
+      "activity": "Vendor Risk Assessments",
+      "R": ["GRC Lead", "Security Compliance Specialist"],
+      "A": ["Deputy CISO"],
+      "C": ["Procurement Manager", "Finance Controller"],
+      "I": ["CISO", "Legal Advisor"]
+    },
+    {
+      "activity": "Security Awareness Training",
+      "R": ["Security Awareness Manager", "Security Awareness Coordinator"],
+      "A": ["GRC Lead"],
+      "C": ["HR Manager"],
+      "I": ["All Employees"]
+    },
+    {
+      "activity": "Asset Inventory Maintenance",
+      "R": ["IT Asset Manager", "System Administrator"],
+      "A": ["Infrastructure Manager"],
+      "C": ["Security Engineer"],
+      "I": ["GRC Lead"]
+    },
+    {
+      "activity": "Security Monitoring (SIEM)",
+      "R": ["SOC Manager", "Security Analyst"],
+      "A": ["Deputy CISO"],
+      "C": ["IT Director"],
+      "I": ["CISO"]
+    },
+    {
+      "activity": "Data Classification & Handling",
+      "R": ["Data Privacy Specialist", "GRC Lead"],
+      "A": ["Privacy Officer"],
+      "C": ["Data Engineering Manager", "Legal Advisor"],
+      "I": ["All Department Heads"]
+    },
+    {
+      "activity": "Business Continuity Planning",
+      "R": ["Risk Manager", "Business Continuity Lead"],
+      "A": ["COO"],
+      "C": ["CISO", "CIO", "Legal Advisor"],
+      "I": ["CEO"]
+    },
+    {
+      "activity": "Disaster Recovery",
+      "R": ["IT Director", "Infrastructure Manager"],
+      "A": ["CIO"],
+      "C": ["Security Engineering Lead", "Cloud Engineer"],
+      "I": ["CISO", "COO"]
+    },
+    {
+      "activity": "Compliance Reporting",
+      "R": ["GRC Lead", "Internal Audit Manager"],
+      "A": ["CISO"],
+      "C": ["Legal Advisor", "Finance Controller"],
+      "I": ["CEO", "Board"]
+    },
+    {
+      "activity": "Secure Software Development",
+      "R": ["DevSecOps Engineer", "Backend Developer", "Frontend Developer"],
+      "A": ["Engineering Director"],
+      "C": ["Security Engineer", "DevOps Manager"],
+      "I": ["CISO", "CTO"]
+    },
+    {
+      "activity": "Change Management",
+      "R": ["Change Manager", "DevOps Engineer"],
+      "A": ["IT Director"],
+      "C": ["Security Engineer", "Product Manager"],
+      "I": ["CISO", "CTO"]
+    },
+    {
+      "activity": "Privileged Access Reviews",
+      "R": ["IAM Administrator", "GRC Lead"],
+      "A": ["CISO"],
+      "C": ["IT Director", "HR Manager"],
+      "I": ["Internal Audit Manager"]
+    },
+    {
+      "activity": "Third-party Integrations Security Review",
+      "R": ["Security Engineer", "GRC Lead"],
+      "A": ["CISO"],
+      "C": ["Product Manager", "Procurement Manager"],
+      "I": ["Legal Advisor"]
+    },
+    {
+      "activity": "Data Loss Prevention Monitoring",
+      "R": ["Security Engineer", "SOC Analyst"],
+      "A": ["Deputy CISO"],
+      "C": ["Data Engineering Manager"],
+      "I": ["CISO"]
+    },
+    {
+      "activity": "Security Architecture Review",
+      "R": ["Security Engineering Lead", "Security Architect"],
+      "A": ["CISO"],
+      "C": ["CTO", "DevOps Manager"],
+      "I": ["CEO", "CIO"]
+    }
+  ]
+}

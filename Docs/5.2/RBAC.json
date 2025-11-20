@@ -1,0 +1,365 @@
+{
+
+    "system_definitions": [
+    { "code": "HRIS", "full_name": "Human Resources Information System" },
+    { "code": "FMS",  "full_name": "Finance Management System" },
+    { "code": "ERP",  "full_name": "Enterprise Resource Planning" },
+    { "code": "CRM",  "full_name": "Customer Relationship Management" },
+    { "code": "EMAIL", "full_name": "Email & Collaboration System" },
+    { "code": "SIEM", "full_name": "Security Information and Event Monitoring" },
+    { "code": "IAM",  "full_name": "Identity and Access Management" },
+    { "code": "ITSM", "full_name": "IT Service Management Platform" },
+    { "code": "DLP",  "full_name": "Data Loss Prevention System" },
+    { "code": "MDM",  "full_name": "Mobile Device Management" },
+    { "code": "GIT",  "full_name": "Source Code Repository (Version Control)" },
+    { "code": "DWH",  "full_name": "Data Warehouse" },
+    { "code": "LMS",  "full_name": "Learning Management System" },
+    { "code": "FILES", "full_name": "File Storage & Document Management System" }
+    ],
+  
+ "systems": [
+    "HRIS","FMS","ERP","CRM","EMAIL",
+    "SIEM","IAM","ITSM","DLP","MDM",
+    "GIT","DWH","LMS","FILES"
+  ],
+  "roles": [
+
+    {
+      "department": "Information Security",
+      "role": "CISO",
+      "permissions": {"HRIS":"R","FMS":"R","ERP":"R","CRM":"R","EMAIL":"A","SIEM":"A","IAM":"A","ITSM":"R","DLP":"A","MDM":"R","GIT":"R","DWH":"R","LMS":"R","FILES":"A"}
+    },
+    {
+      "department": "Information Security",
+      "role": "Deputy CISO",
+      "permissions": {"HRIS":"R","FMS":"R","ERP":"R","CRM":"R","EMAIL":"A","SIEM":"A","IAM":"W","ITSM":"R","DLP":"A","MDM":"R","GIT":"R","DWH":"R","LMS":"R","FILES":"A"}
+    },
+    {
+      "department": "Information Security",
+      "role": "SOC Manager",
+      "permissions": {"HRIS":"N","FMS":"N","ERP":"R","CRM":"N","EMAIL":"A","SIEM":"A","IAM":"W","ITSM":"R","DLP":"W","MDM":"R","GIT":"N","DWH":"R","LMS":"R","FILES":"R"}
+    },
+    {
+      "department": "Information Security",
+      "role": "Security Analyst",
+      "permissions": {"HRIS":"N","FMS":"N","ERP":"R","CRM":"R","EMAIL":"R","SIEM":"W","IAM":"R","ITSM":"R","DLP":"W","MDM":"R","GIT":"N","DWH":"R","LMS":"R","FILES":"R"}
+    },
+    {
+      "department": "Information Security",
+      "role": "Threat Intelligence Analyst",
+      "permissions": {"HRIS":"N","FMS":"N","ERP":"R","CRM":"R","EMAIL":"R","SIEM":"W","IAM":"N","ITSM":"R","DLP":"N","MDM":"R","GIT":"R","DWH":"W","LMS":"R","FILES":"R"}
+    },
+    {
+      "department": "Information Security",
+      "role": "Incident Responder",
+      "permissions": {"HRIS":"N","FMS":"N","ERP":"R","CRM":"N","EMAIL":"R","SIEM":"A","IAM":"W","ITSM":"R","DLP":"A","MDM":"R","GIT":"N","DWH":"R","LMS":"R","FILES":"R"}
+    },
+    {
+      "department": "Information Security",
+      "role": "GRC Lead",
+      "permissions": {"HRIS":"W","FMS":"R","ERP":"R","CRM":"N","EMAIL":"R","SIEM":"R","IAM":"R","ITSM":"R","DLP":"R","MDM":"R","GIT":"N","DWH":"R","LMS":"A","FILES":"A"}
+    },
+    {
+      "department": "Information Security",
+      "role": "Security Engineer",
+      "permissions": {"HRIS":"N","FMS":"N","ERP":"W","CRM":"N","EMAIL":"R","SIEM":"A","IAM":"A","ITSM":"W","DLP":"A","MDM":"A","GIT":"W","DWH":"R","LMS":"R","FILES":"A"}
+    },
+
+    {
+      "department": "IT",
+      "role": "CIO",
+      "permissions": {"HRIS":"R","FMS":"R","ERP":"R","CRM":"R","EMAIL":"A","SIEM":"R","IAM":"A","ITSM":"A","DLP":"R","MDM":"R","GIT":"R","DWH":"R","LMS":"R","FILES":"A"}
+    },
+    {
+      "department": "IT",
+      "role": "IT Director",
+      "permissions": {"HRIS":"R","FMS":"N","ERP":"R","CRM":"R","EMAIL":"A","SIEM":"W","IAM":"A","ITSM":"A","DLP":"W","MDM":"A","GIT":"R","DWH":"R","LMS":"R","FILES":"A"}
+    },
+    {
+      "department": "IT",
+      "role": "Infrastructure Manager",
+      "permissions": {"HRIS":"N","FMS":"N","ERP":"W","CRM":"N","EMAIL":"A","SIEM":"W","IAM":"A","ITSM":"A","DLP":"W","MDM":"A","GIT":"R","DWH":"N","LMS":"R","FILES":"A"}
+    },
+    {
+      "department": "IT",
+      "role": "Network Engineer",
+      "permissions": {"HRIS":"N","FMS":"N","ERP":"W","CRM":"N","EMAIL":"R","SIEM":"R","IAM":"W","ITSM":"W","DLP":"W","MDM":"A","GIT":"N","DWH":"R","LMS":"R","FILES":"R"}
+    },
+    {
+      "department": "IT",
+      "role": "System Administrator",
+      "permissions": {"HRIS":"N","FMS":"N","ERP":"A","CRM":"N","EMAIL":"A","SIEM":"W","IAM":"A","ITSM":"W","DLP":"A","MDM":"A","GIT":"A","DWH":"R","LMS":"R","FILES":"A"}
+    },
+    {
+      "department": "IT",
+      "role": "Database Administrator",
+      "permissions": {"HRIS":"N","FMS":"N","ERP":"A","CRM":"N","EMAIL":"R","SIEM":"R","IAM":"N","ITSM":"W","DLP":"N","MDM":"N","GIT":"N","DWH":"A","LMS":"N","FILES":"R"}
+    },
+    {
+      "department": "IT",
+      "role": "Cloud Engineer",
+      "permissions": {"HRIS":"N","FMS":"N","ERP":"W","CRM":"N","EMAIL":"R","SIEM":"R","IAM":"A","ITSM":"W","DLP":"W","MDM":"A","GIT":"A","DWH":"W","LMS":"R","FILES":"A"}
+    },
+    {
+      "department": "IT",
+      "role": "Desktop Support Lead",
+      "permissions": {"HRIS":"N","FMS":"N","ERP":"N","CRM":"N","EMAIL":"W","SIEM":"R","IAM":"N","ITSM":"W","DLP":"W","MDM":"W","GIT":"N","DWH":"N","LMS":"R","FILES":"R"}
+    },
+    {
+      "department": "IT",
+      "role": "Helpdesk Technician",
+      "permissions": {"HRIS":"N","FMS":"N","ERP":"N","CRM":"N","EMAIL":"W","SIEM":"R","IAM":"N","ITSM":"W","DLP":"N","MDM":"W","GIT":"N","DWH":"N","LMS":"R","FILES":"R"}
+    },
+
+    {
+      "department": "Engineering",
+      "role": "CTO",
+      "permissions": {"HRIS":"R","FMS":"R","ERP":"R","CRM":"R","EMAIL":"A","SIEM":"R","IAM":"W","ITSM":"R","DLP":"R","MDM":"R","GIT":"A","DWH":"A","LMS":"R","FILES":"A"}
+    },
+    {
+      "department": "Engineering",
+      "role": "Engineering Manager",
+      "permissions": {"HRIS":"R","FMS":"N","ERP":"R","CRM":"R","EMAIL":"A","SIEM":"R","IAM":"R","ITSM":"R","DLP":"R","MDM":"R","GIT":"A","DWH":"R","LMS":"R","FILES":"A"}
+    },
+    {
+      "department": "Engineering",
+      "role": "DevOps Engineer",
+      "permissions": {"HRIS":"N","FMS":"N","ERP":"W","CRM":"N","EMAIL":"R","SIEM":"W","IAM":"A","ITSM":"W","DLP":"W","MDM":"A","GIT":"A","DWH":"A","LMS":"R","FILES":"A"}
+    },
+    {
+      "department": "Engineering",
+      "role": "Backend Developer",
+      "permissions": {"HRIS":"N","FMS":"N","ERP":"R","CRM":"N","EMAIL":"R","SIEM":"N","IAM":"N","ITSM":"R","DLP":"N","MDM":"R","GIT":"W","DWH":"R","LMS":"R","FILES":"R"}
+    },
+    {
+      "department": "Engineering",
+      "role": "Frontend Developer",
+      "permissions": {"HRIS":"N","FMS":"N","ERP":"N","CRM":"R","EMAIL":"R","SIEM":"N","IAM":"N","ITSM":"R","DLP":"N","MDM":"R","GIT":"W","DWH":"N","LMS":"R","FILES":"R"}
+    },
+    {
+      "department": "Engineering",
+      "role": "QA Engineer",
+      "permissions": {"HRIS":"N","FMS":"N","ERP":"R","CRM":"R","EMAIL":"R","SIEM":"N","IAM":"N","ITSM":"R","DLP":"N","MDM":"N","GIT":"R","DWH":"R","LMS":"R","FILES":"R"}
+    },
+    {
+      "department": "Engineering",
+      "role": "Release Manager",
+      "permissions": {"HRIS":"N","FMS":"N","ERP":"R","CRM":"N","EMAIL":"R","SIEM":"R","IAM":"W","ITSM":"W","DLP":"W","MDM":"R","GIT":"A","DWH":"R","LMS":"R","FILES":"R"}
+    },
+
+    {
+      "department": "HR",
+      "role": "HR Director",
+      "permissions": {"HRIS":"A","FMS":"R","ERP":"N","CRM":"N","EMAIL":"A","SIEM":"N","IAM":"R","ITSM":"R","DLP":"R","MDM":"R","GIT":"N","DWH":"R","LMS":"A","FILES":"A"}
+    },
+    {
+      "department": "HR",
+      "role": "HR Manager",
+      "permissions": {"HRIS":"A","FMS":"R","ERP":"N","CRM":"N","EMAIL":"R","SIEM":"N","IAM":"R","ITSM":"R","DLP":"R","MDM":"R","GIT":"N","DWH":"R","LMS":"A","FILES":"A"}
+    },
+    {
+      "department": "HR",
+      "role": "HR Specialist",
+      "permissions": {"HRIS":"W","FMS":"N","ERP":"N","CRM":"N","EMAIL":"R","SIEM":"N","IAM":"R","ITSM":"R","DLP":"R","MDM":"R","GIT":"N","DWH":"N","LMS":"A","FILES":"R"}
+    },
+    {
+      "department": "HR",
+      "role": "Recruiter",
+      "permissions": {"HRIS":"R","FMS":"N","ERP":"N","CRM":"N","EMAIL":"R","SIEM":"N","IAM":"N","ITSM":"R","DLP":"N","MDM":"N","GIT":"N","DWH":"N","LMS":"R","FILES":"R"}
+    },
+    {
+      "department": "HR",
+      "role": "HRIS Administrator",
+      "permissions": {"HRIS":"A","FMS":"N","ERP":"N","CRM":"N","EMAIL":"R","SIEM":"N","IAM":"W","ITSM":"W","DLP":"N","MDM":"R","GIT":"N","DWH":"N","LMS":"R","FILES":"A"}
+    },
+
+    {
+      "department": "Finance",
+      "role": "CFO",
+      "permissions": {"HRIS":"R","FMS":"A","ERP":"R","CRM":"R","EMAIL":"R","SIEM":"N","IAM":"R","ITSM":"R","DLP":"R","MDM":"R","GIT":"N","DWH":"A","LMS":"R","FILES":"A"}
+    },
+    {
+      "department": "Finance",
+      "role": "Finance Controller",
+      "permissions": {"HRIS":"N","FMS":"A","ERP":"R","CRM":"N","EMAIL":"R","SIEM":"N","IAM":"N","ITSM":"R","DLP":"R","MDM":"R","GIT":"N","DWH":"A","LMS":"R","FILES":"R"}
+    },
+    {
+      "department": "Finance",
+      "role": "Financial Analyst",
+      "permissions": {"HRIS":"N","FMS":"W","ERP":"R","CRM":"N","EMAIL":"R","SIEM":"N","IAM":"N","ITSM":"R","DLP":"N","MDM":"R","GIT":"N","DWH":"W","LMS":"R","FILES":"R"}
+    },
+    {
+      "department": "Finance",
+      "role": "AP/AR Specialist",
+      "permissions": {"HRIS":"N","FMS":"W","ERP":"R","CRM":"N","EMAIL":"R","SIEM":"N","IAM":"N","ITSM":"R","DLP":"N","MDM":"R","GIT":"N","DWH":"R","LMS":"N","FILES":"R"}
+    },
+    {
+      "department": "Finance",
+      "role": "Internal Auditor",
+      "permissions": {"HRIS":"R","FMS":"R","ERP":"R","CRM":"R","EMAIL":"R","SIEM":"R","IAM":"R","ITSM":"R","DLP":"R","MDM":"N","GIT":"N","DWH":"R","LMS":"R","FILES":"R"}
+    },
+    {
+      "department": "Finance",
+      "role": "Payroll Officer",
+      "permissions": {"HRIS":"A","FMS":"R","ERP":"N","CRM":"N","EMAIL":"R","SIEM":"N","IAM":"R","ITSM":"R","DLP":"N","MDM":"N","GIT":"N","DWH":"N","LMS":"R","FILES":"R"}
+    },
+
+    {
+      "department": "Operations",
+      "role": "COO",
+      "permissions": {"HRIS":"R","FMS":"R","ERP":"A","CRM":"R","EMAIL":"A","SIEM":"N","IAM":"R","ITSM":"R","DLP":"R","MDM":"R","GIT":"N","DWH":"R","LMS":"R","FILES":"A"}
+    },
+    {
+      "department": "Operations",
+      "role": "Operations Manager",
+      "permissions": {"HRIS":"R","FMS":"R","ERP":"A","CRM":"R","EMAIL":"R","SIEM":"N","IAM":"R","ITSM":"R","DLP":"R","MDM":"R","GIT":"N","DWH":"R","LMS":"R","FILES":"R"}
+    },
+    {
+      "department": "Operations",
+      "role": "Supply Chain Coordinator",
+      "permissions": {"HRIS":"N","FMS":"N","ERP":"W","CRM":"R","EMAIL":"R","SIEM":"N","IAM":"N","ITSM":"R","DLP":"N","MDM":"N","GIT":"N","DWH":"R","LMS":"R","FILES":"R"}
+    },
+    {
+      "department": "Operations",
+      "role": "Inventory Specialist",
+      "permissions": {"HRIS":"N","FMS":"N","ERP":"W","CRM":"N","EMAIL":"R","SIEM":"N","IAM":"N","ITSM":"R","DLP":"N","MDM":"N","GIT":"N","DWH":"R","LMS":"R","FILES":"R"}
+    },
+    {
+      "department": "Operations",
+      "role": "Logistics Lead",
+      "permissions": {"HRIS":"N","FMS":"N","ERP":"R","CRM":"N","EMAIL":"R","SIEM":"N","IAM":"N","ITSM":"R","DLP":"N","MDM":"N","GIT":"N","DWH":"R","LMS":"R","FILES":"R"}
+    },
+    {
+      "department": "Operations",
+      "role": "Procurement Officer",
+      "permissions": {"HRIS":"N","FMS":"N","ERP":"W","CRM":"N","EMAIL":"R","SIEM":"N","IAM":"N","ITSM":"R","DLP":"N","MDM":"N","GIT":"N","DWH":"R","LMS":"R","FILES":"R"}
+    },
+
+    {
+      "department": "Sales",
+      "role": "Sales Director",
+      "permissions": {"HRIS":"R","FMS":"N","ERP":"R","CRM":"A","EMAIL":"A","SIEM":"N","IAM":"R","ITSM":"R","DLP":"R","MDM":"R","GIT":"N","DWH":"R","LMS":"R","FILES":"A"}
+    },
+    {
+      "department": "Sales",
+      "role": "Sales Manager",
+      "permissions": {"HRIS":"N","FMS":"N","ERP":"R","CRM":"A","EMAIL":"R","SIEM":"N","IAM":"R","ITSM":"R","DLP":"R","MDM":"R","GIT":"N","DWH":"R","LMS":"R","FILES":"R"}
+    },
+    {
+      "department": "Sales",
+      "role": "Account Executive",
+      "permissions": {"HRIS":"N","FMS":"N","ERP":"R","CRM":"W","EMAIL":"R","SIEM":"N","IAM":"N","ITSM":"R","DLP":"N","MDM":"R","GIT":"N","DWH":"R","LMS":"R","FILES":"R"}
+    },
+    {
+      "department": "Sales",
+      "role": "Sales Representative",
+      "permissions": {"HRIS":"N","FMS":"N","ERP":"R","CRM":"W","EMAIL":"R","SIEM":"N","IAM":"N","ITSM":"R","DLP":"N","MDM":"R","GIT":"N","DWH":"R","LMS":"R","FILES":"R"}
+    },
+    {
+      "department": "Marketing",
+      "role": "Marketing Director",
+      "permissions": {"HRIS":"R","FMS":"N","ERP":"N","CRM":"A","EMAIL":"A","SIEM":"N","IAM":"R","ITSM":"R","DLP":"R","MDM":"R","GIT":"N","DWH":"W","LMS":"R","FILES":"A"}
+    },
+    {
+      "department": "Marketing",
+      "role": "Marketing Manager",
+      "permissions": {"HRIS":"N","FMS":"N","ERP":"N","CRM":"A","EMAIL":"R","SIEM":"N","IAM":"N","ITSM":"R","DLP":"R","MDM":"R","GIT":"N","DWH":"W","LMS":"R","FILES":"R"}
+    },
+    {
+      "department": "Marketing",
+      "role": "Marketing Specialist",
+      "permissions": {"HRIS":"N","FMS":"N","ERP":"N","CRM":"W","EMAIL":"R","SIEM":"N","IAM":"N","ITSM":"R","DLP":"N","MDM":"R","GIT":"N","DWH":"R","LMS":"R","FILES":"R"}
+    },
+
+    {
+      "department": "Data",
+      "role": "Chief Data Officer",
+      "permissions": {"HRIS":"R","FMS":"R","ERP":"R","CRM":"R","EMAIL":"A","SIEM":"R","IAM":"R","ITSM":"R","DLP":"R","MDM":"R","GIT":"R","DWH":"A","LMS":"R","FILES":"A"}
+    },
+    {
+      "department": "Data",
+      "role": "Data Architect",
+      "permissions": {"HRIS":"N","FMS":"N","ERP":"R","CRM":"N","EMAIL":"R","SIEM":"R","IAM":"R","ITSM":"R","DLP":"R","MDM":"R","GIT":"R","DWH":"A","LMS":"R","FILES":"R"}
+    },
+    {
+      "department": "Data",
+      "role": "Data Engineer",
+      "permissions": {"HRIS":"N","FMS":"N","ERP":"R","CRM":"N","EMAIL":"R","SIEM":"N","IAM":"N","ITSM":"R","DLP":"N","MDM":"R","GIT":"W","DWH":"A","LMS":"R","FILES":"R"}
+    },
+    {
+      "department": "Data",
+      "role": "Data Analyst",
+      "permissions": {"HRIS":"N","FMS":"N","ERP":"R","CRM":"N","EMAIL":"R","SIEM":"N","IAM":"N","ITSM":"R","DLP":"N","MDM":"N","GIT":"N","DWH":"W","LMS":"R","FILES":"R"}
+    },
+    {
+      "department": "Data",
+      "role": "BI Developer",
+      "permissions": {"HRIS":"N","FMS":"N","ERP":"R","CRM":"N","EMAIL":"R","SIEM":"N","IAM":"N","ITSM":"R","DLP":"N","MDM":"N","GIT":"W","DWH":"W","LMS":"R","FILES":"R"}
+    },
+    {
+      "department": "Data",
+      "role": "ML Engineer",
+      "permissions": {"HRIS":"N","FMS":"N","ERP":"N","CRM":"N","EMAIL":"R","SIEM":"N","IAM":"N","ITSM":"R","DLP":"N","MDM":"N","GIT":"W","DWH":"W","LMS":"R","FILES":"R"}
+    },
+
+    {
+      "department": "Product",
+      "role": "Chief Product Officer",
+      "permissions": {"HRIS":"R","FMS":"R","ERP":"R","CRM":"R","EMAIL":"A","SIEM":"R","IAM":"R","ITSM":"R","DLP":"R","MDM":"R","GIT":"R","DWH":"R","LMS":"R","FILES":"A"}
+    },
+    {
+      "department": "Product",
+      "role": "Product Manager",
+      "permissions": {"HRIS":"N","FMS":"N","ERP":"R","CRM":"R","EMAIL":"R","SIEM":"N","IAM":"N","ITSM":"R","DLP":"N","MDM":"N","GIT":"R","DWH":"R","LMS":"R","FILES":"R"}
+    },
+    {
+      "department": "Product",
+      "role": "Product Analyst",
+      "permissions": {"HRIS":"N","FMS":"N","ERP":"R","CRM":"N","EMAIL":"R","SIEM":"N","IAM":"N","ITSM":"R","DLP":"N","MDM":"N","GIT":"N","DWH":"R","LMS":"R","FILES":"R"}
+    },
+    {
+      "department": "Product",
+      "role": "UX Designer",
+      "permissions": {"HRIS":"N","FMS":"N","ERP":"N","CRM":"R","EMAIL":"R","SIEM":"N","IAM":"N","ITSM":"R","DLP":"N","MDM":"N","GIT":"R","DWH":"N","LMS":"R","FILES":"R"}
+    },
+
+
+    {
+      "department": "Legal",
+      "role": "General Counsel",
+      "permissions": {"HRIS":"R","FMS":"R","ERP":"R","CRM":"R","EMAIL":"A","SIEM":"R","IAM":"R","ITSM":"R","DLP":"R","MDM":"R","GIT":"N","DWH":"R","LMS":"A","FILES":"A"}
+    },
+    {
+      "department": "Legal",
+      "role": "Legal Advisor",
+      "permissions": {"HRIS":"R","FMS":"N","ERP":"R","CRM":"R","EMAIL":"R","SIEM":"N","IAM":"N","ITSM":"R","DLP":"N","MDM":"N","GIT":"N","DWH":"R","LMS":"R","FILES":"R"}
+    },
+    {
+      "department": "Legal",
+      "role": "Compliance Officer",
+      "permissions": {"HRIS":"R","FMS":"R","ERP":"R","CRM":"N","EMAIL":"R","SIEM":"N","IAM":"R","ITSM":"R","DLP":"R","MDM":"N","GIT":"N","DWH":"R","LMS":"R","FILES":"A"}
+    },
+    {
+      "department": "Legal",
+      "role": "Privacy Officer",
+      "permissions": {"HRIS":"R","FMS":"N","ERP":"N","CRM":"N","EMAIL":"R","SIEM":"N","IAM":"R","ITSM":"R","DLP":"A","MDM":"N","GIT":"N","DWH":"R","LMS":"R","FILES":"A"}
+    },
+
+    {
+      "department": "Support",
+      "role": "Support Manager",
+      "permissions": {"HRIS":"R","FMS":"N","ERP":"R","CRM":"A","EMAIL":"A","SIEM":"N","IAM":"R","ITSM":"R","DLP":"R","MDM":"R","GIT":"N","DWH":"R","LMS":"R","FILES":"A"}
+    },
+    {
+      "department": "Support",
+      "role": "Customer Support Agent",
+      "permissions": {"HRIS":"N","FMS":"N","ERP":"N","CRM":"W","EMAIL":"R","SIEM":"N","IAM":"N","ITSM":"R","DLP":"N","MDM":"N","GIT":"N","DWH":"N","LMS":"R","FILES":"R"}
+    },
+    {
+      "department": "Support",
+      "role": "Technical Support Specialist",
+      "permissions": {"HRIS":"N","FMS":"N","ERP":"R","CRM":"W","EMAIL":"R","SIEM":"R","IAM":"N","ITSM":"W","DLP":"N","MDM":"W","GIT":"N","DWH":"N","LMS":"R","FILES":"R"}
+    }
+
+  ]
+}
