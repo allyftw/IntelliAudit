@@ -1,0 +1,31 @@
+CRF_ID,Review_Date,Reviewer,Effectiveness_Rating,Objectives_Met,New_Risks_Identified,Lessons_Learned,Follow_up_Actions_Required,Review_Status
+CRF-2024-0001,2024-12-20,Emma Williams,Not Effective,Partially,Yes,Documented in review report,No,Complete
+CRF-2024-0002,2024-02-23,Michael Chen,Not Effective,Partially,No,Documented in review report,No,Pending Follow-up
+CRF-2024-0003,2024-04-14,Sarah Johnson,Highly Effective,No,Yes,Documented in review report,Yes,Complete
+CRF-2024-0004,2024-03-11,Emma Williams,Highly Effective,No,Yes,Documented in review report,No,Complete
+CRF-2024-0005,2024-05-28,Michael Chen,Effective,Partially,No,Documented in review report,Yes,Pending Follow-up
+CRF-2024-0006,2024-06-26,Emma Williams,Partially Effective,Yes,No,Documented in review report,No,Pending Follow-up
+CRF-2024-0007,2024-12-23,Michael Chen,Effective,Partially,No,Documented in review report,Yes,Pending Follow-up
+CRF-2024-0008,2024-10-04,Sarah Johnson,Partially Effective,Partially,No,Documented in review report,No,Pending Follow-up
+CRF-2024-0009,2024-02-11,Emma Williams,Highly Effective,Partially,Yes,Documented in review report,Yes,Pending Follow-up
+CRF-2024-0010,2024-06-25,Sarah Johnson,Effective,Yes,Yes,Documented in review report,No,Complete
+CRF-2024-0011,2024-12-17,Sarah Johnson,Not Effective,Partially,No,Documented in review report,Yes,Pending Follow-up
+CRF-2024-0012,2024-04-07,Sarah Johnson,Effective,Partially,No,Documented in review report,Yes,Complete
+CRF-2024-0013,2024-04-07,Emma Williams,Effective,No,No,Documented in review report,Yes,Pending Follow-up
+CRF-2024-0014,2024-10-03,Michael Chen,Effective,Yes,No,Documented in review report,Yes,Complete
+CRF-2024-0015,2024-05-25,Emma Williams,Highly Effective,No,No,Documented in review report,Yes,Pending Follow-up
+CRF-2024-0016,2024-02-07,Michael Chen,Not Effective,Partially,No,Documented in review report,No,Pending Follow-up
+CRF-2024-0017,2024-12-22,Michael Chen,Not Effective,No,Yes,Documented in review report,No,Complete
+CRF-2024-0018,2024-12-13,Emma Williams,Effective,No,Yes,Documented in review report,Yes,Pending Follow-up
+CRF-2024-0019,2024-07-03,Emma Williams,Highly Effective,Yes,Yes,Documented in review report,Yes,Complete
+CRF-2024-0020,2024-07-04,Michael Chen,Not Effective,Yes,Yes,Documented in review report,Yes,Pending Follow-up
+CRF-2024-0021,2024-09-19,Michael Chen,Highly Effective,No,Yes,Documented in review report,No,Complete
+CRF-2024-0022,2024-10-07,Emma Williams,Highly Effective,Partially,Yes,Documented in review report,No,Complete
+CRF-2024-0023,2024-09-14,Michael Chen,Partially Effective,Partially,Yes,Documented in review report,No,Pending Follow-up
+CRF-2024-0024,2024-03-02,Michael Chen,Effective,Yes,Yes,Documented in review report,No,Complete
+CRF-2024-0025,2024-05-18,Emma Williams,Not Effective,Yes,No,Documented in review report,Yes,Complete
+CRF-2024-0026,2024-11-15,Sarah Johnson,Not Effective,No,Yes,Documented in review report,Yes,Complete
+CRF-2024-0027,2024-07-17,Sarah Johnson,Not Effective,Partially,Yes,Documented in review report,Yes,Pending Follow-up
+CRF-2024-0028,2024-04-29,Sarah Johnson,Not Effective,Yes,Yes,Documented in review report,No,Complete
+CRF-2024-0029,2024-11-27,Michael Chen,Not Effective,Yes,No,Documented in review report,Yes,Complete
+CRF-2024-0030,2024-09-02,Emma Williams,Not Effective,No,Yes,Documented in review report,No,Pending Follow-up

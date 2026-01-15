@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Information Labelling Training Materials</title>
+    <style>
+        @page {
+            margin: 20mm;
+        }
+        
+        @media print {
+            body { 
+                margin: 0;
+                padding: 0;
+            }
+            .page-break { 
+                page-break-after: always; 
+            }
+            .no-print { 
+                display: none; 
+            }
+        }
+        
+        * {
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 210mm;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        
+        .document {
+            background: white;
+            padding: 40px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header {
+            border-bottom: 3px solid #2c3e50;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .classification {
+            background: #e67e22;
+            color: white;
+            padding: 8px 15px;
+            display: inline-block;
+            font-weight: bold;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+        
+        h1 {
+            color: #2c3e50;
+            font-size: 28px;
+            margin: 10px 0;
+        }
+        
+        .subtitle {
+            font-size: 18px;
+            color: #7f8c8d;
+            margin: 10px 0;
+        }
+        
+        .doc-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin: 20px 0;
+            font-size: 14px;
+        }
+        
+        .doc-info-item {
+            padding: 8px;
+            background: #f8f9fa;
+            border-left: 3px solid #e67e22;
+        }
+        
+        .doc-info-label {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        
+        h2 {
+            color: #2c3e50;
+            font-size: 22px;
+            margin-top: 30px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #ecf0f1;
+        }
+        
+        h3 {
+            color: #34495e;
+            font-size: 18px;
+            margin-top: 20px;
+            background: #ecf0f1;
+            padding: 10px;
+            border-left: 4px solid #e67e22;
+        }
+        
+        h4 {
+            color: #34495e;
+            font-size: 16px;
+            margin-top: 15px;
+        }
+        
+        p {
+            margin: 10px 0;
+            text-align: justify;
+        }
+        
+        .learning-objectives {
+            background: #e8f4f8;
+            border-left: 4px solid #3498db;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .learning-objectives h3 {
+            background: none;
+            border: none;
+            padding: 0;
+            margin-top: 0;
+            color: #3498db;
+        }
+        
+        .classification-box {
+            border: 2px solid #ddd;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        
+        .class-public {
+            border-color: #95a5a6;
+            background: #ecf0f1;
+        }
+        
+        .class-internal {
+            border-color: #f39c12;
+            background: #fef5e7;
+        }
+        
+        .class-confidential {
+            border-color: #e67e22;
+            background: #fdebd0;
+        }
+        
+        .class-restricted {
+            border-color: #e74c3c;
+            background: #fadbd8;
+        }
+        
+        .classification-header {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .class-badge {
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 5px;
+            font-size: 14px;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        
+        .badge-public {
+            background: #95a5a6;
+            color: white;
+        }
+        
+        .badge-internal {
+            background: #f39c12;
+            color: white;
+        }
+        
+        .badge-confidential {
+            background: #e67e22;
+            color: white;
+        }
+        
+        .badge-restricted {
+            background: #e74c3c;
+            color: white;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 13px;
+        }
+        
+        th {
+            background: #34495e;
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-weight: bold;
+        }
+        
+        td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            vertical-align: top;
+        }
+        
+        tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+        
+        .example-box {
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        
+        .example-box strong {
+            color: #2c3e50;
+        }
+        
+        .warning-box {
+            background: #fff3cd;
+            border-left: 4px solid #f39c12;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        
+        .warning-box strong {
+            color: #f39c12;
+        }
+        
+        .tip-box {
+            background: #d4edda;
+            border-left: 4px solid #28a745;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        
+        .tip-box strong {
+            color: #28a745;
+        }
+        
+        .quiz-section {
+            background: #e8f4f8;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        
+        .quiz-question {
+            background: white;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border-left: 4px solid #3498db;
+        }
+        
+        ul, ol {
+            margin: 10px 0;
+            padding-left: 30px;
+        }
+        
+        li {
+            margin: 8px 0;
+        }
+        
+        .checklist {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .checklist li:before {
+            content: "☐ ";
+            font-size: 18px;
+            margin-right: 10px;
+        }
+        
+        .footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid #ecf0f1;
+            font-size: 12px;
+            color: #7f8c8d;
+        }
+        
+        .print-button {
+            background: #e67e22;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 14px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin: 20px 0;
+            font-weight: bold;
+        }
+        
+        .print-button:hover {
+            background: #d35400;
+        }
+        
+        .labelling-examples {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .label-example {
+            border: 2px dashed #95a5a6;
+            padding: 15px;
+            text-align: center;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+        
+        .process-flow {
+            background: #f8f9fa;
+            padding: 20px;
+            margin: 20px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        
+        .process-step {
+            background: white;
+            padding: 15px;
+            margin: 10px 0;
+            border-left: 4px solid #3498db;
+            position: relative;
+        }
+        
+        .step-number {
+            background: #3498db;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <button class="print-button no-print" onclick="window.print()">📄 Download as PDF</button>
+    
+    <div class="document">
+        <div class="header">
+            <div class="classification">INTERNAL</div>
+            <h1>Information Labelling Training</h1>
+            <p class="subtitle">ISO 27001 Control 5.13 - Training Materials</p>
+            
+            <div class="doc-info">
+                <div class="doc-info-item">
+                    <span class="doc-info-label">Document ID:</span> ISMS-TRAIN-LAB-001
+                </div>
+                <div class="doc-info-item">
+                    <span class="doc-info-label">Version:</span> 2.0
+                </div>
+                <div class="doc-info-item">
+                    <span class="doc-info-label">Training Duration:</span> 45-60 minutes
+                </div>
+                <div class="doc-info-item">
+                    <span class="doc-info-label">Last Updated:</span> January 2025
+                </div>
+                <div class="doc-info-item">
+                    <span class="doc-info-label">Trainer:</span> Information Security Team
+                </div>
+                <div class="doc-info-item">
+                    <span class="doc-info-label">Status:</span> Active
+                </div>
+            </div>
+        </div>
+
+        <div class="learning-objectives">
+            <h3>Learning Objectives</h3>
+            <p>By the end of this training, you will be able to:</p>
+            <ul>
+                <li>Understand the importance of information labelling in protecting organizational assets</li>
+                <li>Identify and apply the correct classification labels to different types of information</li>
+                <li>Follow proper labelling procedures for physical and electronic documents</li>
+                <li>Recognize your responsibilities in handling labelled information</li>
+                <li>Apply best practices for information classification and labelling</li>
+            </ul>
+        </div>
+
+        <h2>1. Introduction to Information Labelling</h2>
+        
+        <h3>1.1 What is Information Labelling?</h3>
+        <p>Information labelling is the process of marking documents, files, emails, and other information assets with classification labels that indicate their sensitivity level and handling requirements. Proper labelling ensures that information is protected according to its value and sensitivity to the organization.</p>
+        
+        <h3>1.2 Why is Information Labelling Important?</h3>
+        <ul>
+            <li><strong>Protection:</strong> Prevents unauthorized access, disclosure, or loss of sensitive information</li>
+            <li><strong>Compliance:</strong> Meets legal and regulatory requirements (GDPR, ISO 27001, industry standards)</li>
+            <li><strong>Risk Management:</strong> Reduces the risk of data breaches and security incidents</li>
+            <li><strong>Awareness:</strong> Helps employees understand how to handle different types of information</li>
+            <li><strong>Accountability:</strong> Creates clear responsibility for information protection</li>
+        </ul>
+
+        <div class="warning-box">
+            <strong>⚠ Important:</strong> Failure to properly label and handle information can result in data breaches, financial losses, legal penalties, and reputational damage to the organization.
+        </div>
+
+        <div class="page-break"></div>
+
+        <h2>2. Information Classification Scheme</h2>
+        <p>Our organization uses a four-tier classification scheme. Each classification level has specific handling requirements and controls.</p>
+
+        <div class="classification-box class-public">
+            <div class="classification-header">
+                <span class="class-badge badge-public">PUBLIC</span>
+                <span>Public Information</span>
+            </div>
+            <p><strong>Definition:</strong> Information that is intended for public release and can be freely shared without any risk to the organization.</p>
+            <p><strong>Examples:</strong></p>
+            <ul>
+                <li>Published annual reports and marketing materials</li>
+                <li>Press releases and public website content</li>
+                <li>Job advertisements and general company information</li>
+                <li>Product brochures and public presentations</li>
+            </ul>
+            <p><strong>Handling Requirements:</strong></p>
+            <ul>
+                <li>No special restrictions on distribution or storage</li>
+                <li>Can be shared via any communication channel</li>
+                <li>No encryption required</li>
+            </ul>
+        </div>
+
+        <div class="classification-box class-internal">
+            <div class="classification-header">
+                <span class="class-badge badge-internal">INTERNAL</span>
+                <span>Internal Use Only</span>
+            </div>
+            <p><strong>Definition:</strong> Information intended for use within the organization. Unauthorized disclosure could cause minor inconvenience or embarrassment but not significant harm.</p>
+            <p><strong>Examples:</strong></p>
+            <ul>
+                <li>Internal policies and procedures</li>
+                <li>Department budgets and operational plans</li>
+                <li>Employee directories and internal newsletters</li>
+                <li>Meeting minutes (non-sensitive)</li>
+                <li>Training materials and internal communications</li>
+            </ul>
+            <p><strong>Handling Requirements:</strong></p>
+            <ul>
+                <li>Share only with employees, authorized contractors, and partners</li>
+                <li>Do not post on public websites or social media</li>
+                <li>Store in password-protected systems</li>
+                <li>Use secure email when sharing externally with approved parties</li>
+            </ul>
+        </div>
+
+        <div class="classification-box class-confidential">
+            <div class="classification-header">
+                <span class="class-badge badge-confidential">CONFIDENTIAL</span>
+                <span>Confidential Information</span>
+            </div>
+            <p><strong>Definition:</strong> Sensitive information that requires protection. Unauthorized disclosure could cause significant harm to the organization, including financial loss, legal liability, or competitive disadvantage.</p>
+            <p><strong>Examples:</strong></p>
+            <ul>
+                <li>Employee personal information (HR records, salaries, performance reviews)</li>
+                <li>Customer data and contracts</li>
+                <li>Financial reports (pre-publication)</li>
+                <li>Business strategies and plans</li>
+                <li>Non-public product development information</li>
+                <li>Audit reports and security assessments</li>
+            </ul>
+            <p><strong>Handling Requirements:</strong></p>
+            <ul>
+                <li>Share only on a need-to-know basis with authorized personnel</li>
+                <li>Encrypt when transmitting electronically</li>
+                <li>Store in secure, access-controlled locations</li>
+                <li>Require non-disclosure agreements for external parties</li>
+                <li>Shred or securely delete when no longer needed</li>
+                <li>Do not discuss in public areas</li>
+            </ul>
+        </div>
+
+        <div class="classification-box class-restricted">
+            <div class="classification-header">
+                <span class="class-badge badge-restricted">RESTRICTED</span>
+                <span>Restricted Information</span>
+            </div>
+            <p><strong>Definition:</strong> Highly sensitive information that must be protected with the highest level of security. Unauthorized disclosure could cause severe harm including major financial loss, legal action, or serious reputational damage.</p>
+            <p><strong>Examples:</strong></p>
+            <ul>
+                <li>Intellectual property and trade secrets</li>
+                <li>M&A documents and strategic negotiations</li>
+                <li>Security credentials and cryptographic keys</li>
+                <li>Legal privileged communications</li>
+                <li>Board meeting materials (confidential)</li>
+                <li>Incident response plans and vulnerability reports</li>
+            </ul>
+            <p><strong>Handling Requirements:</strong></p>
+            <ul>
+                <li>Access limited to specifically authorized individuals only</li>
+                <li>Must be encrypted at rest and in transit</li>
+                <li>Require multi-factor authentication for access</li>
+                <li>Store in physically secure locations with access logs</li>
+                <li>Document all access and distribution</li>
+                <li>Formal approval required for any sharing</li>
+                <li>Secure destruction required (witnessed and certified)</li>
+            </ul>
+        </div>
+
+        <div class="page-break"></div>
+
+        <h2>3. Labelling Procedures</h2>
+
+        <h3>3.1 When to Label Information</h3>
+        <p>All information assets must be labelled when they are:</p>
+        <ul>
+            <li>Created or received</li>
+            <li>Modified or updated</li>
+            <li>Shared or distributed</li>
+            <li>Stored or archived</li>
+        </ul>
+
+        <div class="tip-box">
+            <strong>💡 Best Practice:</strong> When in doubt about the appropriate classification level, always classify information at a higher level and consult with your manager or the Information Security Team.
+        </div>
+
+        <h3>3.2 How to Label Electronic Documents</h3>
+
+        <div class="process-flow">
+            <h4>Electronic Document Labelling Process</h4>
+            
+            <div class="process-step">
+                <span class="step-number">1</span>
+                <strong>Determine Classification Level</strong>
+                <p>Review the content and determine the appropriate classification based on the sensitivity and impact of unauthorized disclosure.</p>
+            </div>
+            
+            <div class="process-step">
+                <span class="step-number">2</span>
+                <strong>Apply Label in Document</strong>
+                <p>Insert the classification label in the header or footer of the document:</p>
+                <ul>
+                    <li><strong>Header:</strong> Right-aligned or centered at the top of each page</li>
+                    <li><strong>Footer:</strong> Centered at the bottom of each page</li>
+                </ul>
+            </div>
+            
+            <div class="process-step">
+                <span class="step-number">3</span>
+                <strong>Label File Name (if appropriate)</strong>
+                <p>For highly sensitive documents (CONFIDENTIAL or RESTRICTED), consider including the classification in the filename:</p>
+                <p>Example: <code>[CONFIDENTIAL] Q4 Financial Report 2024.xlsx</code></p>
+            </div>
+            
+            <div class="process-step">
+                <span class="step-number">4</span>
+                <strong>Set Document Properties</strong>
+                <p>Use document metadata to record classification level in document properties where possible.</p>
+            </div>
+            
+            <div class="process-step">
+                <span class="step-number">5</span>
+                <strong>Label Email Subject Line</strong>
+                <p>When sharing classified documents via email, include the classification in the subject line:</p>
+                <p>Example: <code>[CONFIDENTIAL] Contract Review - Project Alpha</code></p>
+            </div>
+        </div>
+
+        <h3>3.3 How to Label Physical Documents</h3>
+
+        <div class="example-box">
+            <strong>Physical Document Labelling Requirements:</strong>
+            <ul>
+                <li><strong>Stamp or Label:</strong> Apply classification stamp or label at the top and bottom of each page</li>
+                <li><strong>Color Coding:</strong> Use colored paper or labels:
+                    <ul>
+                        <li>Public: No special color</li>
+                        <li>Internal: Yellow</li>
+                        <li>Confidential: Orange</li>
+                        <li>Restricted: Red</li>
+                    </ul>
+                </li>
+                <li><strong>Folders/Envelopes:</strong> Clearly mark containers holding classified documents</li>
+                <li><strong>Cover Sheets:</strong> Use cover sheets for CONFIDENTIAL and RESTRICTED documents when in transit</li>
+            </ul>
+        </div>
+
+        <h3>3.4 Labelling Examples</h3>
+
+        <div class="labelling-examples">
+            <div class="label-example" style="background: #ecf0f1;">
+                <div style="font-size: 12px; color: #95a5a6;">Header/Footer Label</div>
+                <div style="margin: 10px 0; font-size: 16px;">PUBLIC</div>
+            </div>
+            
+            <div class="label-example" style="background: #fef5e7;">
+                <div style="font-size: 12px; color: #f39c12;">Header/Footer Label</div>
+                <div style="margin: 10px 0; font-size: 16px; color: #f39c12;">INTERNAL</div>
+            </div>
+            
+            <div class="label-example" style="background: #fdebd0;">
+                <div style="font-size: 12px; color: #e67e22;">Header/Footer Label</div>
+                <div style="margin: 10px 0; font-size: 16px; color: #e67e22;">CONFIDENTIAL</div>
+            </div>
+            
+            <div class="label-example" style="background: #fadbd8;">
+                <div style="font-size: 12px; color: #e74c3c;">Header/Footer Label</div>
+                <div style="margin: 10px 0; font-size: 16px; color: #e74c3c;">RESTRICTED</div>
+            </div>
+        </div>
+
+        <div class="page-break"></div>
+
+        <h2>4. Handling Labelled Information</h2>
+
+        <h3>4.1 Quick Reference Guide</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Activity</th>
+                    <th>PUBLIC</th>
+                    <th>INTERNAL</th>
+                    <th>CONFIDENTIAL</th>
+                    <th>RESTRICTED</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Email Distribution</strong></td>
+                    <td>Any recipient</td>
+                    <td>Internal + approved partners</td>
+                    <td>Authorized personnel only, encrypted</td>
+                    <td>Approved list only, encrypted</td>
+                </tr>
+                <tr>
+                    <td><strong>Printing</strong></td>
+                    <td>Any printer</td>
+                    <td>Internal printers only</td>
+                    <td>Secure printers, collect immediately</td>
+                    <td>Authorized secure printer only</td>
+                </tr>
+                <tr>
+                    <td><strong>Storage</strong></td>
+                    <td>No restrictions</td>
+                    <td>Password-protected systems</td>
+                    <td>Encrypted storage, access-controlled</td>
+                    <td>Encrypted + audit logging</td>
+                </tr>
+                <tr>
+                    <td><strong>Physical Security</strong></td>
+                    <td>None required</td>
+                    <td>Lock when unattended</td>
+                    <td>Locked cabinet/drawer</td>
+                    <td>Safe or secure room</td>
+                </tr>
+                <tr>
+                    <td><strong>Disposal</strong></td>
+                    <td>Normal trash/delete</td>
+                    <td>Shred or secure delete</td>
+                    <td>Cross-cut shred or certified deletion</td>
+                    <td>Witnessed destruction + certificate</td>
+                </tr>
+                <tr>
+                    <td><strong>Discussion</strong></td>
+                    <td>Anywhere</td>
+                    <td>Office environments</td>
+                    <td>Private areas only</td>
+                    <td>Secure rooms only</td>
+                </tr>
+                <tr>
+                    <td><strong>Mobile Devices</strong></td>
+                    <td>Allowed</td>
+                    <td>Allowed with encryption</td>
+                    <td>Encrypted + MDM required</td>
+                    <td>Prohibited unless specifically approved</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>4.2 Special Handling Scenarios</h3>
+
+        <h4>Scenario 1: Sharing Information Externally</h4>
+        <div class="example-box">
+            <p><strong>Before sharing any classified information with external parties:</strong></p>
+            <ol>
+                <li>Verify the recipient is authorized to receive it</li>
+                <li>Ensure a Non-Disclosure Agreement (NDA) is in place for CONFIDENTIAL or RESTRICTED information</li>
+                <li>Use secure transmission methods (encrypted email, secure file transfer)</li>
+                <li>Include handling instructions with the information</li>
+                <li>Document the disclosure (who, what, when, why)</li>
+            </ol>
+        </div>
+
+        <h4>Scenario 2: Changing Classification Levels</h4>
+        <div class="example-box">
+            <p><strong>Downgrading Classification:</strong> Information may be downgraded when it's no longer sensitive (e.g., after public release). This requires approval from the information owner and documentation of the change.</p>
+            <p><strong>Upgrading Classification:</strong> If information becomes more sensitive, immediately upgrade the classification, relabel the document, and notify all recipients.</p>
+        </div>
+
+        <h4>Scenario 3: Working Remotely</h4>
+        <div class="warning-box">
+            <strong>⚠ Remote Work Considerations:</strong>
+            <ul>
+                <li>Use only approved VPN connections for accessing classified information</li>
+                <li>Ensure home network is secured with strong password</li>
+                <li>Never access CONFIDENTIAL or RESTRICTED information on public WiFi</li>
+                <li>Use privacy screens when working in public spaces</li>
+                <li>Lock your screen when away from your device</li>
+                <li>Do not print classified documents on home printers unless approved</li>
+            </ul>
+        </div>
+
+        <div class="page-break"></div>
+
+        <h2>5. Your Responsibilities</h2>
+
+        <h3>5.1 Employee Obligations</h3>
+        <p>As an employee, you are responsible for:</p>
+
+        <ul class="checklist">
+            <li>Properly classifying and labelling all information you create or handle</li>
+            <li>Applying appropriate security controls based on classification labels</li>
+            <li>Protecting classified information from unauthorized access or disclosure</li>
+            <li>Reporting any suspected or actual security incidents immediately</li>
+            <li>Challenging unclear or missing classification labels</li>
+            <li>Following organizational policies and procedures for information handling</li>
+            <li>Completing required information security training annually</li>
+            <li>Understanding that you can be held accountable for mishandling classified information</li>
+        </ul>
+
+        <h3>5.2 Manager/Information Owner Responsibilities</h3>
+        <p>Managers and information owners have additional responsibilities:</p>
+        <ul>
+            <li>Define appropriate classification for information under their control</li>
+            <li>Approve access to CONFIDENTIAL and RESTRICTED information</li>
+            <li>Review and update classification levels periodically</li>
+            <li>Ensure team members are trained on labelling procedures</li>
+            <li>Monitor compliance with information handling requirements</li>
+            <li>Investigate and address policy violations</li>
+        </ul>
+
+        <div class="tip-box">
+            <strong>💡 Remember:</strong> When creating a new document, always ask yourself: "What would happen if this information was disclosed to unauthorized parties?" This will help you determine the appropriate classification level.
+        </div>
+
+        <h2>6. Common Mistakes to Avoid</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Mistake</th>
+                    <th>Why It's Wrong</th>
+                    <th>Correct Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Not labelling documents at all</td>
+                    <td>Others won't know how to handle the information properly</td>
+                    <td>Always label documents according to their sensitivity</td>
+                </tr>
+                <tr>
+                    <td>Under-classifying sensitive information</td>
+                    <td>Information may not receive adequate protection</td>
+                    <td>When in doubt, classify at a higher level</td>
+                </tr>
+                <tr>
+                    <td>Over-classifying routine information</td>
+                    <td>Creates unnecessary restrictions and reduces productivity</td>
+                    <td>Use the lowest appropriate classification</td>
+                </tr>
+                <tr>
+                    <td>Removing or ignoring labels</td>
+                    <td>Defeats the purpose of classification system</td>
+                    <td>Maintain labels throughout document lifecycle</td>
+                </tr>
+                <tr>
+                    <td>Sharing login credentials</td>
+                    <td>Bypasses access controls and creates accountability issues</td>
+                    <td>Never share credentials; request proper access</td>
+                </tr>
+                <tr>
+                    <td>Discussing confidential matters in public</td>
+                    <td>Risk of unauthorized disclosure or eavesdropping</td>
+                    <td>Only discuss sensitive topics in private settings</td>
+                </tr>
+                <tr>
+                    <td>Using personal email for work documents</td>
+                    <td>Lack of security controls and organizational oversight</td>
+                    <td>Always use company email and approved systems</td>
+                </tr>
+                <tr>
+                    <td>Leaving classified documents visible</td>
+                    <td>Risk of unauthorized viewing or theft</td>
+                    <td>Use clear desk policy; lock documents away</td>
+                </tr>
+            </tbody

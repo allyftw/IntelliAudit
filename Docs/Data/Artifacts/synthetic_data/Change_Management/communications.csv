@@ -1,0 +1,36 @@
+CRF_ID,Communication_Date,Communication_Method,Stakeholder_Group,Recipients_Count,Training_Required,Training_Completed,Communication_Owner
+CRF-2024-0001,2024-03-29,Department briefing,All employees,45,Yes,No,Lisa Anderson
+CRF-2024-0002,2024-12-18,Department briefing,Specific departments,79,Yes,Yes,Lisa Anderson
+CRF-2024-0003,2024-12-27,Training session,Third-party vendors,121,Yes,N/A,Sarah Johnson
+CRF-2024-0004,2024-05-15,Department briefing,Third-party vendors,55,No,Yes,Rachel Davis
+CRF-2024-0005,2024-04-25,Team meeting,Management team,41,Yes,Yes,Sarah Johnson
+CRF-2024-0006,2024-06-06,Department briefing,Third-party vendors,150,No,No,Sarah Johnson
+CRF-2024-0007,2024-08-27,Training session,Third-party vendors,108,No,N/A,Rachel Davis
+CRF-2024-0008,2024-09-09,Internal portal announcement,All employees,158,Yes,No,Rachel Davis
+CRF-2024-0009,2024-06-14,Department briefing,Management team,11,Yes,Yes,Rachel Davis
+CRF-2024-0010,2024-10-21,Department briefing,All employees,200,No,N/A,Sarah Johnson
+CRF-2024-0011,2024-03-30,Internal portal announcement,Contractors,171,No,No,Sarah Johnson
+CRF-2024-0012,2024-10-26,Internal portal announcement,Third-party vendors,130,Yes,No,Lisa Anderson
+CRF-2024-0013,2024-07-28,Training session,Management team,176,Yes,Yes,Lisa Anderson
+CRF-2024-0014,2024-07-29,Internal portal announcement,Management team,174,No,N/A,Sarah Johnson
+CRF-2024-0015,2024-08-20,Email notification,Management team,69,No,Yes,Lisa Anderson
+CRF-2024-0016,2024-09-20,Email notification,Third-party vendors,143,No,No,Sarah Johnson
+CRF-2024-0017,2024-04-06,Department briefing,Management team,164,No,N/A,Lisa Anderson
+CRF-2024-0018,2024-01-27,Team meeting,Management team,145,Yes,No,Lisa Anderson
+CRF-2024-0019,2024-12-23,Internal portal announcement,All employees,12,Yes,N/A,Sarah Johnson
+CRF-2024-0020,2024-06-08,Department briefing,All employees,146,No,Yes,Sarah Johnson
+CRF-2024-0021,2024-02-28,Internal portal announcement,All employees,170,Yes,No,Rachel Davis
+CRF-2024-0022,2024-05-29,Department briefing,Third-party vendors,74,No,No,Lisa Anderson
+CRF-2024-0023,2024-05-04,Internal portal announcement,Contractors,42,No,Yes,Rachel Davis
+CRF-2024-0024,2024-09-17,Team meeting,All employees,75,No,No,Rachel Davis
+CRF-2024-0025,2024-05-16,Email notification,Management team,190,No,N/A,Rachel Davis
+CRF-2024-0026,2024-12-03,Internal portal announcement,IT Department,119,No,No,Lisa Anderson
+CRF-2024-0027,2024-10-09,Department briefing,Specific departments,121,No,Yes,Rachel Davis
+CRF-2024-0028,2024-05-02,Department briefing,Specific departments,64,No,Yes,Lisa Anderson
+CRF-2024-0029,2024-08-30,Internal portal announcement,Specific departments,174,Yes,No,Sarah Johnson
+CRF-2024-0030,2024-03-05,Department briefing,Contractors,89,Yes,No,Sarah Johnson
+CRF-2024-0031,2024-09-26,Internal portal announcement,All employees,189,Yes,No,Rachel Davis
+CRF-2024-0032,2024-03-20,Email notification,Specific departments,72,No,N/A,Rachel Davis
+CRF-2024-0033,2024-07-22,Email notification,Management team,177,No,No,Rachel Davis
+CRF-2024-0034,2024-09-06,Department briefing,All employees,163,Yes,Yes,Rachel Davis
+CRF-2024-0035,2024-12-16,Training session,IT Department,196,Yes,No,Sarah Johnson

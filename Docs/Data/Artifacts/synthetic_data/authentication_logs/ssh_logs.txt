@@ -1,0 +1,800 @@
+Sun Nov 02 2025 02:27:11 www2 sshd[36200]: Accepted password for root from 152.198.78.253 port 4787 ssh2
+Thu Oct 30 2025 01:39:08 www1 sshd[43153]: Accepted password for root from 151.75.68.78 port 2983 ssh2
+Fri Oct 31 2025 18:25:42 dbsv1 sshd[9662]: Failed password for invalid user testuser from 122.246.58.92 port 3584 ssh2
+Sat Oct 18 2025 14:24:43 www1 sshd[39043]: Failed password for  admin from 215.130.181.195 port 2807 ssh2
+Fri Oct 17 2025 06:28:23 appsv1 sshd[7253]: Failed password for invalid user mailman from 40.155.135.178 port 2392 ssh2
+Fri Oct 17 2025 07:33:31 appsv1 sshd[6329]: Failed password for invalid user git from 173.249.164.69 port 4110 ssh2
+Fri Oct 31 2025 12:45:45 www2 sshd[9528]: Failed password for invalid user mongodb from 134.47.11.142 port 2590 ssh2
+Thu Nov 06 2025 02:17:22 mailsv1 sshd[35748]: pam_unix(sshd:session): session opened for user oracle by (uid=0)
+Thu Oct 23 2025 17:25:14 www1 sshd[1511]: Failed password for invalid user operator from 78.148.172.224 port 3235 ssh2
+Wed Oct 29 2025 06:26:17 mailsv1 sshd[57481]: Server listening on :: port 22.
+Tue Oct 21 2025 14:58:04 mailsv1 sshd[6196]: Accepted password for admin from 131.103.167.18 port 4394 ssh2
+Tue Oct 21 2025 11:20:01 mailsv1 sshd[39155]: Failed password for invalid user news from 29.245.56.175 port 3991 ssh2
+Thu Oct 09 2025 14:30:54 www1 sshd[55790]: Server listening on :: port 22.
+Fri Oct 24 2025 11:07:55 www1 sshd[62295]: Failed password for invalid user itmadmin from 2.58.237.70 port 2335 ssh2
+Mon Nov 03 2025 12:58:03 appsv1 sshd[25345]: Failed password for invalid user yp from 20.187.111.26 port 4984 ssh2
+Thu Oct 09 2025 13:52:51 www1 sshd[3870]: Failed password for invalid user amanda from 49.171.118.249 port 4178 ssh2
+Fri Oct 24 2025 18:11:03 www2 sshd[22224]: Failed password for  mysql from 200.28.61.35 port 2203 ssh2
+Wed Oct 29 2025 01:45:44 appsv1 sshd[36475]: Failed password for invalid user email from 20.68.117.114 port 1521 ssh2
+Thu Nov 06 2025 06:01:49 appsv1 sshd[62801]: pam_unix(sshd:session): session closed for user admin by (uid=0)
+Thu Oct 16 2025 23:02:09 mailsv1 sshd[18585]: Server listening on :: port 22.
+Fri Oct 17 2025 13:56:44 dbsv1 sshd[7134]: pam_unix(sshd:session): session closed for user operator by (uid=0)
+Sat Oct 11 2025 23:48:34 www1 sshd[40948]: Failed password for  apache from 6.132.2.221 port 1046 ssh2
+Sun Nov 02 2025 13:07:48 www1 sshd[34755]: Failed password for invalid user doc from 194.54.62.2 port 2343 ssh2
+Wed Oct 29 2025 00:41:00 dbsv1 sshd[63230]: Accepted password for apache from 39.168.228.120 port 1600 ssh2
+Thu Oct 30 2025 21:41:19 dbsv1 sshd[23640]: Accepted password for apache from 68.18.126.65 port 4608 ssh2
+Thu Oct 23 2025 13:23:50 dbsv1 sshd[31442]: pam_unix(sshd:session): session closed for user guest by (uid=0)
+Wed Oct 15 2025 03:05:50 www1 sshd[27958]: Failed password for invalid user doc from 139.122.81.228 port 4314 ssh2
+Sat Nov 01 2025 17:41:38 www2 sshd[57697]: Failed password for invalid user amanda from 95.173.171.212 port 4689 ssh2
+Wed Oct 29 2025 12:36:07 www2 sshd[31485]: Accepted password for root from 38.6.189.166 port 2141 ssh2
+Wed Nov 05 2025 01:11:15 appsv1 sshd[45185]: Failed password for  apache from 152.203.255.222 port 4012 ssh2
+Fri Oct 31 2025 19:29:58 mailsv1 sshd[4812]: Failed password for invalid user appserver from 62.92.177.138 port 3064 ssh2
+Sat Oct 11 2025 19:41:18 mailsv1 sshd[27227]: Accepted password for guest from 38.34.159.213 port 1315 ssh2
+Fri Oct 17 2025 00:01:20 appsv1 sshd[47898]: pam_unix(sshd:session): session closed for user operator by (uid=0)
+Mon Nov 03 2025 00:53:17 www2 sshd[8659]: Failed password for invalid user mailman from 10.243.251.225 port 4699 ssh2
+Wed Oct 15 2025 11:31:32 www1 sshd[63317]: pam_unix(sshd:session): session closed for user nagios by (uid=0)
+Thu Nov 06 2025 05:37:10 www1 sshd[31844]: Server listening on :: port 22.
+Tue Oct 21 2025 05:12:19 dbsv1 sshd[5084]: Failed password for invalid user vmware from 80.127.68.160 port 4108 ssh2
+Wed Oct 08 2025 06:39:00 www2 sshd[64654]: pam_unix(sshd:session): session closed for user oracle by (uid=0)
+Tue Oct 28 2025 03:30:46 www1 sshd[11977]: Failed password for  root from 64.28.83.131 port 3684 ssh2
+Wed Nov 05 2025 13:45:12 mailsv1 sshd[1572]: Failed password for invalid user email from 8.19.23.113 port 4941 ssh2
+Fri Oct 17 2025 11:18:02 www1 sshd[25090]: Failed password for invalid user appserver from 55.253.80.50 port 3985 ssh2
+Sun Nov 02 2025 10:41:59 mailsv1 sshd[49178]: Failed password for  admin from 202.96.128.185 port 4785 ssh2
+Sun Oct 26 2025 18:13:42 www2 sshd[18995]: Failed password for  operator from 22.252.235.41 port 3460 ssh2
+Wed Nov 05 2025 22:31:09 appsv1 sshd[7863]: Failed password for  admin from 73.230.33.230 port 2334 ssh2
+Sat Oct 25 2025 15:45:31 dbsv1 sshd[16195]: Failed password for invalid user appserver from 156.52.99.167 port 1095 ssh2
+Tue Oct 28 2025 20:32:46 mailsv1 sshd[6863]: Failed password for  root from 213.174.3.187 port 4312 ssh2
+Wed Oct 22 2025 21:14:18 appsv1 sshd[32388]: pam_unix(sshd:session): session closed for user oracle by (uid=0)
+Wed Oct 08 2025 13:48:27 dbsv1 sshd[51199]: Accepted password for admin from 71.178.183.201 port 2259 ssh2
+Fri Oct 31 2025 21:08:56 mailsv1 sshd[21304]: pam_unix(sshd:session): session opened for user root by (uid=0)
+Fri Oct 10 2025 21:33:34 mailsv1 sshd[10760]: Failed password for invalid user cyrus from 138.182.112.216 port 1748 ssh2
+Mon Nov 03 2025 16:07:39 www2 sshd[44794]: pam_unix(sshd:session): session opened for user root by (uid=0)
+Thu Nov 06 2025 14:02:52 appsv1 sshd[27333]: Failed password for  operator from 222.140.161.255 port 1336 ssh2
+Tue Nov 04 2025 12:33:29 www2 sshd[48472]: Failed password for invalid user doc from 7.28.91.53 port 4646 ssh2
+Fri Oct 31 2025 04:29:12 www1 sshd[33673]: Failed password for  apache from 204.134.17.197 port 3078 ssh2
+Fri Oct 17 2025 19:34:09 appsv1 sshd[27061]: Accepted password for oracle from 47.83.43.192 port 3389 ssh2
+Wed Nov 05 2025 11:26:25 mailsv1 sshd[49577]: Failed password for invalid user doc from 28.239.230.119 port 4433 ssh2
+Wed Oct 08 2025 21:54:24 www1 sshd[46362]: pam_unix(sshd:session): session opened for user apache by (uid=0)
+Fri Oct 31 2025 23:48:53 appsv1 sshd[29018]: Failed password for invalid user inet from 211.41.53.113 port 2862 ssh2
+Sun Nov 02 2025 02:21:32 www1 sshd[55412]: pam_unix(sshd:session): session opened for user nagios by (uid=0)
+Tue Nov 04 2025 00:30:21 www1 sshd[1787]: pam_unix(sshd:session): session closed for user nagios by (uid=0)
+Thu Oct 30 2025 08:56:47 appsv1 sshd[24992]: Failed password for invalid user proxy from 146.21.125.18 port 2505 ssh2
+Fri Oct 17 2025 06:35:22 www1 sshd[2235]: pam_unix(sshd:session): session closed for user guest by (uid=0)
+Thu Oct 16 2025 10:53:32 www2 sshd[32071]: Failed password for invalid user doc from 153.223.9.108 port 2127 ssh2
+Mon Oct 20 2025 17:15:41 appsv1 sshd[43707]: pam_unix(sshd:session): session opened for user mysql by (uid=0)
+Wed Oct 22 2025 09:39:14 www2 sshd[35400]: Failed password for invalid user irc from 62.251.145.96 port 3083 ssh2
+Sat Oct 25 2025 22:55:09 mailsv1 sshd[38414]: Server listening on :: port 22.
+Thu Oct 30 2025 18:58:06 www1 sshd[10401]: Failed password for  apache from 130.170.27.140 port 4386 ssh2
+Mon Oct 13 2025 07:22:42 mailsv1 sshd[26302]: Failed password for  apache from 75.24.79.87 port 1901 ssh2
+Sun Oct 26 2025 21:25:58 www1 sshd[16684]: pam_unix(sshd:session): session opened for user apache by (uid=0)
+Thu Oct 09 2025 01:57:03 www1 sshd[36452]: Failed password for  root from 44.12.27.161 port 3105 ssh2
+Sat Oct 18 2025 05:13:58 appsv1 sshd[56488]: pam_unix(sshd:session): session closed for user apache by (uid=0)
+Wed Oct 29 2025 19:42:37 www1 sshd[22459]: Failed password for invalid user redmine from 10.218.70.188 port 4473 ssh2
+Wed Oct 22 2025 22:15:30 appsv1 sshd[62254]: Failed password for invalid user git from 130.220.180.59 port 4535 ssh2
+Mon Nov 03 2025 23:38:18 www2 sshd[54327]: Failed password for  mysql from 75.226.152.223 port 4979 ssh2
+Mon Nov 03 2025 10:27:28 dbsv1 sshd[63683]: Failed password for  guest from 178.85.183.131 port 2816 ssh2
+Wed Oct 29 2025 02:03:59 dbsv1 sshd[20768]: Failed password for  guest from 16.127.188.73 port 4526 ssh2
+Thu Oct 09 2025 00:31:48 www2 sshd[1531]: Failed password for  root from 39.113.247.170 port 4435 ssh2
+Tue Nov 04 2025 09:27:59 appsv1 sshd[37687]: Failed password for invalid user doc from 79.98.129.192 port 3478 ssh2
+Mon Oct 27 2025 10:52:10 www2 sshd[16438]: Server listening on :: port 22.
+Thu Nov 06 2025 04:43:51 www1 sshd[46755]: Failed password for invalid user testuser from 196.233.218.77 port 2563 ssh2
+Sat Oct 18 2025 19:38:45 dbsv1 sshd[31963]: Failed password for invalid user amanda from 170.45.212.185 port 3674 ssh2
+Sun Oct 12 2025 08:13:49 www1 sshd[10816]: Failed password for invalid user itmadmin from 144.134.27.155 port 2878 ssh2
+Mon Nov 03 2025 02:57:42 appsv1 sshd[5699]: Failed password for  root from 51.210.196.148 port 1747 ssh2
+Mon Oct 13 2025 19:28:21 mailsv1 sshd[30845]: Failed password for invalid user mongodb from 216.185.66.245 port 3782 ssh2
+Sun Oct 19 2025 22:35:17 mailsv1 sshd[17711]: Failed password for  guest from 90.121.19.73 port 2793 ssh2
+Sat Oct 18 2025 23:29:47 mailsv1 sshd[18326]: Failed password for invalid user news from 170.194.11.95 port 3740 ssh2
+Sat Nov 01 2025 04:00:12 appsv1 sshd[34455]: Failed password for invalid user amanda from 16.85.112.172 port 4116 ssh2
+Sun Oct 26 2025 11:04:06 appsv1 sshd[18675]: Failed password for  nagios from 60.190.132.61 port 1474 ssh2
+Sat Oct 11 2025 12:45:40 appsv1 sshd[23095]: Failed password for invalid user mongodb from 132.131.120.146 port 1405 ssh2
+Sun Oct 26 2025 19:01:53 appsv1 sshd[26869]: pam_unix(sshd:session): session opened for user apache by (uid=0)
+Thu Oct 09 2025 15:50:30 www1 sshd[56181]: Failed password for invalid user news from 5.86.196.94 port 1366 ssh2
+Tue Nov 04 2025 23:17:02 www1 sshd[43240]: Failed password for invalid user itmadmin from 123.47.133.220 port 3465 ssh2
+Thu Oct 16 2025 05:01:21 mailsv1 sshd[3983]: Failed password for invalid user desktop from 48.188.103.30 port 1477 ssh2
+Fri Oct 10 2025 22:04:33 www2 sshd[25707]: pam_unix(sshd:session): session opened for user apache by (uid=0)
+Wed Nov 05 2025 04:06:43 www1 sshd[30968]: Failed password for invalid user local from 3.253.235.30 port 3654 ssh2
+Mon Oct 13 2025 16:31:44 www1 sshd[22292]: Accepted password for nagios from 8.146.53.29 port 1245 ssh2
+Tue Oct 21 2025 17:36:38 www1 sshd[53169]: Failed password for invalid user guest from 78.162.30.251 port 4602 ssh2
+Wed Oct 08 2025 19:20:39 www2 sshd[26101]: Accepted password for root from 37.89.213.125 port 3830 ssh2
+Thu Oct 30 2025 12:59:29 www2 sshd[21304]: Failed password for invalid user appserver from 163.222.55.46 port 4905 ssh2
+Mon Oct 20 2025 17:50:40 www2 sshd[38381]: Failed password for invalid user guest from 41.34.245.106 port 3604 ssh2
+Mon Oct 20 2025 22:13:07 dbsv1 sshd[6026]: Failed password for invalid user irc from 182.12.9.153 port 1092 ssh2
+Thu Oct 30 2025 17:19:01 dbsv1 sshd[60474]: Failed password for  admin from 177.102.118.244 port 2909 ssh2
+Fri Oct 24 2025 17:29:55 www2 sshd[58014]: Failed password for invalid user testuser from 201.93.138.50 port 3665 ssh2
+Sun Nov 02 2025 10:47:33 www2 sshd[45666]: Failed password for invalid user git from 114.206.247.129 port 2372 ssh2
+Sat Oct 18 2025 04:02:45 www2 sshd[1454]: pam_unix(sshd:session): session opened for user operator by (uid=0)
+Sun Oct 19 2025 09:42:22 www2 sshd[61218]: pam_unix(sshd:session): session opened for user mysql by (uid=0)
+Wed Oct 22 2025 19:59:23 www2 sshd[24170]: Failed password for  apache from 115.28.3.79 port 1032 ssh2
+Fri Oct 17 2025 17:48:05 appsv1 sshd[14921]: Failed password for  mysql from 176.207.86.58 port 3370 ssh2
+Sun Nov 02 2025 19:19:28 www2 sshd[24052]: Failed password for invalid user mailman from 79.186.203.192 port 4657 ssh2
+Sat Oct 25 2025 17:09:24 appsv1 sshd[45894]: Server listening on :: port 22.
+Sat Oct 11 2025 23:11:00 dbsv1 sshd[32499]: Failed password for  admin from 194.58.19.1 port 3798 ssh2
+Sat Oct 11 2025 00:08:42 dbsv1 sshd[34839]: Failed password for invalid user amanda from 65.30.24.34 port 3825 ssh2
+Sun Oct 26 2025 05:20:37 mailsv1 sshd[23612]: Failed password for invalid user amanda from 109.37.129.8 port 2774 ssh2
+Sat Oct 18 2025 18:37:46 www1 sshd[1392]: Server listening on :: port 22.
+Tue Oct 28 2025 04:40:10 www1 sshd[21960]: Failed password for invalid user git from 64.56.12.128 port 3931 ssh2
+Fri Oct 24 2025 13:06:50 www1 sshd[44968]: Failed password for  guest from 161.234.13.210 port 2252 ssh2
+Sun Nov 02 2025 09:00:13 appsv1 sshd[26858]: Accepted password for nagios from 177.32.81.186 port 1435 ssh2
+Fri Oct 24 2025 13:46:53 www2 sshd[4598]: pam_unix(sshd:session): session opened for user apache by (uid=0)
+Tue Nov 04 2025 18:45:12 www2 sshd[52228]: Accepted password for operator from 146.19.246.138 port 3636 ssh2
+Tue Oct 28 2025 05:36:03 appsv1 sshd[44590]: pam_unix(sshd:session): session closed for user apache by (uid=0)
+Tue Oct 28 2025 03:38:09 www2 sshd[9032]: Accepted password for root from 150.22.224.74 port 1162 ssh2
+Thu Nov 06 2025 01:39:21 dbsv1 sshd[32355]: pam_unix(sshd:session): session opened for user mysql by (uid=0)
+Tue Nov 04 2025 05:56:55 www1 sshd[43458]: Server listening on :: port 22.
+Tue Oct 14 2025 09:07:34 appsv1 sshd[24568]: Failed password for  mysql from 43.40.154.33 port 4435 ssh2
+Wed Nov 05 2025 13:21:00 appsv1 sshd[10471]: pam_unix(sshd:session): session opened for user operator by (uid=0)
+Mon Nov 03 2025 02:57:23 mailsv1 sshd[59870]: Failed password for invalid user local from 33.87.8.171 port 1016 ssh2
+Mon Oct 20 2025 14:48:43 www1 sshd[23103]: Failed password for invalid user redmine from 34.185.56.37 port 2036 ssh2
+Tue Oct 21 2025 11:06:45 www2 sshd[9620]: Failed password for invalid user yp from 142.134.238.167 port 1832 ssh2
+Thu Nov 06 2025 06:57:14 www2 sshd[58314]: Failed password for invalid user yp from 86.150.151.107 port 4298 ssh2
+Mon Oct 13 2025 21:47:39 www1 sshd[62671]: Failed password for invalid user proxy from 58.188.4.65 port 2803 ssh2
+Tue Oct 21 2025 11:34:49 appsv1 sshd[20462]: Failed password for invalid user testuser from 28.110.31.181 port 1565 ssh2
+Tue Oct 21 2025 13:41:38 www2 sshd[8673]: pam_unix(sshd:session): session opened for user root by (uid=0)
+Sat Oct 11 2025 15:48:15 dbsv1 sshd[46011]: Failed password for invalid user appserver from 11.239.165.40 port 4671 ssh2
+Tue Oct 14 2025 04:10:20 appsv1 sshd[52880]: Failed password for invalid user proxy from 97.142.139.117 port 2462 ssh2
+Wed Nov 05 2025 02:31:30 www1 sshd[14983]: pam_unix(sshd:session): session opened for user nagios by (uid=0)
+Mon Nov 03 2025 16:13:00 www2 sshd[15487]: pam_unix(sshd:session): session closed for user nagios by (uid=0)
+Sat Oct 18 2025 21:49:46 dbsv1 sshd[38684]: Failed password for invalid user itmadmin from 57.36.30.152 port 2765 ssh2
+Sat Oct 11 2025 21:43:13 www2 sshd[19268]: Failed password for invalid user vmware from 92.242.206.207 port 2594 ssh2
+Thu Oct 16 2025 16:11:32 www1 sshd[3562]: Server listening on :: port 22.
+Thu Oct 09 2025 04:35:57 dbsv1 sshd[41907]: pam_unix(sshd:session): session opened for user mysql by (uid=0)
+Mon Oct 27 2025 10:54:38 mailsv1 sshd[56704]: Failed password for  root from 207.116.75.19 port 2317 ssh2
+Mon Oct 13 2025 01:47:19 www1 sshd[42188]: Failed password for invalid user email from 22.155.67.234 port 4364 ssh2
+Sun Oct 19 2025 05:51:37 www1 sshd[37890]: Failed password for  admin from 145.126.19.23 port 4070 ssh2
+Thu Nov 06 2025 04:10:37 www1 sshd[54026]: Failed password for  mysql from 137.249.138.30 port 4052 ssh2
+Sun Oct 26 2025 21:39:11 mailsv1 sshd[34146]: Failed password for invalid user redmine from 140.168.234.62 port 2298 ssh2
+Sun Oct 12 2025 04:27:13 www1 sshd[45362]: pam_unix(sshd:session): session closed for user root by (uid=0)
+Sun Nov 02 2025 16:56:36 dbsv1 sshd[13675]: Failed password for  admin from 95.37.216.205 port 3020 ssh2
+Fri Oct 17 2025 03:38:10 dbsv1 sshd[32444]: Failed password for invalid user email from 204.72.76.56 port 3865 ssh2
+Mon Oct 27 2025 22:49:04 www1 sshd[41696]: Failed password for invalid user inet from 161.95.59.116 port 3113 ssh2
+Wed Oct 08 2025 07:25:02 mailsv1 sshd[52946]: Failed password for invalid user amanda from 209.176.38.115 port 3655 ssh2
+Fri Oct 17 2025 14:38:52 mailsv1 sshd[5711]: Failed password for invalid user doc from 86.212.28.241 port 1847 ssh2
+Mon Oct 13 2025 18:07:36 appsv1 sshd[57336]: Failed password for  mysql from 107.104.127.30 port 3484 ssh2
+Thu Oct 16 2025 21:24:22 www2 sshd[18396]: Failed password for invalid user itmadmin from 84.49.39.10 port 2391 ssh2
+Sat Oct 25 2025 04:02:40 www1 sshd[37742]: pam_unix(sshd:session): session closed for user root by (uid=0)
+Fri Oct 17 2025 19:46:07 dbsv1 sshd[37250]: Failed password for invalid user inet from 108.218.18.176 port 2890 ssh2
+Fri Oct 10 2025 17:02:28 appsv1 sshd[20141]: Failed password for invalid user mailman from 2.155.170.81 port 4238 ssh2
+Sun Oct 12 2025 13:30:23 appsv1 sshd[14492]: Failed password for  nagios from 90.56.50.0 port 3476 ssh2
+Sun Oct 12 2025 09:55:24 appsv1 sshd[37669]: Failed password for invalid user desktop from 7.193.172.178 port 4432 ssh2
+Tue Oct 28 2025 15:51:45 dbsv1 sshd[52818]: pam_unix(sshd:session): session opened for user guest by (uid=0)
+Wed Nov 05 2025 22:46:17 www1 sshd[39153]: Accepted password for root from 137.98.167.26 port 1547 ssh2
+Mon Nov 03 2025 22:34:29 appsv1 sshd[23690]: Failed password for invalid user local from 66.133.44.194 port 1691 ssh2
+Sat Oct 11 2025 17:35:33 www2 sshd[56434]: pam_unix(sshd:session): session opened for user root by (uid=0)
+Tue Oct 21 2025 23:18:55 www2 sshd[37426]: Failed password for invalid user vmware from 187.152.166.206 port 1275 ssh2
+Tue Nov 04 2025 14:14:24 mailsv1 sshd[61285]: Failed password for invalid user vmware from 139.163.41.175 port 3861 ssh2
+Tue Oct 21 2025 02:02:30 dbsv1 sshd[64501]: pam_unix(sshd:session): session opened for user nagios by (uid=0)
+Wed Nov 05 2025 01:30:59 www1 sshd[35984]: pam_unix(sshd:session): session opened for user nagios by (uid=0)
+Thu Nov 06 2025 07:11:19 www2 sshd[22311]: Failed password for invalid user amanda from 210.52.88.201 port 2564 ssh2
+Sun Oct 12 2025 23:34:16 www1 sshd[61226]: Server listening on :: port 22.
+Tue Nov 04 2025 04:01:54 dbsv1 sshd[36358]: Failed password for invalid user mailman from 76.157.206.202 port 4192 ssh2
+Wed Nov 05 2025 12:17:44 dbsv1 sshd[60800]: pam_unix(sshd:session): session closed for user oracle by (uid=0)
+Sat Oct 18 2025 07:21:15 www2 sshd[31667]: Failed password for  operator from 197.250.159.183 port 2981 ssh2
+Wed Oct 08 2025 03:26:58 dbsv1 sshd[10755]: Accepted password for oracle from 221.94.29.119 port 3328 ssh2
+Thu Nov 06 2025 09:59:13 appsv1 sshd[42327]: pam_unix(sshd:session): session opened for user root by (uid=0)
+Mon Oct 13 2025 10:13:05 dbsv1 sshd[25820]: Failed password for invalid user itmadmin from 126.12.0.229 port 1284 ssh2
+Wed Oct 22 2025 08:28:48 www2 sshd[30387]: Failed password for invalid user proxy from 209.170.19.31 port 4658 ssh2
+Mon Oct 27 2025 03:32:00 www1 sshd[58091]: Failed password for invalid user cyrus from 144.214.217.137 port 2217 ssh2
+Tue Oct 21 2025 03:11:31 dbsv1 sshd[9346]: Failed password for  admin from 17.75.105.214 port 4747 ssh2
+Wed Oct 15 2025 20:24:14 appsv1 sshd[59124]: Failed password for invalid user irc from 199.234.138.114 port 2004 ssh2
+Mon Oct 27 2025 10:44:14 www1 sshd[47181]: Failed password for invalid user itmadmin from 34.2.7.72 port 2286 ssh2
+Sat Oct 11 2025 14:01:46 www2 sshd[2045]: pam_unix(sshd:session): session opened for user root by (uid=0)
+Wed Oct 29 2025 16:54:12 dbsv1 sshd[3319]: Failed password for invalid user desktop from 88.92.234.103 port 3868 ssh2
+Mon Oct 13 2025 15:42:15 www2 sshd[3908]: Failed password for invalid user email from 28.109.191.215 port 1029 ssh2
+Wed Oct 08 2025 17:52:10 appsv1 sshd[9029]: Failed password for invalid user email from 152.2.83.108 port 3628 ssh2
+Fri Oct 17 2025 17:37:07 mailsv1 sshd[36446]: pam_unix(sshd:session): session opened for user mysql by (uid=0)
+Sun Oct 19 2025 21:08:31 dbsv1 sshd[1683]: Failed password for  guest from 54.40.200.4 port 3817 ssh2
+Wed Oct 29 2025 05:43:33 appsv1 sshd[57410]: Failed password for invalid user yp from 7.233.31.236 port 4436 ssh2
+Thu Oct 16 2025 02:44:35 www1 sshd[37724]: Accepted password for guest from 92.202.189.58 port 2154 ssh2
+Tue Nov 04 2025 05:28:49 mailsv1 sshd[22997]: Failed password for  apache from 84.100.43.164 port 1700 ssh2
+Sun Nov 02 2025 12:13:35 www1 sshd[17138]: Accepted password for oracle from 208.188.122.32 port 2071 ssh2
+Fri Oct 31 2025 23:42:19 appsv1 sshd[64870]: pam_unix(sshd:session): session opened for user operator by (uid=0)
+Tue Oct 14 2025 22:53:36 www1 sshd[10528]: Failed password for  guest from 105.10.18.160 port 2711 ssh2
+Sun Oct 12 2025 06:50:45 mailsv1 sshd[19936]: pam_unix(sshd:session): session opened for user guest by (uid=0)
+Sun Nov 02 2025 13:49:07 mailsv1 sshd[20635]: Failed password for  apache from 64.220.81.189 port 4150 ssh2
+Wed Oct 29 2025 18:14:39 dbsv1 sshd[28305]: Accepted password for root from 36.129.38.194 port 3409 ssh2
+Sun Oct 12 2025 08:27:25 dbsv1 sshd[7677]: pam_unix(sshd:session): session closed for user guest by (uid=0)
+Sun Oct 26 2025 14:17:01 dbsv1 sshd[26802]: Failed password for invalid user doc from 38.197.246.174 port 3961 ssh2
+Sun Oct 26 2025 01:00:30 www1 sshd[3506]: Failed password for invalid user guest from 72.224.180.160 port 1989 ssh2
+Mon Oct 13 2025 15:37:01 www1 sshd[5607]: Failed password for invalid user irc from 178.152.211.163 port 1720 ssh2
+Mon Oct 13 2025 05:34:31 mailsv1 sshd[24803]: Failed password for  oracle from 178.238.69.158 port 4018 ssh2
+Tue Oct 07 2025 18:43:38 www2 sshd[21104]: pam_unix(sshd:session): session opened for user apache by (uid=0)
+Mon Oct 13 2025 23:19:09 appsv1 sshd[62026]: pam_unix(sshd:session): session closed for user operator by (uid=0)
+Fri Oct 17 2025 06:39:11 www1 sshd[36394]: Failed password for invalid user redmine from 15.157.224.108 port 4529 ssh2
+Sat Nov 01 2025 04:35:54 appsv1 sshd[55247]: Failed password for invalid user news from 159.179.0.93 port 2400 ssh2
+Sat Oct 25 2025 19:53:28 www2 sshd[41992]: Failed password for  nagios from 98.77.244.59 port 1106 ssh2
+Wed Oct 29 2025 14:41:17 appsv1 sshd[50011]: Failed password for  admin from 131.235.201.173 port 2171 ssh2
+Mon Oct 20 2025 22:34:24 www1 sshd[56503]: pam_unix(sshd:session): session closed for user guest by (uid=0)
+Sun Oct 12 2025 22:34:27 appsv1 sshd[5489]: Failed password for  apache from 97.38.177.64 port 1457 ssh2
+Mon Nov 03 2025 00:14:55 dbsv1 sshd[30352]: Failed password for invalid user operator from 140.30.60.244 port 2978 ssh2
+Tue Oct 28 2025 15:56:16 www1 sshd[63899]: Failed password for  apache from 132.217.147.93 port 1202 ssh2
+Mon Oct 13 2025 07:27:52 dbsv1 sshd[6310]: Failed password for  admin from 168.116.151.33 port 3321 ssh2
+Sun Oct 12 2025 12:54:23 www1 sshd[20003]: Failed password for invalid user email from 146.253.115.195 port 4414 ssh2
+Sat Oct 25 2025 17:04:49 www1 sshd[19391]: pam_unix(sshd:session): session opened for user oracle by (uid=0)
+Tue Oct 14 2025 05:06:27 www1 sshd[19938]: Failed password for  root from 117.132.34.15 port 2946 ssh2
+Wed Oct 29 2025 17:28:50 www1 sshd[58909]: pam_unix(sshd:session): session closed for user oracle by (uid=0)
+Thu Oct 16 2025 02:36:18 mailsv1 sshd[38322]: Failed password for  oracle from 104.252.100.207 port 3657 ssh2
+Thu Oct 09 2025 13:09:55 www2 sshd[45491]: Failed password for invalid user local from 35.221.168.160 port 1819 ssh2
+Sun Oct 26 2025 06:15:01 dbsv1 sshd[44431]: Failed password for  guest from 161.71.123.86 port 2121 ssh2
+Mon Oct 27 2025 21:16:00 appsv1 sshd[2571]: Failed password for invalid user doc from 222.69.19.52 port 2725 ssh2
+Wed Oct 08 2025 00:36:03 www2 sshd[29557]: pam_unix(sshd:session): session closed for user mysql by (uid=0)
+Fri Oct 17 2025 05:12:29 appsv1 sshd[63070]: Failed password for invalid user appserver from 187.145.62.13 port 4336 ssh2
+Tue Oct 28 2025 14:34:34 dbsv1 sshd[10855]: Server listening on :: port 22.
+Fri Oct 24 2025 17:47:11 www2 sshd[26668]: Failed password for invalid user guest from 186.53.197.169 port 2167 ssh2
+Tue Oct 21 2025 04:31:41 www2 sshd[11625]: Failed password for invalid user email from 191.95.214.47 port 1868 ssh2
+Sat Oct 18 2025 18:40:51 appsv1 sshd[63636]: pam_unix(sshd:session): session opened for user apache by (uid=0)
+Fri Oct 17 2025 01:39:48 www1 sshd[5423]: Failed password for  mysql from 198.38.22.208 port 3353 ssh2
+Tue Oct 14 2025 12:12:07 appsv1 sshd[13354]: pam_unix(sshd:session): session opened for user apache by (uid=0)
+Sun Oct 19 2025 22:58:08 appsv1 sshd[10525]: pam_unix(sshd:session): session opened for user admin by (uid=0)
+Tue Nov 04 2025 08:50:34 www2 sshd[12551]: Failed password for invalid user git from 171.156.235.99 port 2120 ssh2
+Tue Oct 21 2025 13:46:15 www2 sshd[49396]: pam_unix(sshd:session): session opened for user guest by (uid=0)
+Sun Oct 12 2025 05:53:41 www1 sshd[9615]: Failed password for  operator from 188.86.138.170 port 3637 ssh2
+Mon Oct 20 2025 06:04:17 www2 sshd[62024]: Failed password for  mysql from 72.236.116.73 port 2308 ssh2
+Fri Oct 31 2025 07:30:45 mailsv1 sshd[45605]: Failed password for invalid user amanda from 41.143.129.156 port 1981 ssh2
+Sun Oct 19 2025 15:32:34 dbsv1 sshd[41323]: Failed password for invalid user yp from 75.14.211.167 port 3225 ssh2
+Sun Oct 12 2025 04:42:34 dbsv1 sshd[3710]: Failed password for invalid user vmware from 200.222.51.158 port 3522 ssh2
+Fri Oct 10 2025 12:15:03 dbsv1 sshd[30723]: Failed password for  apache from 41.151.245.112 port 2473 ssh2
+Wed Oct 15 2025 19:00:09 dbsv1 sshd[29216]: pam_unix(sshd:session): session closed for user nagios by (uid=0)
+Sun Oct 19 2025 10:22:07 www1 sshd[42363]: Accepted password for apache from 49.197.86.180 port 2311 ssh2
+Tue Oct 14 2025 11:56:02 www2 sshd[37452]: Failed password for invalid user news from 31.248.237.237 port 3981 ssh2
+Mon Oct 20 2025 15:37:05 www1 sshd[9450]: Failed password for invalid user proxy from 200.163.168.6 port 2477 ssh2
+Wed Oct 22 2025 06:50:52 mailsv1 sshd[24108]: Failed password for invalid user redmine from 150.157.154.177 port 1559 ssh2
+Wed Nov 05 2025 12:11:52 appsv1 sshd[28640]: Failed password for  admin from 84.176.169.18 port 2525 ssh2
+Tue Oct 28 2025 20:17:56 dbsv1 sshd[37370]: Failed password for  apache from 137.13.248.224 port 4160 ssh2
+Tue Oct 14 2025 17:16:17 mailsv1 sshd[1130]: pam_unix(sshd:session): session opened for user oracle by (uid=0)
+Mon Oct 20 2025 03:43:49 www1 sshd[34403]: Server listening on :: port 22.
+Sun Oct 26 2025 14:38:52 appsv1 sshd[45611]: Failed password for  oracle from 51.225.16.209 port 2916 ssh2
+Tue Oct 28 2025 04:28:59 www1 sshd[12392]: Failed password for  operator from 19.230.44.127 port 3627 ssh2
+Sat Oct 25 2025 15:19:30 www2 sshd[33857]: Failed password for invalid user irc from 13.117.34.97 port 4994 ssh2
+Wed Oct 29 2025 09:47:11 mailsv1 sshd[12387]: Failed password for invalid user yp from 162.12.213.187 port 4679 ssh2
+Sat Oct 18 2025 18:03:01 www1 sshd[30289]: Failed password for  apache from 194.64.163.214 port 1715 ssh2
+Wed Oct 08 2025 04:42:45 appsv1 sshd[20248]: pam_unix(sshd:session): session opened for user mysql by (uid=0)
+Mon Oct 13 2025 22:46:11 appsv1 sshd[26852]: pam_unix(sshd:session): session closed for user operator by (uid=0)
+Mon Nov 03 2025 23:16:00 appsv1 sshd[28813]: pam_unix(sshd:session): session opened for user operator by (uid=0)
+Fri Oct 31 2025 06:27:43 dbsv1 sshd[29416]: Failed password for  root from 3.83.1.148 port 2154 ssh2
+Tue Oct 28 2025 14:45:32 appsv1 sshd[45672]: Accepted password for mysql from 218.76.116.50 port 3080 ssh2
+Fri Oct 31 2025 02:42:36 mailsv1 sshd[8740]: Failed password for invalid user cyrus from 142.166.188.45 port 4360 ssh2
+Tue Oct 28 2025 21:47:49 www2 sshd[46435]: Failed password for invalid user itmadmin from 143.241.61.52 port 1461 ssh2
+Wed Oct 22 2025 07:44:41 www1 sshd[18646]: Failed password for invalid user mailman from 16.158.231.16 port 2530 ssh2
+Fri Oct 17 2025 01:39:10 www2 sshd[31081]: Failed password for invalid user desktop from 220.74.230.249 port 1765 ssh2
+Thu Oct 30 2025 04:06:00 dbsv1 sshd[42460]: pam_unix(sshd:session): session opened for user oracle by (uid=0)
+Thu Oct 23 2025 13:00:40 www1 sshd[25401]: Accepted password for mysql from 24.131.33.203 port 1658 ssh2
+Thu Oct 09 2025 16:08:52 mailsv1 sshd[7079]: Failed password for invalid user operator from 44.93.22.222 port 2226 ssh2
+Fri Oct 31 2025 09:41:03 www2 sshd[64668]: Failed password for invalid user inet from 124.146.132.113 port 3916 ssh2
+Sat Oct 18 2025 13:53:06 appsv1 sshd[13915]: Failed password for invalid user inet from 191.40.239.85 port 3774 ssh2
+Wed Oct 15 2025 01:30:11 dbsv1 sshd[40264]: Failed password for invalid user inet from 148.241.20.149 port 1015 ssh2
+Sat Oct 18 2025 08:24:11 www1 sshd[2949]: Failed password for invalid user cyrus from 137.90.8.134 port 4262 ssh2
+Fri Oct 31 2025 04:12:51 mailsv1 sshd[63368]: pam_unix(sshd:session): session closed for user guest by (uid=0)
+Thu Nov 06 2025 05:21:59 appsv1 sshd[47218]: Failed password for invalid user email from 140.205.193.126 port 4125 ssh2
+Sat Nov 01 2025 09:20:23 mailsv1 sshd[38777]: Failed password for  root from 135.180.4.144 port 2028 ssh2
+Thu Oct 16 2025 12:48:27 www1 sshd[40233]: pam_unix(sshd:session): session opened for user apache by (uid=0)
+Thu Oct 23 2025 08:52:59 www1 sshd[17019]: Server listening on :: port 22.
+Fri Oct 31 2025 09:16:20 dbsv1 sshd[34423]: Failed password for invalid user appserver from 32.178.208.180 port 2693 ssh2
+Thu Oct 16 2025 14:38:56 mailsv1 sshd[29706]: Failed password for invalid user git from 103.47.53.185 port 2484 ssh2
+Wed Oct 08 2025 10:09:57 www1 sshd[24953]: Failed password for  operator from 154.248.153.36 port 2155 ssh2
+Fri Oct 10 2025 00:37:57 www2 sshd[15490]: Failed password for invalid user appserver from 20.185.66.143 port 2778 ssh2
+Tue Oct 21 2025 01:34:29 mailsv1 sshd[33889]: Failed password for invalid user testuser from 42.11.239.51 port 4593 ssh2
+Sat Oct 25 2025 11:31:48 dbsv1 sshd[35060]: pam_unix(sshd:session): session closed for user mysql by (uid=0)
+Tue Nov 04 2025 18:31:54 appsv1 sshd[56511]: Failed password for invalid user inet from 22.84.56.41 port 3461 ssh2
+Tue Oct 28 2025 20:29:43 www2 sshd[39380]: Failed password for invalid user news from 21.54.124.90 port 3934 ssh2
+Sat Oct 25 2025 06:13:39 dbsv1 sshd[4339]: pam_unix(sshd:session): session opened for user admin by (uid=0)
+Sat Oct 11 2025 09:10:49 mailsv1 sshd[39539]: pam_unix(sshd:session): session opened for user apache by (uid=0)
+Sat Oct 18 2025 17:30:48 www2 sshd[12652]: Failed password for invalid user vmware from 56.0.121.215 port 2334 ssh2
+Fri Oct 24 2025 04:03:11 mailsv1 sshd[22187]: Failed password for invalid user git from 148.186.132.238 port 1362 ssh2
+Sun Oct 19 2025 12:44:55 www2 sshd[23468]: pam_unix(sshd:session): session opened for user operator by (uid=0)
+Sun Oct 26 2025 23:22:07 mailsv1 sshd[17446]: pam_unix(sshd:session): session opened for user operator by (uid=0)
+Mon Nov 03 2025 03:54:30 mailsv1 sshd[47360]: pam_unix(sshd:session): session closed for user admin by (uid=0)
+Wed Oct 22 2025 13:34:07 appsv1 sshd[26032]: Failed password for  operator from 212.122.39.143 port 4185 ssh2
+Sun Oct 12 2025 05:05:31 dbsv1 sshd[59775]: Accepted password for operator from 11.194.157.158 port 4154 ssh2
+Fri Oct 10 2025 10:06:01 dbsv1 sshd[48928]: Accepted password for nagios from 54.218.106.106 port 3618 ssh2
+Fri Oct 17 2025 19:26:07 appsv1 sshd[43285]: Failed password for invalid user irc from 36.115.241.26 port 3390 ssh2
+Wed Oct 22 2025 10:31:47 www1 sshd[59170]: pam_unix(sshd:session): session closed for user operator by (uid=0)
+Sun Oct 26 2025 22:04:16 www2 sshd[37183]: Failed password for invalid user news from 41.235.66.11 port 4635 ssh2
+Fri Oct 24 2025 02:35:30 mailsv1 sshd[26868]: Failed password for invalid user mailman from 77.67.168.172 port 1879 ssh2
+Tue Oct 21 2025 02:52:49 mailsv1 sshd[56950]: Failed password for invalid user operator from 80.176.52.112 port 2569 ssh2
+Tue Oct 14 2025 11:41:12 www1 sshd[4791]: Failed password for  operator from 65.140.231.223 port 1512 ssh2
+Thu Oct 09 2025 05:44:58 www2 sshd[59980]: pam_unix(sshd:session): session opened for user oracle by (uid=0)
+Wed Oct 22 2025 00:37:14 www1 sshd[49739]: Failed password for invalid user redmine from 78.227.254.117 port 1286 ssh2
+Wed Nov 05 2025 03:56:13 dbsv1 sshd[14167]: Failed password for invalid user git from 200.140.250.46 port 2920 ssh2
+Wed Oct 22 2025 16:22:55 www1 sshd[32741]: Failed password for invalid user proxy from 57.84.238.90 port 3147 ssh2
+Wed Oct 08 2025 05:49:32 appsv1 sshd[8733]: Failed password for invalid user yp from 191.192.83.103 port 2593 ssh2
+Wed Oct 08 2025 08:53:28 www1 sshd[1086]: pam_unix(sshd:session): session opened for user oracle by (uid=0)
+Fri Oct 24 2025 03:59:02 appsv1 sshd[3409]: Server listening on :: port 22.
+Mon Oct 13 2025 22:19:26 www2 sshd[62492]: Accepted password for root from 128.117.47.61 port 2030 ssh2
+Sat Oct 18 2025 03:30:58 dbsv1 sshd[50934]: Failed password for  oracle from 87.143.63.198 port 3456 ssh2
+Wed Oct 22 2025 22:32:55 appsv1 sshd[33746]: Accepted password for guest from 175.45.109.125 port 1337 ssh2
+Tue Oct 14 2025 01:09:43 www1 sshd[25649]: Accepted password for admin from 6.64.87.162 port 3180 ssh2
+Wed Oct 15 2025 15:13:38 www2 sshd[10004]: pam_unix(sshd:session): session opened for user nagios by (uid=0)
+Sun Oct 12 2025 11:03:47 dbsv1 sshd[57275]: Failed password for invalid user operator from 103.6.109.204 port 2062 ssh2
+Fri Oct 17 2025 16:47:29 www2 sshd[17401]: Server listening on :: port 22.
+Sun Oct 19 2025 10:39:25 dbsv1 sshd[30183]: pam_unix(sshd:session): session opened for user root by (uid=0)
+Wed Oct 08 2025 12:42:36 mailsv1 sshd[49212]: Failed password for invalid user operator from 153.246.214.164 port 1582 ssh2
+Mon Oct 13 2025 19:15:59 appsv1 sshd[14518]: Failed password for invalid user email from 88.204.3.184 port 2273 ssh2
+Fri Oct 31 2025 19:17:58 www2 sshd[64779]: Failed password for invalid user itmadmin from 182.148.35.51 port 4214 ssh2
+Mon Oct 13 2025 16:03:51 www1 sshd[48655]: Failed password for invalid user operator from 147.28.108.53 port 1097 ssh2
+Sat Nov 01 2025 15:40:15 www1 sshd[55132]: pam_unix(sshd:session): session opened for user operator by (uid=0)
+Sat Oct 18 2025 11:50:14 dbsv1 sshd[45903]: pam_unix(sshd:session): session opened for user guest by (uid=0)
+Fri Oct 24 2025 16:05:28 www2 sshd[38862]: Server listening on :: port 22.
+Tue Oct 14 2025 04:03:43 appsv1 sshd[29876]: Failed password for invalid user guest from 64.202.131.1 port 3759 ssh2
+Tue Oct 14 2025 03:47:11 mailsv1 sshd[35795]: Failed password for  nagios from 98.171.228.140 port 3522 ssh2
+Mon Oct 13 2025 20:32:08 www1 sshd[41212]: pam_unix(sshd:session): session opened for user guest by (uid=0)
+Wed Oct 29 2025 06:20:22 appsv1 sshd[19602]: Failed password for invalid user mongodb from 28.129.15.89 port 4097 ssh2
+Sat Oct 25 2025 17:16:01 appsv1 sshd[49099]: Failed password for  apache from 111.221.238.55 port 2316 ssh2
+Wed Oct 22 2025 01:41:17 dbsv1 sshd[63307]: Failed password for  oracle from 143.231.185.237 port 3167 ssh2
+Thu Oct 09 2025 23:53:13 dbsv1 sshd[46984]: Failed password for invalid user mongodb from 64.4.111.140 port 4545 ssh2
+Sun Nov 02 2025 05:53:32 www1 sshd[46850]: Failed password for invalid user local from 128.183.178.35 port 2156 ssh2
+Wed Nov 05 2025 01:38:54 appsv1 sshd[55798]: Failed password for invalid user cyrus from 206.109.117.98 port 1755 ssh2
+Tue Oct 21 2025 00:24:19 www1 sshd[47774]: pam_unix(sshd:session): session opened for user guest by (uid=0)
+Fri Oct 10 2025 13:58:09 www2 sshd[17067]: Failed password for invalid user desktop from 44.53.212.39 port 4044 ssh2
+Wed Nov 05 2025 19:02:18 dbsv1 sshd[55495]: Failed password for invalid user vmware from 187.238.38.60 port 1761 ssh2
+Thu Oct 09 2025 22:45:11 dbsv1 sshd[52483]: Failed password for invalid user cyrus from 33.110.233.121 port 1050 ssh2
+Thu Oct 16 2025 14:08:24 dbsv1 sshd[21320]: Failed password for  operator from 71.175.85.109 port 2741 ssh2
+Thu Oct 16 2025 17:26:15 appsv1 sshd[8181]: pam_unix(sshd:session): session opened for user admin by (uid=0)
+Sat Oct 11 2025 06:35:44 appsv1 sshd[48161]: Failed password for  nagios from 129.241.138.244 port 2115 ssh2
+Mon Nov 03 2025 01:46:15 dbsv1 sshd[20954]: Failed password for invalid user proxy from 205.101.138.224 port 3231 ssh2
+Wed Oct 08 2025 02:17:21 appsv1 sshd[21327]: pam_unix(sshd:session): session opened for user admin by (uid=0)
+Tue Oct 21 2025 07:44:15 dbsv1 sshd[19884]: Failed password for invalid user mongodb from 216.189.132.175 port 1495 ssh2
+Wed Oct 15 2025 18:24:35 mailsv1 sshd[49704]: pam_unix(sshd:session): session opened for user operator by (uid=0)
+Thu Oct 09 2025 13:31:33 www1 sshd[59684]: Failed password for invalid user proxy from 141.202.90.21 port 2718 ssh2
+Thu Oct 09 2025 14:52:30 www1 sshd[41868]: Failed password for  mysql from 129.233.217.206 port 4628 ssh2
+Wed Oct 08 2025 18:43:03 appsv1 sshd[42590]: Failed password for invalid user vmware from 30.231.7.3 port 1847 ssh2
+Mon Oct 20 2025 00:54:25 www1 sshd[36465]: pam_unix(sshd:session): session opened for user oracle by (uid=0)
+Mon Oct 27 2025 08:43:15 appsv1 sshd[48238]: Failed password for invalid user guest from 202.143.200.5 port 2089 ssh2
+Tue Oct 28 2025 23:05:27 dbsv1 sshd[38920]: pam_unix(sshd:session): session closed for user root by (uid=0)
+Fri Oct 31 2025 17:21:33 www2 sshd[48077]: Failed password for invalid user proxy from 81.103.213.37 port 1401 ssh2
+Wed Nov 05 2025 13:27:29 www2 sshd[36907]: Failed password for invalid user mongodb from 99.149.123.82 port 1479 ssh2
+Fri Oct 31 2025 23:24:59 www2 sshd[33579]: Failed password for invalid user mailman from 198.139.75.166 port 4297 ssh2
+Sun Nov 02 2025 20:53:48 dbsv1 sshd[29609]: Failed password for invalid user appserver from 175.123.149.229 port 2826 ssh2
+Fri Oct 24 2025 10:24:05 mailsv1 sshd[18915]: Failed password for  oracle from 142.209.60.245 port 4214 ssh2
+Wed Oct 29 2025 03:10:17 www2 sshd[30161]: Failed password for invalid user testuser from 185.43.37.237 port 4879 ssh2
+Sat Oct 18 2025 14:04:00 www1 sshd[39987]: Failed password for  apache from 157.51.82.144 port 1955 ssh2
+Sat Nov 01 2025 06:52:33 www2 sshd[37040]: Failed password for  apache from 6.252.115.166 port 4365 ssh2
+Mon Oct 27 2025 10:09:16 appsv1 sshd[55486]: Failed password for invalid user cyrus from 41.83.20.10 port 2647 ssh2
+Fri Oct 17 2025 06:52:25 appsv1 sshd[54803]: pam_unix(sshd:session): session opened for user guest by (uid=0)
+Sun Oct 12 2025 21:12:53 www2 sshd[21962]: pam_unix(sshd:session): session opened for user admin by (uid=0)
+Thu Nov 06 2025 04:05:27 dbsv1 sshd[33535]: Failed password for invalid user mailman from 180.185.105.59 port 5000 ssh2
+Sat Nov 01 2025 02:12:19 appsv1 sshd[52813]: pam_unix(sshd:session): session closed for user apache by (uid=0)
+Mon Oct 27 2025 22:28:24 dbsv1 sshd[14919]: Failed password for invalid user irc from 59.161.40.146 port 1748 ssh2
+Fri Oct 10 2025 06:12:08 appsv1 sshd[18022]: Failed password for invalid user mailman from 121.25.227.200 port 4218 ssh2
+Fri Oct 17 2025 15:34:50 appsv1 sshd[18234]: Accepted password for mysql from 61.220.10.57 port 2792 ssh2
+Tue Oct 21 2025 04:30:54 www2 sshd[49865]: Failed password for invalid user yp from 5.80.112.3 port 2246 ssh2
+Mon Nov 03 2025 08:34:30 appsv1 sshd[19392]: Failed password for invalid user yp from 41.72.129.222 port 2464 ssh2
+Sat Oct 25 2025 15:05:32 www1 sshd[53764]: Failed password for  mysql from 5.70.130.43 port 2429 ssh2
+Sun Nov 02 2025 04:45:07 www1 sshd[22095]: Failed password for invalid user testuser from 141.44.9.98 port 2681 ssh2
+Sat Nov 01 2025 09:44:06 dbsv1 sshd[47917]: Accepted password for operator from 58.208.128.253 port 1276 ssh2
+Mon Nov 03 2025 02:04:56 www2 sshd[56718]: Failed password for invalid user news from 196.42.252.100 port 2262 ssh2
+Thu Oct 23 2025 06:03:04 appsv1 sshd[49383]: Failed password for  operator from 144.77.73.52 port 4925 ssh2
+Tue Nov 04 2025 16:48:19 www2 sshd[18759]: pam_unix(sshd:session): session opened for user guest by (uid=0)
+Wed Oct 29 2025 20:33:13 www1 sshd[15655]: Accepted password for operator from 149.110.255.72 port 4061 ssh2
+Wed Oct 22 2025 08:10:16 www2 sshd[43687]: pam_unix(sshd:session): session opened for user oracle by (uid=0)
+Fri Oct 24 2025 02:50:46 appsv1 sshd[46330]: Server listening on :: port 22.
+Tue Oct 14 2025 05:41:35 www2 sshd[49504]: Failed password for invalid user yp from 58.28.165.128 port 1355 ssh2
+Tue Oct 28 2025 07:10:42 www1 sshd[29356]: Failed password for invalid user yp from 196.231.59.255 port 1284 ssh2
+Sun Oct 26 2025 21:05:58 dbsv1 sshd[61008]: Failed password for  admin from 22.6.207.3 port 4745 ssh2
+Wed Oct 29 2025 03:37:37 appsv1 sshd[1572]: Failed password for invalid user irc from 211.115.26.207 port 1790 ssh2
+Wed Oct 22 2025 12:30:27 www2 sshd[52033]: Failed password for invalid user git from 217.207.78.98 port 4401 ssh2
+Tue Oct 14 2025 22:04:54 www1 sshd[45978]: Failed password for invalid user amanda from 45.100.65.13 port 4806 ssh2
+Thu Oct 23 2025 22:10:40 dbsv1 sshd[25906]: Failed password for invalid user irc from 76.57.115.164 port 2433 ssh2
+Wed Oct 08 2025 08:53:08 dbsv1 sshd[43133]: Failed password for  apache from 71.191.179.156 port 1046 ssh2
+Mon Oct 13 2025 21:03:52 www1 sshd[51517]: Failed password for invalid user inet from 172.146.24.176 port 2078 ssh2
+Thu Oct 09 2025 16:13:02 www2 sshd[28299]: Failed password for  nagios from 19.206.118.96 port 3383 ssh2
+Mon Oct 20 2025 07:44:32 www1 sshd[62061]: Server listening on :: port 22.
+Tue Oct 07 2025 23:34:15 appsv1 sshd[35361]: Failed password for invalid user appserver from 149.246.125.145 port 1076 ssh2
+Sun Oct 19 2025 07:08:23 appsv1 sshd[58904]: Failed password for invalid user irc from 101.219.103.123 port 1765 ssh2
+Sun Oct 26 2025 05:49:38 www2 sshd[54555]: Accepted password for oracle from 209.87.9.252 port 3379 ssh2
+Tue Oct 28 2025 00:55:34 dbsv1 sshd[16221]: Failed password for invalid user guest from 193.255.255.83 port 1541 ssh2
+Fri Oct 17 2025 06:05:47 www2 sshd[33505]: Accepted password for apache from 94.79.107.214 port 1296 ssh2
+Sun Nov 02 2025 12:00:27 mailsv1 sshd[47491]: Failed password for invalid user vmware from 38.69.190.97 port 3243 ssh2
+Mon Oct 20 2025 08:18:24 appsv1 sshd[50907]: Accepted password for admin from 150.119.175.14 port 3865 ssh2
+Wed Nov 05 2025 03:19:47 mailsv1 sshd[11708]: Accepted password for mysql from 129.191.190.122 port 2963 ssh2
+Sun Oct 19 2025 01:32:17 www1 sshd[33282]: pam_unix(sshd:session): session closed for user nagios by (uid=0)
+Tue Oct 21 2025 21:52:09 mailsv1 sshd[15698]: Failed password for invalid user amanda from 4.169.233.99 port 2393 ssh2
+Wed Oct 15 2025 00:38:31 www1 sshd[6377]: Failed password for invalid user testuser from 172.192.134.5 port 4661 ssh2
+Tue Oct 21 2025 07:20:08 www2 sshd[55803]: Failed password for invalid user itmadmin from 183.185.95.176 port 4310 ssh2
+Sat Oct 25 2025 18:33:35 dbsv1 sshd[10254]: Failed password for  root from 26.84.248.186 port 4257 ssh2
+Thu Oct 16 2025 23:01:38 www1 sshd[37399]: Failed password for invalid user mongodb from 190.112.56.221 port 4372 ssh2
+Tue Oct 14 2025 03:52:53 www1 sshd[53216]: Failed password for invalid user desktop from 32.168.167.243 port 3024 ssh2
+Tue Oct 28 2025 04:18:53 dbsv1 sshd[60878]: Failed password for  mysql from 129.206.157.72 port 2571 ssh2
+Tue Nov 04 2025 17:32:56 www1 sshd[28895]: Failed password for  operator from 21.204.169.185 port 2117 ssh2
+Tue Oct 21 2025 13:27:04 dbsv1 sshd[43339]: Failed password for  root from 152.215.232.252 port 4604 ssh2
+Fri Oct 31 2025 16:54:11 www1 sshd[60546]: Server listening on :: port 22.
+Wed Oct 15 2025 06:16:07 www1 sshd[29796]: Accepted password for oracle from 95.110.42.135 port 1561 ssh2
+Sun Oct 12 2025 21:10:59 www2 sshd[19256]: Failed password for invalid user mongodb from 21.53.55.126 port 1029 ssh2
+Wed Oct 08 2025 20:37:46 appsv1 sshd[7804]: Failed password for invalid user operator from 155.79.146.18 port 4651 ssh2
+Fri Oct 10 2025 22:55:38 www1 sshd[27575]: pam_unix(sshd:session): session closed for user root by (uid=0)
+Mon Oct 13 2025 15:19:49 dbsv1 sshd[1806]: pam_unix(sshd:session): session opened for user nagios by (uid=0)
+Sun Oct 19 2025 06:49:13 www1 sshd[6697]: Failed password for  admin from 181.166.247.81 port 3480 ssh2
+Thu Oct 30 2025 20:08:05 appsv1 sshd[34582]: Failed password for invalid user inet from 75.176.254.56 port 3650 ssh2
+Tue Oct 14 2025 08:49:33 www1 sshd[24488]: Accepted password for mysql from 223.201.136.33 port 1368 ssh2
+Tue Oct 14 2025 12:38:56 www2 sshd[21781]: pam_unix(sshd:session): session opened for user oracle by (uid=0)
+Fri Oct 10 2025 17:04:07 www1 sshd[58757]: pam_unix(sshd:session): session opened for user guest by (uid=0)
+Mon Oct 20 2025 19:23:30 dbsv1 sshd[38119]: pam_unix(sshd:session): session opened for user mysql by (uid=0)
+Wed Oct 08 2025 06:44:55 www2 sshd[37173]: Failed password for invalid user mailman from 13.228.130.69 port 2330 ssh2
+Sun Oct 26 2025 17:02:26 www2 sshd[46002]: Failed password for  oracle from 94.80.105.169 port 3168 ssh2
+Wed Oct 08 2025 16:06:29 appsv1 sshd[57571]: Failed password for invalid user cyrus from 29.131.29.106 port 3811 ssh2
+Thu Oct 09 2025 16:09:26 appsv1 sshd[33844]: pam_unix(sshd:session): session opened for user oracle by (uid=0)
+Tue Oct 21 2025 21:41:31 mailsv1 sshd[58565]: pam_unix(sshd:session): session opened for user operator by (uid=0)
+Mon Nov 03 2025 20:43:31 www1 sshd[34576]: Failed password for invalid user email from 211.223.82.52 port 4634 ssh2
+Wed Oct 08 2025 09:19:13 mailsv1 sshd[30551]: Failed password for  operator from 75.244.97.15 port 3151 ssh2
+Mon Oct 27 2025 14:30:11 dbsv1 sshd[20306]: pam_unix(sshd:session): session closed for user mysql by (uid=0)
+Fri Oct 24 2025 09:16:01 www2 sshd[27135]: Failed password for invalid user redmine from 21.239.179.15 port 4625 ssh2
+Sat Oct 25 2025 03:05:18 appsv1 sshd[26348]: Failed password for invalid user yp from 66.139.91.192 port 2121 ssh2
+Tue Oct 14 2025 15:10:49 appsv1 sshd[26172]: Failed password for invalid user inet from 106.33.165.221 port 2498 ssh2
+Thu Oct 30 2025 01:32:38 www2 sshd[34403]: Failed password for invalid user email from 55.204.135.219 port 2069 ssh2
+Thu Oct 09 2025 11:09:26 appsv1 sshd[19478]: Accepted password for guest from 161.205.213.166 port 2202 ssh2
+Thu Oct 23 2025 09:38:49 appsv1 sshd[1769]: Failed password for invalid user mongodb from 120.18.35.224 port 2062 ssh2
+Thu Oct 16 2025 18:22:10 dbsv1 sshd[22268]: Failed password for invalid user vmware from 165.28.202.164 port 2549 ssh2
+Tue Nov 04 2025 06:53:18 mailsv1 sshd[16023]: pam_unix(sshd:session): session closed for user admin by (uid=0)
+Mon Oct 13 2025 07:48:06 dbsv1 sshd[24477]: pam_unix(sshd:session): session opened for user nagios by (uid=0)
+Tue Oct 14 2025 02:07:47 mailsv1 sshd[40585]: Failed password for invalid user desktop from 105.34.123.122 port 2824 ssh2
+Sun Oct 12 2025 01:09:45 mailsv1 sshd[58163]: Failed password for invalid user cyrus from 73.78.70.194 port 3032 ssh2
+Sun Nov 02 2025 12:00:54 dbsv1 sshd[6165]: Failed password for invalid user local from 68.165.80.233 port 4577 ssh2
+Fri Oct 24 2025 15:35:42 dbsv1 sshd[37394]: pam_unix(sshd:session): session opened for user admin by (uid=0)
+Sat Nov 01 2025 20:35:48 mailsv1 sshd[6070]: Failed password for  admin from 46.108.1.9 port 4945 ssh2
+Sat Nov 01 2025 12:06:14 www2 sshd[11829]: Failed password for  operator from 59.163.198.111 port 2865 ssh2
+Wed Oct 08 2025 22:51:21 www1 sshd[36101]: Failed password for invalid user mailman from 57.65.153.80 port 2168 ssh2
+Wed Oct 08 2025 11:52:50 appsv1 sshd[9782]: Server listening on :: port 22.
+Sun Oct 19 2025 09:19:13 mailsv1 sshd[29904]: Failed password for invalid user doc from 142.97.212.104 port 3324 ssh2
+Thu Oct 30 2025 02:57:35 www1 sshd[5897]: pam_unix(sshd:session): session closed for user oracle by (uid=0)
+Mon Oct 27 2025 01:06:40 www2 sshd[52638]: Failed password for  mysql from 181.8.122.210 port 1226 ssh2
+Tue Oct 14 2025 21:43:36 mailsv1 sshd[31904]: Failed password for  root from 15.244.66.61 port 3132 ssh2
+Thu Oct 30 2025 20:35:35 appsv1 sshd[16144]: pam_unix(sshd:session): session opened for user guest by (uid=0)
+Mon Oct 20 2025 04:25:46 www2 sshd[49137]: Accepted password for nagios from 2.149.14.172 port 1339 ssh2
+Thu Oct 30 2025 20:27:45 dbsv1 sshd[37343]: Failed password for invalid user guest from 81.192.191.157 port 3876 ssh2
+Sun Oct 19 2025 11:06:50 dbsv1 sshd[49499]: Failed password for  oracle from 26.237.108.252 port 1915 ssh2
+Thu Oct 16 2025 18:28:45 www1 sshd[26387]: Failed password for invalid user news from 13.59.192.97 port 3804 ssh2
+Tue Nov 04 2025 05:52:37 dbsv1 sshd[64101]: Failed password for invalid user desktop from 169.239.9.132 port 1326 ssh2
+Thu Oct 23 2025 00:11:54 dbsv1 sshd[27147]: Accepted password for admin from 40.200.252.247 port 2626 ssh2
+Tue Oct 21 2025 17:52:40 www2 sshd[47478]: Failed password for invalid user vmware from 95.86.216.13 port 4636 ssh2
+Wed Nov 05 2025 22:07:29 appsv1 sshd[60817]: pam_unix(sshd:session): session opened for user mysql by (uid=0)
+Wed Oct 15 2025 05:06:30 mailsv1 sshd[10777]: pam_unix(sshd:session): session closed for user oracle by (uid=0)
+Sun Nov 02 2025 21:46:57 www1 sshd[60232]: Failed password for invalid user irc from 142.148.247.148 port 2234 ssh2
+Fri Oct 17 2025 01:21:31 www2 sshd[5107]: Accepted password for oracle from 215.169.73.53 port 2170 ssh2
+Fri Oct 24 2025 15:29:32 www2 sshd[53520]: Failed password for invalid user appserver from 51.155.51.30 port 1984 ssh2
+Mon Oct 13 2025 10:05:28 www1 sshd[46282]: Failed password for  operator from 58.86.168.182 port 2787 ssh2
+Thu Oct 16 2025 00:29:51 mailsv1 sshd[23572]: Failed password for invalid user email from 140.13.248.211 port 1809 ssh2
+Thu Oct 30 2025 17:08:52 www1 sshd[56597]: pam_unix(sshd:session): session opened for user operator by (uid=0)
+Fri Oct 31 2025 17:34:39 mailsv1 sshd[53437]: Accepted password for admin from 140.40.103.95 port 4832 ssh2
+Tue Oct 28 2025 06:40:33 appsv1 sshd[45292]: Failed password for invalid user doc from 52.141.153.59 port 2205 ssh2
+Mon Oct 13 2025 19:10:33 www1 sshd[23634]: Failed password for invalid user amanda from 21.140.158.231 port 2166 ssh2
+Sat Oct 11 2025 04:21:12 www2 sshd[21204]: pam_unix(sshd:session): session closed for user oracle by (uid=0)
+Sun Oct 26 2025 19:45:01 dbsv1 sshd[55772]: Failed password for invalid user mongodb from 103.89.120.16 port 2027 ssh2
+Mon Oct 13 2025 03:46:39 dbsv1 sshd[43906]: Failed password for invalid user itmadmin from 159.206.31.56 port 1707 ssh2
+Sat Oct 18 2025 21:57:38 www2 sshd[33591]: pam_unix(sshd:session): session opened for user root by (uid=0)
+Tue Nov 04 2025 15:21:00 mailsv1 sshd[5553]: Accepted password for admin from 26.236.190.131 port 2281 ssh2
+Sun Oct 12 2025 01:19:35 appsv1 sshd[20705]: Failed password for  admin from 144.41.139.121 port 2337 ssh2
+Sat Oct 11 2025 09:33:02 www2 sshd[37332]: Failed password for invalid user testuser from 57.40.61.18 port 1177 ssh2
+Tue Oct 07 2025 18:18:50 appsv1 sshd[15306]: Failed password for invalid user irc from 98.9.218.70 port 4381 ssh2
+Tue Nov 04 2025 11:58:54 appsv1 sshd[8672]: Failed password for invalid user mailman from 24.221.239.85 port 1574 ssh2
+Wed Oct 22 2025 23:58:00 dbsv1 sshd[32554]: Failed password for invalid user redmine from 49.1.63.166 port 3771 ssh2
+Thu Oct 09 2025 04:40:35 dbsv1 sshd[18021]: Failed password for invalid user desktop from 31.170.120.224 port 4990 ssh2
+Sat Oct 25 2025 12:33:26 dbsv1 sshd[57981]: Accepted password for guest from 28.97.92.2 port 4096 ssh2
+Fri Oct 17 2025 01:25:26 www2 sshd[42232]: pam_unix(sshd:session): session opened for user apache by (uid=0)
+Sat Oct 18 2025 12:07:22 dbsv1 sshd[22905]: pam_unix(sshd:session): session opened for user admin by (uid=0)
+Wed Oct 08 2025 21:30:23 appsv1 sshd[5187]: Failed password for invalid user doc from 70.224.166.184 port 4842 ssh2
+Fri Oct 24 2025 02:52:29 appsv1 sshd[24796]: Failed password for  oracle from 120.196.98.77 port 4259 ssh2
+Tue Nov 04 2025 10:30:00 www1 sshd[39266]: Accepted password for guest from 141.28.246.116 port 4448 ssh2
+Wed Oct 08 2025 20:42:59 mailsv1 sshd[59252]: pam_unix(sshd:session): session opened for user nagios by (uid=0)
+Tue Oct 07 2025 23:03:29 appsv1 sshd[59199]: Accepted password for guest from 49.189.55.50 port 4409 ssh2
+Thu Oct 16 2025 04:34:37 www1 sshd[52525]: pam_unix(sshd:session): session closed for user oracle by (uid=0)
+Sun Oct 26 2025 05:08:46 dbsv1 sshd[55219]: pam_unix(sshd:session): session opened for user operator by (uid=0)
+Tue Nov 04 2025 12:00:53 www1 sshd[48904]: Failed password for invalid user mongodb from 47.32.143.122 port 2112 ssh2
+Sun Oct 12 2025 05:11:15 appsv1 sshd[60987]: Failed password for invalid user news from 3.68.81.171 port 2445 ssh2
+Thu Oct 30 2025 12:51:16 www2 sshd[38773]: Failed password for  operator from 110.33.225.209 port 4366 ssh2
+Mon Oct 13 2025 18:13:24 www2 sshd[53046]: Server listening on :: port 22.
+Fri Oct 10 2025 09:36:34 www2 sshd[51123]: Failed password for invalid user inet from 184.161.159.8 port 1633 ssh2
+Fri Oct 31 2025 22:50:16 www2 sshd[23034]: Failed password for invalid user itmadmin from 79.193.160.20 port 4586 ssh2
+Sun Nov 02 2025 00:38:12 appsv1 sshd[51368]: Failed password for invalid user git from 119.90.35.155 port 4844 ssh2
+Sat Oct 25 2025 22:52:43 dbsv1 sshd[50286]: Failed password for invalid user mailman from 215.13.9.220 port 2879 ssh2
+Thu Oct 16 2025 01:10:50 mailsv1 sshd[27713]: pam_unix(sshd:session): session closed for user admin by (uid=0)
+Mon Oct 20 2025 17:18:02 mailsv1 sshd[56701]: Failed password for  admin from 220.95.223.149 port 4136 ssh2
+Tue Oct 21 2025 01:12:02 appsv1 sshd[13381]: Failed password for  operator from 113.79.220.58 port 3504 ssh2
+Sun Oct 19 2025 22:06:23 www2 sshd[28797]: Server listening on :: port 22.
+Wed Oct 29 2025 20:09:36 www1 sshd[16339]: pam_unix(sshd:session): session opened for user admin by (uid=0)
+Wed Oct 08 2025 08:32:26 dbsv1 sshd[11952]: Failed password for  admin from 182.144.106.49 port 3066 ssh2
+Mon Nov 03 2025 02:51:43 dbsv1 sshd[15952]: Failed password for  operator from 26.244.7.130 port 3644 ssh2
+Fri Oct 17 2025 07:51:33 www1 sshd[42205]: Failed password for invalid user news from 28.105.174.169 port 4555 ssh2
+Sat Nov 01 2025 19:28:45 www1 sshd[42672]: Failed password for invalid user news from 151.222.152.9 port 1605 ssh2
+Sun Oct 12 2025 00:00:46 appsv1 sshd[21173]: Failed password for  apache from 88.43.166.194 port 2286 ssh2
+Sun Oct 12 2025 17:11:47 appsv1 sshd[26303]: Failed password for  operator from 45.242.137.206 port 3726 ssh2
+Fri Oct 17 2025 02:11:38 dbsv1 sshd[6209]: pam_unix(sshd:session): session opened for user admin by (uid=0)
+Wed Oct 29 2025 02:42:50 mailsv1 sshd[45417]: pam_unix(sshd:session): session opened for user oracle by (uid=0)
+Sat Oct 25 2025 16:16:31 www1 sshd[25456]: Failed password for  operator from 16.198.222.107 port 3705 ssh2
+Tue Oct 28 2025 06:14:09 www1 sshd[2633]: pam_unix(sshd:session): session opened for user root by (uid=0)
+Tue Oct 21 2025 05:34:43 dbsv1 sshd[30818]: pam_unix(sshd:session): session opened for user apache by (uid=0)
+Fri Oct 24 2025 19:33:15 www1 sshd[55781]: Accepted password for apache from 33.79.198.144 port 3986 ssh2
+Wed Oct 22 2025 09:27:03 mailsv1 sshd[37899]: Failed password for invalid user desktop from 189.146.137.121 port 4848 ssh2
+Fri Oct 10 2025 08:22:24 www1 sshd[7105]: pam_unix(sshd:session): session closed for user admin by (uid=0)
+Wed Oct 15 2025 17:43:45 dbsv1 sshd[26179]: Accepted password for guest from 216.80.196.2 port 4327 ssh2
+Wed Oct 22 2025 00:30:13 www1 sshd[35401]: Failed password for  nagios from 107.33.163.36 port 4899 ssh2
+Sun Nov 02 2025 01:00:41 mailsv1 sshd[8730]: pam_unix(sshd:session): session opened for user nagios by (uid=0)
+Thu Oct 09 2025 02:30:22 www2 sshd[41941]: Server listening on :: port 22.
+Fri Oct 10 2025 10:28:22 www1 sshd[60136]: Failed password for invalid user guest from 131.52.68.32 port 3223 ssh2
+Wed Oct 15 2025 04:14:35 mailsv1 sshd[64924]: Accepted password for apache from 12.21.19.68 port 1838 ssh2
+Tue Oct 21 2025 06:11:39 www1 sshd[59013]: pam_unix(sshd:session): session opened for user mysql by (uid=0)
+Thu Oct 16 2025 00:29:28 www1 sshd[3683]: pam_unix(sshd:session): session closed for user apache by (uid=0)
+Sun Oct 19 2025 22:46:33 dbsv1 sshd[14929]: Failed password for  apache from 105.17.134.193 port 3655 ssh2
+Tue Oct 14 2025 14:52:08 www2 sshd[16995]: Accepted password for mysql from 67.86.94.111 port 2370 ssh2
+Fri Oct 24 2025 20:14:24 appsv1 sshd[43362]: Failed password for invalid user git from 181.161.85.43 port 3791 ssh2
+Thu Oct 16 2025 07:29:47 dbsv1 sshd[16066]: Failed password for  root from 29.139.96.246 port 1933 ssh2
+Mon Nov 03 2025 12:18:19 appsv1 sshd[6142]: Accepted password for mysql from 115.32.76.6 port 4155 ssh2
+Sat Oct 25 2025 17:51:30 www1 sshd[47728]: Accepted password for mysql from 70.127.37.18 port 2932 ssh2
+Wed Oct 15 2025 17:40:24 www2 sshd[37251]: Failed password for invalid user mailman from 179.248.238.189 port 3457 ssh2
+Fri Oct 31 2025 00:53:03 www1 sshd[50088]: pam_unix(sshd:session): session closed for user mysql by (uid=0)
+Wed Oct 29 2025 08:40:18 appsv1 sshd[9731]: pam_unix(sshd:session): session closed for user guest by (uid=0)
+Wed Oct 15 2025 00:49:37 www1 sshd[62042]: Failed password for  root from 74.254.174.139 port 2752 ssh2
+Thu Oct 30 2025 15:44:00 dbsv1 sshd[22881]: Failed password for invalid user testuser from 8.84.220.90 port 1669 ssh2
+Wed Oct 22 2025 16:37:08 appsv1 sshd[32535]: Failed password for  mysql from 220.154.14.95 port 3640 ssh2
+Sat Oct 11 2025 17:07:30 www2 sshd[28247]: Accepted password for nagios from 73.250.107.116 port 3438 ssh2
+Sun Nov 02 2025 01:28:06 appsv1 sshd[4971]: Failed password for invalid user proxy from 117.224.3.130 port 4536 ssh2
+Fri Oct 24 2025 21:08:38 mailsv1 sshd[24940]: Failed password for invalid user email from 126.125.216.11 port 1237 ssh2
+Tue Oct 21 2025 07:31:17 appsv1 sshd[50384]: Failed password for  apache from 143.226.192.87 port 3166 ssh2
+Sun Oct 12 2025 12:39:51 appsv1 sshd[49740]: Server listening on :: port 22.
+Thu Oct 09 2025 16:15:17 appsv1 sshd[23065]: pam_unix(sshd:session): session opened for user admin by (uid=0)
+Thu Oct 16 2025 06:44:50 dbsv1 sshd[46210]: Failed password for invalid user email from 15.214.220.165 port 1870 ssh2
+Mon Oct 27 2025 23:46:47 dbsv1 sshd[44963]: Failed password for invalid user testuser from 57.217.120.239 port 3870 ssh2
+Mon Nov 03 2025 07:53:32 appsv1 sshd[6540]: Failed password for  mysql from 27.83.112.131 port 4509 ssh2
+Fri Oct 31 2025 06:09:31 www1 sshd[4283]: Failed password for invalid user git from 153.238.198.46 port 2792 ssh2
+Thu Oct 30 2025 05:08:10 appsv1 sshd[53627]: pam_unix(sshd:session): session opened for user guest by (uid=0)
+Sun Oct 12 2025 16:07:35 mailsv1 sshd[46746]: Failed password for invalid user git from 212.10.40.34 port 2278 ssh2
+Fri Oct 31 2025 19:26:43 www2 sshd[7622]: Accepted password for nagios from 103.120.82.64 port 1503 ssh2
+Sat Nov 01 2025 22:09:46 dbsv1 sshd[26652]: Failed password for invalid user inet from 90.100.249.132 port 3567 ssh2
+Sun Oct 19 2025 03:24:49 dbsv1 sshd[41918]: Failed password for  guest from 33.135.46.146 port 2128 ssh2
+Fri Oct 17 2025 02:26:03 www1 sshd[15471]: Failed password for invalid user yp from 102.16.109.49 port 3880 ssh2
+Tue Oct 14 2025 03:10:20 www1 sshd[40689]: Accepted password for admin from 180.181.158.54 port 1326 ssh2
+Tue Oct 21 2025 03:55:07 www1 sshd[41352]: Failed password for invalid user operator from 136.243.56.238 port 2468 ssh2
+Mon Oct 27 2025 03:17:34 www2 sshd[40333]: Failed password for  guest from 47.165.192.223 port 3469 ssh2
+Sat Oct 11 2025 22:25:43 mailsv1 sshd[16244]: Accepted password for oracle from 222.12.128.87 port 4710 ssh2
+Wed Oct 15 2025 06:03:50 mailsv1 sshd[49126]: pam_unix(sshd:session): session closed for user nagios by (uid=0)
+Sat Oct 18 2025 19:29:23 appsv1 sshd[38471]: pam_unix(sshd:session): session closed for user root by (uid=0)
+Mon Oct 20 2025 03:20:15 mailsv1 sshd[10391]: Failed password for  oracle from 73.80.124.96 port 3539 ssh2
+Mon Nov 03 2025 13:49:46 mailsv1 sshd[21167]: Failed password for invalid user doc from 217.116.16.161 port 2340 ssh2
+Sat Oct 18 2025 21:16:02 appsv1 sshd[26165]: Failed password for  mysql from 56.189.88.236 port 3766 ssh2
+Mon Nov 03 2025 06:38:06 www2 sshd[30759]: pam_unix(sshd:session): session opened for user apache by (uid=0)
+Sat Oct 25 2025 14:41:30 www2 sshd[37043]: Failed password for  root from 62.136.240.111 port 1086 ssh2
+Wed Oct 08 2025 21:08:21 mailsv1 sshd[4265]: Failed password for  nagios from 192.51.213.238 port 4280 ssh2
+Thu Oct 09 2025 16:44:44 mailsv1 sshd[18095]: Failed password for  guest from 51.220.163.191 port 3313 ssh2
+Tue Nov 04 2025 07:47:27 mailsv1 sshd[61466]: pam_unix(sshd:session): session closed for user nagios by (uid=0)
+Sun Oct 12 2025 01:02:15 mailsv1 sshd[16814]: pam_unix(sshd:session): session opened for user operator by (uid=0)
+Thu Oct 09 2025 11:04:49 www1 sshd[10688]: Failed password for  operator from 13.240.181.19 port 2991 ssh2
+Wed Oct 08 2025 09:20:32 www2 sshd[7234]: Failed password for invalid user local from 61.117.104.69 port 3012 ssh2
+Sat Oct 18 2025 01:44:53 www1 sshd[14028]: Failed password for invalid user vmware from 55.140.199.182 port 3132 ssh2
+Thu Oct 09 2025 04:37:17 dbsv1 sshd[58284]: pam_unix(sshd:session): session opened for user root by (uid=0)
+Mon Nov 03 2025 04:06:19 appsv1 sshd[63369]: Accepted password for root from 189.222.122.211 port 4229 ssh2
+Thu Oct 30 2025 13:46:55 appsv1 sshd[61788]: pam_unix(sshd:session): session opened for user operator by (uid=0)
+Thu Nov 06 2025 14:59:08 www1 sshd[12082]: pam_unix(sshd:session): session closed for user nagios by (uid=0)
+Fri Oct 17 2025 13:40:17 www1 sshd[50881]: pam_unix(sshd:session): session opened for user operator by (uid=0)
+Sat Oct 11 2025 23:36:25 www1 sshd[4884]: Failed password for  admin from 182.72.94.195 port 2739 ssh2
+Fri Oct 10 2025 11:03:30 dbsv1 sshd[14185]: pam_unix(sshd:session): session closed for user guest by (uid=0)
+Tue Oct 14 2025 06:31:58 dbsv1 sshd[60134]: pam_unix(sshd:session): session opened for user guest by (uid=0)
+Wed Nov 05 2025 06:31:29 appsv1 sshd[61206]: Accepted password for guest from 97.140.159.216 port 2492 ssh2
+Mon Oct 20 2025 04:37:33 mailsv1 sshd[1608]: Failed password for  operator from 173.54.146.106 port 1109 ssh2
+Mon Oct 20 2025 11:20:17 appsv1 sshd[19621]: Failed password for invalid user inet from 141.122.187.120 port 3420 ssh2
+Tue Oct 07 2025 16:22:12 dbsv1 sshd[35196]: pam_unix(sshd:session): session opened for user operator by (uid=0)
+Wed Oct 15 2025 15:07:38 www2 sshd[32393]: Failed password for  operator from 18.29.102.214 port 4069 ssh2
+Tue Oct 14 2025 05:42:35 dbsv1 sshd[13962]: Failed password for invalid user local from 213.76.160.156 port 1497 ssh2
+Tue Nov 04 2025 09:50:01 www2 sshd[48874]: pam_unix(sshd:session): session opened for user root by (uid=0)
+Mon Oct 27 2025 17:56:32 www2 sshd[64812]: pam_unix(sshd:session): session opened for user operator by (uid=0)
+Sun Oct 26 2025 04:03:24 www2 sshd[31339]: pam_unix(sshd:session): session opened for user admin by (uid=0)
+Wed Nov 05 2025 08:02:35 dbsv1 sshd[7198]: Failed password for  apache from 122.165.17.138 port 2131 ssh2
+Sun Oct 26 2025 14:39:34 mailsv1 sshd[60946]: Failed password for invalid user operator from 41.245.82.172 port 3879 ssh2
+Mon Oct 27 2025 16:44:35 mailsv1 sshd[36585]: pam_unix(sshd:session): session opened for user root by (uid=0)
+Fri Oct 31 2025 20:25:04 www2 sshd[54674]: pam_unix(sshd:session): session opened for user guest by (uid=0)
+Tue Oct 14 2025 10:49:30 dbsv1 sshd[54351]: Accepted password for root from 94.239.245.164 port 2755 ssh2
+Wed Oct 15 2025 19:56:15 www2 sshd[5788]: Failed password for invalid user cyrus from 206.103.144.177 port 2400 ssh2
+Wed Oct 22 2025 15:09:05 www1 sshd[17608]: pam_unix(sshd:session): session opened for user guest by (uid=0)
+Thu Oct 09 2025 04:53:17 dbsv1 sshd[17168]: pam_unix(sshd:session): session opened for user apache by (uid=0)
+Fri Oct 10 2025 20:38:22 dbsv1 sshd[53019]: pam_unix(sshd:session): session opened for user operator by (uid=0)
+Sat Nov 01 2025 23:59:36 mailsv1 sshd[45259]: Failed password for invalid user irc from 115.250.212.183 port 3797 ssh2
+Tue Oct 21 2025 14:17:31 appsv1 sshd[54279]: Failed password for invalid user yp from 105.147.218.177 port 3466 ssh2
+Tue Oct 28 2025 14:04:36 mailsv1 sshd[56397]: Failed password for invalid user testuser from 14.154.49.171 port 2191 ssh2
+Wed Oct 29 2025 22:34:44 www2 sshd[61434]: Failed password for invalid user amanda from 53.50.152.149 port 2409 ssh2
+Thu Oct 16 2025 15:18:10 dbsv1 sshd[56077]: Accepted password for operator from 119.178.227.41 port 1112 ssh2
+Wed Nov 05 2025 02:52:33 www1 sshd[5122]: Failed password for invalid user redmine from 148.23.223.27 port 2187 ssh2
+Tue Nov 04 2025 10:46:17 dbsv1 sshd[34625]: Failed password for  admin from 89.250.171.152 port 3642 ssh2
+Sat Nov 01 2025 02:48:20 www1 sshd[59658]: pam_unix(sshd:session): session opened for user admin by (uid=0)
+Thu Nov 06 2025 00:22:48 www2 sshd[60824]: Failed password for invalid user yp from 55.180.78.191 port 2158 ssh2
+Sat Oct 11 2025 05:05:05 dbsv1 sshd[58317]: Failed password for invalid user amanda from 119.222.169.103 port 1688 ssh2
+Tue Nov 04 2025 12:00:12 www2 sshd[23410]: Failed password for  oracle from 45.178.164.228 port 2604 ssh2
+Sun Oct 19 2025 19:47:26 appsv1 sshd[63164]: Failed password for invalid user yp from 168.146.171.225 port 3578 ssh2
+Tue Oct 14 2025 23:05:30 appsv1 sshd[15905]: Failed password for invalid user amanda from 165.96.182.58 port 3131 ssh2
+Sun Oct 12 2025 10:34:48 dbsv1 sshd[46176]: Failed password for  admin from 56.30.69.149 port 4606 ssh2
+Sun Nov 02 2025 06:15:53 dbsv1 sshd[13965]: pam_unix(sshd:session): session opened for user root by (uid=0)
+Fri Oct 31 2025 13:13:18 mailsv1 sshd[49388]: pam_unix(sshd:session): session opened for user operator by (uid=0)
+Wed Oct 22 2025 10:40:07 dbsv1 sshd[31868]: Failed password for invalid user guest from 73.184.135.21 port 4153 ssh2
+Thu Nov 06 2025 10:05:05 www1 sshd[27239]: pam_unix(sshd:session): session opened for user oracle by (uid=0)
+Wed Oct 08 2025 15:29:41 www2 sshd[58014]: Failed password for invalid user doc from 55.121.28.61 port 1693 ssh2
+Tue Oct 28 2025 00:39:16 appsv1 sshd[10943]: Failed password for  guest from 219.110.152.154 port 3540 ssh2
+Mon Oct 27 2025 15:31:25 mailsv1 sshd[37133]: Failed password for invalid user doc from 74.146.253.119 port 3718 ssh2
+Mon Nov 03 2025 10:50:07 mailsv1 sshd[60023]: Accepted password for guest from 34.126.7.155 port 3635 ssh2
+Thu Nov 06 2025 13:18:32 www1 sshd[42221]: Server listening on :: port 22.
+Sun Oct 26 2025 02:18:12 www2 sshd[42132]: Server listening on :: port 22.
+Fri Oct 31 2025 08:25:57 www1 sshd[40969]: Failed password for  admin from 223.177.7.164 port 3141 ssh2
+Fri Oct 10 2025 21:23:22 www2 sshd[4637]: Failed password for invalid user git from 132.150.117.149 port 1510 ssh2
+Sat Nov 01 2025 14:51:34 appsv1 sshd[45386]: Failed password for invalid user email from 36.40.4.172 port 2800 ssh2
+Tue Oct 21 2025 12:50:39 dbsv1 sshd[4057]: Failed password for invalid user git from 169.40.74.249 port 4433 ssh2
+Sun Oct 26 2025 23:15:21 dbsv1 sshd[28461]: Failed password for invalid user yp from 134.38.213.77 port 3277 ssh2
+Wed Oct 22 2025 13:22:52 appsv1 sshd[20555]: Failed password for invalid user cyrus from 116.138.5.228 port 4281 ssh2
+Wed Oct 08 2025 15:01:34 appsv1 sshd[3961]: pam_unix(sshd:session): session closed for user nagios by (uid=0)
+Tue Oct 28 2025 12:17:46 www1 sshd[44680]: pam_unix(sshd:session): session closed for user guest by (uid=0)
+Wed Nov 05 2025 05:11:21 dbsv1 sshd[5876]: Accepted password for mysql from 57.171.134.74 port 3941 ssh2
+Mon Oct 20 2025 04:54:00 dbsv1 sshd[13970]: Failed password for  operator from 206.121.127.245 port 4569 ssh2
+Mon Oct 27 2025 15:39:56 www1 sshd[4120]: Failed password for invalid user proxy from 101.236.45.199 port 3452 ssh2
+Sun Oct 12 2025 03:02:27 www2 sshd[63738]: Failed password for invalid user guest from 105.69.112.164 port 3355 ssh2
+Thu Oct 09 2025 10:15:38 www2 sshd[7197]: Failed password for invalid user yp from 212.185.203.88 port 4843 ssh2
+Fri Oct 10 2025 21:29:15 www2 sshd[43147]: Failed password for invalid user redmine from 20.199.73.9 port 4847 ssh2
+Wed Oct 29 2025 08:21:22 www2 sshd[27316]: Server listening on :: port 22.
+Tue Oct 28 2025 07:07:28 www2 sshd[35040]: Failed password for invalid user inet from 158.210.123.60 port 2505 ssh2
+Mon Oct 20 2025 17:24:10 appsv1 sshd[11809]: Failed password for invalid user appserver from 83.92.233.224 port 3672 ssh2
+Tue Nov 04 2025 18:54:57 appsv1 sshd[29276]: Failed password for  operator from 101.242.74.250 port 3097 ssh2
+Mon Oct 27 2025 08:24:45 mailsv1 sshd[9521]: Failed password for invalid user news from 57.2.198.5 port 4883 ssh2
+Mon Oct 13 2025 09:50:01 www1 sshd[64054]: pam_unix(sshd:session): session opened for user oracle by (uid=0)
+Sat Nov 01 2025 21:34:09 www2 sshd[32974]: pam_unix(sshd:session): session closed for user operator by (uid=0)
+Mon Oct 13 2025 06:17:12 dbsv1 sshd[18221]: pam_unix(sshd:session): session opened for user mysql by (uid=0)
+Fri Oct 31 2025 04:14:37 dbsv1 sshd[37375]: pam_unix(sshd:session): session opened for user operator by (uid=0)
+Sat Oct 11 2025 15:39:08 appsv1 sshd[7083]: pam_unix(sshd:session): session opened for user root by (uid=0)
+Mon Oct 27 2025 10:00:48 www2 sshd[2937]: pam_unix(sshd:session): session opened for user oracle by (uid=0)
+Tue Oct 07 2025 21:19:04 mailsv1 sshd[39781]: Accepted password for root from 184.4.235.22 port 3954 ssh2
+Mon Oct 20 2025 03:20:19 appsv1 sshd[8928]: pam_unix(sshd:session): session opened for user admin by (uid=0)
+Sun Oct 12 2025 02:38:33 www2 sshd[48347]: Failed password for  oracle from 215.174.69.129 port 4628 ssh2
+Thu Oct 23 2025 01:10:00 mailsv1 sshd[39565]: Failed password for  nagios from 24.228.63.125 port 2966 ssh2
+Mon Nov 03 2025 21:13:22 mailsv1 sshd[9312]: Failed password for invalid user inet from 189.95.49.81 port 4607 ssh2
+Wed Oct 08 2025 19:38:43 mailsv1 sshd[43987]: Server listening on :: port 22.
+Wed Oct 29 2025 00:08:41 mailsv1 sshd[32444]: Failed password for invalid user amanda from 165.247.231.231 port 4712 ssh2
+Fri Oct 17 2025 18:43:53 appsv1 sshd[49681]: Failed password for  root from 76.232.222.157 port 2045 ssh2
+Mon Oct 13 2025 23:55:35 www1 sshd[2446]: Failed password for  guest from 49.128.35.204 port 3554 ssh2
+Thu Oct 23 2025 14:11:15 www2 sshd[57844]: Failed password for invalid user news from 214.75.12.8 port 3201 ssh2
+Mon Oct 20 2025 17:07:01 mailsv1 sshd[54716]: pam_unix(sshd:session): session opened for user guest by (uid=0)
+Tue Oct 21 2025 07:31:39 www2 sshd[44805]: Failed password for invalid user guest from 185.73.67.108 port 1239 ssh2
+Thu Oct 23 2025 19:53:32 mailsv1 sshd[7885]: Accepted password for guest from 177.108.167.235 port 1544 ssh2
+Thu Oct 16 2025 04:47:29 www1 sshd[58090]: Failed password for invalid user mongodb from 68.4.227.223 port 1044 ssh2
+Tue Oct 21 2025 21:36:52 dbsv1 sshd[9488]: Failed password for invalid user redmine from 222.213.88.73 port 2388 ssh2
+Tue Nov 04 2025 02:07:03 dbsv1 sshd[55799]: Failed password for invalid user appserver from 142.199.206.131 port 2011 ssh2
+Tue Nov 04 2025 08:35:11 appsv1 sshd[39932]: pam_unix(sshd:session): session opened for user apache by (uid=0)
+Tue Oct 21 2025 03:26:14 www1 sshd[8666]: Failed password for invalid user desktop from 34.122.59.120 port 2540 ssh2
+Sat Nov 01 2025 04:00:43 www1 sshd[3401]: Server listening on :: port 22.
+Sun Oct 19 2025 12:13:37 dbsv1 sshd[62008]: Server listening on :: port 22.
+Wed Oct 08 2025 21:09:13 mailsv1 sshd[34370]: Failed password for invalid user git from 201.204.8.44 port 3329 ssh2
+Tue Oct 14 2025 20:01:39 www1 sshd[15686]: Failed password for invalid user guest from 67.14.143.182 port 4963 ssh2
+Wed Nov 05 2025 10:10:51 www2 sshd[32932]: Accepted password for operator from 164.96.206.200 port 2785 ssh2
+Thu Oct 23 2025 17:20:50 dbsv1 sshd[24987]: Failed password for invalid user email from 221.86.14.183 port 1711 ssh2
+Wed Oct 08 2025 03:43:45 appsv1 sshd[9591]: pam_unix(sshd:session): session closed for user oracle by (uid=0)
+Thu Oct 30 2025 17:34:14 www2 sshd[6420]: Accepted password for nagios from 159.200.224.173 port 2817 ssh2
+Thu Nov 06 2025 07:56:49 www2 sshd[63497]: Failed password for invalid user mailman from 100.201.157.88 port 3070 ssh2
+Fri Oct 31 2025 01:19:40 dbsv1 sshd[15757]: Failed password for invalid user news from 169.236.114.231 port 3096 ssh2
+Fri Oct 24 2025 11:42:19 appsv1 sshd[26024]: Failed password for  root from 44.209.3.20 port 2702 ssh2
+Wed Oct 08 2025 02:11:38 www2 sshd[50485]: Failed password for  nagios from 26.133.82.203 port 2508 ssh2
+Mon Oct 27 2025 01:41:20 dbsv1 sshd[21529]: Failed password for  operator from 200.21.47.254 port 2911 ssh2
+Fri Oct 10 2025 15:34:23 mailsv1 sshd[41440]: pam_unix(sshd:session): session closed for user root by (uid=0)
+Sun Oct 12 2025 17:39:29 www2 sshd[61003]: Server listening on :: port 22.
+Mon Oct 20 2025 03:10:35 mailsv1 sshd[19125]: Failed password for  operator from 214.135.238.186 port 3625 ssh2
+Wed Oct 29 2025 12:57:30 appsv1 sshd[41807]: Failed password for  nagios from 50.123.88.218 port 1210 ssh2
+Thu Oct 16 2025 22:47:47 mailsv1 sshd[11909]: pam_unix(sshd:session): session opened for user operator by (uid=0)
+Thu Oct 09 2025 22:50:40 www1 sshd[31225]: Failed password for  operator from 105.241.107.254 port 1603 ssh2
+Sun Nov 02 2025 06:08:37 www2 sshd[17408]: pam_unix(sshd:session): session opened for user nagios by (uid=0)
+Thu Oct 09 2025 15:28:09 mailsv1 sshd[13448]: pam_unix(sshd:session): session opened for user guest by (uid=0)
+Wed Nov 05 2025 14:51:55 www2 sshd[40654]: Failed password for invalid user doc from 92.225.246.37 port 4566 ssh2
+Fri Oct 17 2025 18:59:00 www1 sshd[5991]: pam_unix(sshd:session): session opened for user admin by (uid=0)
+Wed Oct 22 2025 23:43:23 appsv1 sshd[16038]: Accepted password for guest from 24.231.214.150 port 3460 ssh2
+Fri Oct 31 2025 05:31:11 www1 sshd[54791]: pam_unix(sshd:session): session closed for user mysql by (uid=0)
+Sat Oct 18 2025 06:17:41 www1 sshd[12512]: Failed password for invalid user testuser from 44.29.126.107 port 4761 ssh2
+Fri Oct 24 2025 00:34:52 mailsv1 sshd[55928]: Failed password for  mysql from 112.74.168.246 port 2232 ssh2
+Mon Nov 03 2025 23:49:27 dbsv1 sshd[3042]: Failed password for  root from 133.135.249.89 port 1536 ssh2
+Thu Nov 06 2025 10:17:25 dbsv1 sshd[29334]: Failed password for invalid user doc from 109.121.63.25 port 1286 ssh2
+Sun Oct 12 2025 11:24:23 www2 sshd[38091]: Failed password for  root from 163.27.82.118 port 1778 ssh2
+Wed Oct 22 2025 00:37:08 dbsv1 sshd[29237]: pam_unix(sshd:session): session opened for user operator by (uid=0)
+Wed Oct 08 2025 13:24:36 mailsv1 sshd[33696]: pam_unix(sshd:session): session opened for user nagios by (uid=0)
+Fri Oct 10 2025 18:31:54 www1 sshd[11034]: Failed password for invalid user doc from 14.112.121.66 port 4630 ssh2
+Tue Oct 14 2025 00:51:40 www2 sshd[20845]: pam_unix(sshd:session): session opened for user apache by (uid=0)
+Thu Oct 30 2025 20:51:20 appsv1 sshd[7623]: Failed password for invalid user redmine from 178.36.12.167 port 1043 ssh2
+Wed Nov 05 2025 22:46:50 www2 sshd[61958]: Failed password for  apache from 191.209.235.224 port 4244 ssh2
+Fri Oct 24 2025 09:19:53 www1 sshd[38690]: pam_unix(sshd:session): session opened for user root by (uid=0)
+Sun Oct 26 2025 22:34:53 dbsv1 sshd[53614]: Failed password for invalid user email from 102.42.248.198 port 3849 ssh2
+Wed Oct 08 2025 18:09:18 www1 sshd[33665]: Failed password for invalid user desktop from 98.215.231.53 port 4436 ssh2
+Wed Oct 08 2025 04:17:21 www1 sshd[33951]: Failed password for invalid user cyrus from 151.215.167.20 port 3168 ssh2
+Mon Oct 27 2025 03:02:17 www2 sshd[45032]: Failed password for  apache from 32.121.220.103 port 1748 ssh2
+Wed Nov 05 2025 18:03:44 www1 sshd[1215]: Accepted password for admin from 210.186.42.86 port 1105 ssh2
+Sat Oct 11 2025 16:29:57 www2 sshd[35555]: pam_unix(sshd:session): session closed for user oracle by (uid=0)
+Sat Oct 25 2025 10:50:22 appsv1 sshd[60869]: pam_unix(sshd:session): session opened for user oracle by (uid=0)
+Sat Oct 11 2025 06:11:02 www1 sshd[61077]: pam_unix(sshd:session): session closed for user admin by (uid=0)
+Wed Oct 15 2025 01:06:32 www1 sshd[10536]: pam_unix(sshd:session): session closed for user nagios by (uid=0)
+Thu Oct 16 2025 11:14:48 mailsv1 sshd[22823]: Failed password for invalid user testuser from 209.193.216.235 port 1657 ssh2
+Tue Nov 04 2025 20:04:37 appsv1 sshd[42195]: Failed password for  root from 136.195.73.238 port 2148 ssh2
+Tue Oct 28 2025 13:00:53 www1 sshd[5125]: Failed password for invalid user proxy from 162.114.214.172 port 3990 ssh2
+Thu Oct 16 2025 02:02:34 www1 sshd[29768]: Failed password for invalid user inet from 168.38.23.101 port 2697 ssh2
+Wed Nov 05 2025 22:03:18 appsv1 sshd[32688]: Failed password for invalid user operator from 63.227.239.89 port 4743 ssh2
+Thu Oct 16 2025 21:59:57 www2 sshd[6748]: Failed password for invalid user cyrus from 33.116.113.235 port 3272 ssh2
+Wed Oct 08 2025 10:47:18 mailsv1 sshd[62780]: Failed password for  nagios from 43.211.95.82 port 2238 ssh2
+Wed Oct 29 2025 00:27:29 appsv1 sshd[48187]: pam_unix(sshd:session): session opened for user operator by (uid=0)
+Sat Oct 18 2025 12:59:06 dbsv1 sshd[61616]: Failed password for invalid user git from 80.232.166.121 port 2437 ssh2
+Thu Oct 30 2025 16:55:15 www1 sshd[58496]: pam_unix(sshd:session): session closed for user root by (uid=0)
+Mon Oct 13 2025 03:26:51 mailsv1 sshd[52949]: Failed password for invalid user desktop from 100.148.46.200 port 2934 ssh2
+Tue Oct 14 2025 14:39:21 www1 sshd[5766]: Failed password for invalid user amanda from 124.81.147.54 port 2153 ssh2
+Sat Nov 01 2025 00:17:50 www1 sshd[18017]: pam_unix(sshd:session): session opened for user oracle by (uid=0)
+Mon Nov 03 2025 20:30:42 www1 sshd[37733]: Failed password for invalid user news from 134.109.137.237 port 1341 ssh2
+Mon Nov 03 2025 12:35:47 appsv1 sshd[48017]: Failed password for invalid user irc from 177.77.184.149 port 4902 ssh2
+Fri Oct 17 2025 00:31:27 appsv1 sshd[35990]: Failed password for  admin from 210.249.150.237 port 1182 ssh2
+Mon Oct 27 2025 09:38:53 appsv1 sshd[1839]: Failed password for invalid user yp from 120.106.155.2 port 3408 ssh2
+Sat Oct 11 2025 18:31:26 mailsv1 sshd[11753]: Accepted password for root from 64.65.176.222 port 2784 ssh2
+Fri Oct 10 2025 20:52:42 www2 sshd[10575]: Failed password for invalid user guest from 31.3.224.49 port 3357 ssh2
+Fri Oct 31 2025 22:48:08 www2 sshd[27043]: Failed password for invalid user appserver from 38.215.77.18 port 1392 ssh2
+Wed Oct 15 2025 14:14:42 mailsv1 sshd[55385]: Accepted password for root from 143.216.72.10 port 1658 ssh2
+Fri Oct 10 2025 03:00:30 dbsv1 sshd[36851]: Server listening on :: port 22.
+Sun Oct 26 2025 14:09:57 appsv1 sshd[3596]: Failed password for invalid user local from 77.250.142.251 port 3334 ssh2
+Wed Oct 29 2025 12:39:39 mailsv1 sshd[36494]: pam_unix(sshd:session): session closed for user admin by (uid=0)
+Thu Nov 06 2025 08:30:27 mailsv1 sshd[58607]: pam_unix(sshd:session): session opened for user admin by (uid=0)
+Fri Oct 24 2025 23:10:45 www2 sshd[10981]: pam_unix(sshd:session): session opened for user admin by (uid=0)
+Wed Oct 22 2025 10:40:19 appsv1 sshd[47985]: Failed password for  operator from 118.224.37.89 port 1105 ssh2
+Mon Oct 13 2025 23:53:14 appsv1 sshd[53405]: pam_unix(sshd:session): session closed for user operator by (uid=0)
+Sat Nov 01 2025 09:58:48 mailsv1 sshd[52604]: Failed password for invalid user yp from 40.183.172.75 port 1330 ssh2
+Sun Oct 19 2025 19:13:00 appsv1 sshd[31541]: Failed password for invalid user amanda from 146.105.17.15 port 3878 ssh2
+Wed Oct 15 2025 17:54:04 mailsv1 sshd[53210]: Failed password for  operator from 135.250.62.249 port 2340 ssh2
+Tue Oct 28 2025 20:55:59 mailsv1 sshd[52924]: Failed password for invalid user cyrus from 123.251.62.52 port 4980 ssh2
+Tue Oct 07 2025 17:00:28 dbsv1 sshd[43294]: Failed password for invalid user testuser from 76.60.11.218 port 2148 ssh2
+Thu Oct 30 2025 01:38:51 www1 sshd[30004]: Accepted password for nagios from 139.204.133.48 port 3105 ssh2
+Sat Nov 01 2025 02:21:47 dbsv1 sshd[44771]: Failed password for invalid user mongodb from 143.236.3.134 port 3669 ssh2
+Sat Oct 11 2025 15:19:29 www2 sshd[3604]: pam_unix(sshd:session): session opened for user oracle by (uid=0)
+Thu Oct 30 2025 00:16:32 dbsv1 sshd[59670]: Failed password for invalid user mongodb from 188.161.137.64 port 2225 ssh2
+Sat Oct 11 2025 15:41:40 dbsv1 sshd[12904]: Failed password for invalid user appserver from 113.205.67.223 port 3196 ssh2
+Fri Oct 24 2025 21:39:20 mailsv1 sshd[54015]: Failed password for invalid user yp from 135.22.237.51 port 3428 ssh2
+Sat Nov 01 2025 13:32:27 www2 sshd[6114]: pam_unix(sshd:session): session closed for user nagios by (uid=0)
+Fri Oct 17 2025 21:44:20 dbsv1 sshd[10210]: Failed password for invalid user testuser from 20.180.31.60 port 2548 ssh2
+Wed Oct 29 2025 09:28:05 appsv1 sshd[19246]: pam_unix(sshd:session): session opened for user nagios by (uid=0)
+Fri Oct 17 2025 10:02:32 mailsv1 sshd[14641]: Failed password for  apache from 49.154.168.133 port 4524 ssh2
+Mon Oct 20 2025 23:13:06 www2 sshd[49019]: Failed password for  operator from 102.149.106.222 port 4037 ssh2
+Mon Oct 13 2025 20:50:40 mailsv1 sshd[51005]: Failed password for  root from 47.137.132.234 port 4357 ssh2
+Wed Oct 22 2025 08:41:58 dbsv1 sshd[10942]: pam_unix(sshd:session): session closed for user guest by (uid=0)
+Thu Oct 09 2025 03:11:38 www1 sshd[57853]: Failed password for invalid user git from 93.171.85.252 port 3970 ssh2
+Sun Oct 12 2025 10:09:27 appsv1 sshd[42460]: pam_unix(sshd:session): session opened for user nagios by (uid=0)
+Thu Oct 30 2025 02:45:19 dbsv1 sshd[35899]: Failed password for invalid user vmware from 11.66.237.155 port 4277 ssh2
+Mon Oct 20 2025 01:36:47 www2 sshd[18310]: Failed password for invalid user itmadmin from 212.128.152.205 port 3677 ssh2
+Thu Oct 16 2025 04:02:35 dbsv1 sshd[39725]: Failed password for  operator from 104.56.100.100 port 4413 ssh2
+Tue Oct 21 2025 20:41:25 www2 sshd[59145]: Server listening on :: port 22.
+Sat Oct 25 2025 06:13:50 mailsv1 sshd[62504]: pam_unix(sshd:session): session closed for user operator by (uid=0)
+Tue Oct 21 2025 03:29:20 mailsv1 sshd[4458]: pam_unix(sshd:session): session opened for user admin by (uid=0)
+Sat Nov 01 2025 20:22:43 dbsv1 sshd[24003]: Accepted password for apache from 203.24.160.227 port 4424 ssh2
+Sun Oct 12 2025 11:29:30 www2 sshd[34424]: Failed password for invalid user testuser from 114.34.194.253 port 3078 ssh2
+Wed Oct 08 2025 04:18:24 www1 sshd[64261]: pam_unix(sshd:session): session closed for user admin by (uid=0)
+Sun Oct 19 2025 04:51:38 appsv1 sshd[13467]: Failed password for invalid user cyrus from 196.148.42.47 port 4446 ssh2
+Fri Oct 10 2025 23:02:07 mailsv1 sshd[26921]: pam_unix(sshd:session): session closed for user oracle by (uid=0)
+Tue Oct 28 2025 08:41:44 www1 sshd[36488]: pam_unix(sshd:session): session opened for user admin by (uid=0)
+Thu Oct 30 2025 01:22:19 dbsv1 sshd[22357]: Failed password for invalid user redmine from 70.219.10.77 port 3006 ssh2
+Tue Oct 14 2025 21:38:40 www2 sshd[59006]: Failed password for  mysql from 126.125.20.32 port 1686 ssh2
+Thu Oct 30 2025 09:31:57 www1 sshd[33905]: Server listening on :: port 22.
+Sun Oct 26 2025 11:46:33 www1 sshd[43837]: Failed password for invalid user amanda from 193.1.185.210 port 1341 ssh2
+Sun Oct 12 2025 03:18:40 mailsv1 sshd[24352]: Failed password for  root from 90.220.203.30 port 2675 ssh2
+Fri Oct 24 2025 16:53:12 appsv1 sshd[24833]: Failed password for  admin from 76.96.250.172 port 1935 ssh2
+Mon Oct 13 2025 06:52:10 appsv1 sshd[52774]: Failed password for invalid user testuser from 189.152.92.65 port 2682 ssh2
+Wed Oct 15 2025 04:48:09 www2 sshd[30646]: Failed password for  nagios from 163.49.4.1 port 3793 ssh2
+Sun Oct 26 2025 12:43:54 dbsv1 sshd[21861]: Failed password for invalid user amanda from 150.215.62.183 port 1545 ssh2
+Fri Oct 10 2025 13:08:48 www1 sshd[30711]: Failed password for  operator from 22.71.213.96 port 2332 ssh2
+Mon Nov 03 2025 08:56:49 www1 sshd[48841]: Failed password for invalid user git from 53.131.114.206 port 4687 ssh2
+Sat Oct 18 2025 08:54:57 www2 sshd[18063]: Failed password for invalid user doc from 186.171.115.172 port 3403 ssh2
+Wed Oct 22 2025 11:01:49 www1 sshd[44861]: pam_unix(sshd:session): session closed for user admin by (uid=0)
+Tue Oct 28 2025 08:34:01 mailsv1 sshd[9065]: Failed password for  admin from 72.196.137.199 port 1306 ssh2
+Tue Oct 14 2025 14:30:04 dbsv1 sshd[25990]: Failed password for invalid user appserver from 214.143.6.234 port 4080 ssh2
+Tue Oct 21 2025 16:15:41 www2 sshd[47335]: pam_unix(sshd:session): session closed for user oracle by (uid=0)
+Fri Oct 10 2025 17:50:41 appsv1 sshd[47941]: Failed password for  mysql from 197.195.223.54 port 4701 ssh2
+Wed Oct 29 2025 05:13:56 mailsv1 sshd[28515]: Failed password for invalid user amanda from 115.110.186.239 port 4348 ssh2
+Tue Oct 14 2025 05:15:38 dbsv1 sshd[34294]: Failed password for  apache from 80.105.200.181 port 3843 ssh2
+Wed Oct 08 2025 00:23:03 www2 sshd[55258]: Failed password for  nagios from 135.178.160.58 port 4908 ssh2
+Thu Nov 06 2025 09:42:32 appsv1 sshd[30150]: pam_unix(sshd:session): session opened for user apache by (uid=0)
+Mon Nov 03 2025 10:59:45 www1 sshd[56406]: Failed password for  operator from 79.38.63.162 port 1243 ssh2
+Sun Oct 26 2025 00:26:21 appsv1 sshd[3918]: pam_unix(sshd:session): session opened for user nagios by (uid=0)
+Fri Oct 31 2025 09:33:13 mailsv1 sshd[2685]: Failed password for invalid user git from 5.237.255.130 port 2072 ssh2
+Wed Oct 08 2025 23:45:53 mailsv1 sshd[8157]: pam_unix(sshd:session): session opened for user mysql by (uid=0)
+Mon Oct 27 2025 09:12:56 www1 sshd[58072]: Failed password for  root from 128.104.37.130 port 2459 ssh2
+Tue Nov 04 2025 10:50:46 mailsv1 sshd[33729]: Failed password for  guest from 22.236.104.192 port 4881 ssh2
+Fri Oct 31 2025 12:52:55 appsv1 sshd[6134]: Server listening on :: port 22.
+Fri Oct 10 2025 07:49:59 dbsv1 sshd[33725]: Failed password for  admin from 145.197.88.57 port 4677 ssh2
+Tue Oct 07 2025 16:01:43 dbsv1 sshd[61094]: Failed password for invalid user cyrus from 150.215.113.187 port 1248 ssh2
+Thu Oct 30 2025 06:21:27 dbsv1 sshd[24357]: Failed password for invalid user redmine from 2.168.60.199 port 3395 ssh2
+Wed Oct 08 2025 11:19:46 mailsv1 sshd[52069]: pam_unix(sshd:session): session closed for user operator by (uid=0)
+Mon Oct 27 2025 16:25:00 www1 sshd[34489]: Failed password for invalid user testuser from 97.65.113.47 port 2690 ssh2
+Tue Oct 14 2025 16:36:00 mailsv1 sshd[20202]: Failed password for  admin from 75.123.38.192 port 3034 ssh2
+Mon Oct 13 2025 12:58:41 www1 sshd[42994]: Failed password for  oracle from 101.67.231.214 port 3998 ssh2
+Thu Oct 16 2025 12:21:42 appsv1 sshd[44180]: Failed password for  nagios from 92.196.17.79 port 2241 ssh2
+Tue Oct 14 2025 10:24:43 dbsv1 sshd[2238]: Failed password for invalid user email from 71.139.72.189 port 1549 ssh2
+Wed Oct 29 2025 10:29:51 www2 sshd[18645]: pam_unix(sshd:session): session opened for user admin by (uid=0)
+Sun Oct 26 2025 11:29:45 dbsv1 sshd[37600]: Failed password for invalid user amanda from 217.150.69.103 port 4854 ssh2
+Sat Nov 01 2025 16:58:45 appsv1 sshd[35513]: Accepted password for admin from 18.6.74.144 port 2253 ssh2
+Sat Nov 01 2025 16:10:05 mailsv1 sshd[52433]: pam_unix(sshd:session): session opened for user mysql by (uid=0)
