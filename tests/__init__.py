@@ -1,4 +1,0 @@
-"""
-IntelliAudit Test Suite
-"""
-
