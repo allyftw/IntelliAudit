@@ -1,0 +1,181 @@
+---
+# This title is used for the browser tab and the link-preview card (see the
+# "description" and "thumbnail" keys below). The title displayed at the top of
+# the page is set separately, on the <Header> component in the body.
+title: Academic Project Page Template
+
+# The color theme of the page. Defaults to "device" (the preference set in the user's brower or operating system). Setting this to "light" or "dark" will override the user's preference. This is useful if your figures only look good in one theme.
+theme: device
+
+# This is the icon that appears in the user's browser tab. To customize, change the favicon.svg file in /public/, or add your own file to /public/ and change the filename here.
+favicon: favicon.svg
+
+# These keys are optional. If a link to your project page is in a Google search result, text message, or social media post, it will often appear as a "link preview card" based on its title, description, favicon, and thumbnail. After you publish your page, you can double check that these previews look right using [this tool](https://linkpreview.xyz/)
+description: Simple project page template for your research paper, built with Astro and Tailwind
+thumbnail: screenshot-light.png
+---
+
+import Header from "./components/Header.astro";
+import Video from "./components/Video.astro";
+import HighlightedSection from "./components/HighlightedSection.astro";
+import SmallCaps from "./components/SmallCaps.astro";
+import Figure from "./components/Figure.astro";
+import Picture from "./components/Picture.astro";
+import ModelViewer from "./components/ModelViewer.astro"
+import TwoColumns from "./components/TwoColumns.astro";
+import YouTubeVideo from "./components/YouTubeVideo.astro";
+import Carousel from "./components/Carousel.astro";
+import CarouselSlide from "./components/CarouselSlide.astro";
+import Wide from "./components/Wide.astro";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/starwind/tabs";
+import { Comparison } from "./components/Comparison.tsx";
+
+import outside from "./assets/outside.mp4";
+import studentQuestions from "./assets/student_professional_questions.png"
+import cyberSecurity from "./assets/cybersecurity.jpg"
+import auditorQuestions from "./assets/auditor_questions.png"
+
+<Header
+  title="IntelliAudit: Using Large Language Models to Evaluate Audit Controls"
+  authors={[
+    {
+      name: "Allison Wilson",
+      url: "https://www.sfu.ca/gradstudies/life-community/people-research/profiles/fas/2026/allison-wilson.html",
+      institution: "Simon Fraser University",
+      notes: ["*", "†"],
+    },
+    { name: "Muhammad Tayebi", url: "https://www.sfu.ca/fas/computing/people/faculty/faculty-members/mohammad_tayebi.html", institution: "Simon Fraser University", notes: ["*", "†"] },
+    { name: "Sina Moradi Sabet", url: "https://ceenaa.github.io/" , institution: "Amirkabir University of Technology" , notes: ["†"]},
+    { name: "Diar Shakimov", url: "https://www.linkedin.com/in/dshakimov/" , institution: "Simon Fraser University", notes: ["†"] },
+    { name: "Reza Bagheri", url: "https://www.linkedin.com/in/reza-bagheri-1666a039/", institution: "Telus Health" },
+    { name: "Panteha Shahrivar", url: "https://www.linkedin.com/in/pantehashah/", institution: "Simon Fraser University"}
+  ]}
+  notes={[
+    { symbol: "*", text: "Corresponding Authors." },
+    { symbol: "†", text: "These authors contributed equally to this work." },
+  ]}
+  links={[
+    {
+      name: "Paper",
+      url: "/intelliaudit/paper.pdf",
+      icon: "ri:file-pdf-2-line"
+    },
+    { name: "Code", url: "https://github.com/allyftw/IntelliAudit---PoC", icon: "ri:github-line" },
+  ]}
+>
+  {/*
+    Optionally place a cover image or video behind the header. Import the
+    asset (from src/assets/, so images are optimized) and pass it through the
+    "background" slot using the Picture or Video component:
+
+      <Picture slot="background" src={cover} alt="" />
+      <Video slot="background" src={outside} controls={false} />
+  */}
+  <Picture slot="background" src={cyberSecurity} alt="" priority />
+</Header>
+
+<HighlightedSection>
+
+## Abstract
+
+IT audits are labor-intensive, evidence-heavy processes that require trained professionals to evaluate organizational controls across a wide range of artifact types. While prior work has explored LLM integration in compliance and security assurance workflows, no published system has specifically targeted the evidence evalua- tion phase of IT auditing as a structured, explainable, and human- supervised task. This paper presents IntelliAudit, a multi-agent LLM pipeline designed to assist auditors in assessing the compliance status of organizational controls against the ISO/IEC 27001:2022 standard. IntelliAudit decomposes control assessment into four co- operating agents: a Retriever, which performs adaptive evidence search over an organizational artifact corpus; an Auditor, which con- ducts the primary requirement-level evaluation; a Defender, which challenges adverse findings by seeking mitigating or overlooked evi- dence; and a Judge, which performs independent adjudication when the Auditor and Defender disagree. The system is implemented as a conversational, human-in-the-loop tool that preserves auditor judgment as the authoritative decision-making authority. We evalu- ate IntelliAudit against a benchmark of 15 ISO 27001:2022 controls spanning policy documents, structured spreadsheets, images, and video artifacts, using a cross-model validation approach with Ope- nAI GPT-5-Nano and Claude Sonnet 4.5, supplemented by a human survey of practicing auditors and compliance professionals. Our results demonstrate that both models successfully evaluated all artifact types within their context window constraints, and that the multi-agent architecture produced measurably stronger reasoning outputs than the single-agent ablation condition. These findings suggest that structured, retrieval-grounded multi-agent pipelines are a viable and practically useful approach to LLM-assisted IT audit automation.
+
+</HighlightedSection>
+
+## Survey
+
+### Methodology
+
+We evaluated IntelliAudit using a two pronged approach designed to avoid bias from any single model or from relying purely on automated scoring. The primary pipeline ran on OpenAI's GPT-5-Nano, with its outputs on text based evidence independently cross checked by Claude Sonnet 4.5, giving us a validation layer that helps catch errors specific to either model's training or reasoning style.
+
+We also ran an ablation study using only the Auditor agent in isolation, then presented both the full pipeline and ablated reasoning outputs side by side to human reviewers.
+
+Because there is no objective ground truth for audit judgments, we turned to human evaluation as our benchmark. We recruited two groups: practicing auditors, and a mix of second year cybersecurity master's students and working compliance professionals, the latter group simulating someone using IntelliAudit to fix organizational gaps ahead of a real audit. The auditor group assessed whether the model's reasoning was professionally sound; the second group assessed how useful the model's output was for actually updating evidence to meet control requirements. Their responses became our human benchmark, the standard an automated system needs to meet to be useful in practice.
+
+Across both models, every evidence artifact was evaluated successfully except video files, which exceeded context window limits.
+
+
+### Survey Participant Screenshots
+<Figure>
+  <Picture slot="figure" src={auditorQuestions} alt="auditor questions"/>
+  <Fragment slot="caption">Screenshot of Auditor's Questions. </Fragment>
+</Figure>
+
+<Figure>
+  <Picture slot="figure" src={studentQuestions} alt="student professional questions"/>
+  <Fragment slot="caption">Screenshot of Student and Professional's Questions. </Fragment>
+</Figure>
+
+
+## Datasets
+
+### Overview
+
+IntelliAudit was evaluated against ISO/IEC 27001:2022, the current edition of the international standard for information security management. We chose this framework over alternatives like SOX/SOC because its controls are precisely and consistently worded, giving us a stable basis for evaluating LLM reasoning, and because its broad adoption across industries means our results generalize well.
+
+Rather than testing all 93 controls in the standard, we selected a representative sample of 15, spanning policy documentation, role assignment, asset management, incident response, personnel processes, and physical and technical controls. We deliberately chose controls that required different artifact types, including text documents, spreadsheets, images, and video, since we expected, and wanted to measure, how LLM performance varies across formats.
+
+Since real audit evidence is sensitive and rarely public, we built a simulated organization, complete with a full executive team and governance structure modeled on NIST SP 800-100 guidance, to serve as the subject of the audit. Every artifact in our dataset was grounded in this same organizational context for internal consistency.
+
+Our dataset is organized into three tiers. Real World Data consists of publicly available authoritative sources, including the ISO/IEC 27001:2022 standard itself, the BC government's Information Security Policy, and several NIST special publications, used both as direct evidence and as seed material for generating other artifacts. Expert Crafted Data consists of artifacts built by our research team to simulate evidence that real organizations produce but rarely share publicly, such as org charts, asset inventory spreadsheets at varying compliance maturity levels, a policy testing video, and access provisioning screenshots. Synthetic Data consists of policy and procedural documents generated by Claude Sonnet 4.5, using the real world and expert crafted artifacts as seed context for each control, including the organization's security policy, business continuity plan, incident response documentation, and a three part disciplinary record chain.
+
+The full artifact inventory is available in the following GitHub repository. For detailed information on artifacts, please refer to Appendix A of the paper.
+
+[![View on GitHub](https://img.shields.io/badge/View%20on-GitHub-black?logo=github)](https://github.com/allyftw/IntelliAudit---PoC)
+
+
+### Data Characteristics
+
+#### ISO 27001 controls used in the IntelliAudit benchmark. The benchmark covers textual, tabular, and image-based evidence.
+
+| Control | Control objective | Primary artifacts |
+|---------|-------------------|-------------------|
+| 5.1 | Policies for information security | DOC |
+| 5.2 | Security roles and responsibilities | PDF |
+| 5.9 | Inventory of information and associated assets | XLS/XLSX |
+| 5.11 | Return of assets | XLS/XLSX |
+| 5.24 | Security incident management planning and preparation | DOC |
+| 5.25 | Assessment and decision on security events | DOC |
+| 5.26 | Response to security incidents | DOC |
+| 5.27 | Learning from security incidents | DOC |
+| 5.29 | Security during disruption | DOC |
+| 5.30 | ICT readiness for business continuity | DOC |
+| 6.4 | Disciplinary process | TXT, PNG |
+| 7.7 | Clear desk and clear screen | DOC, MP4 |
+| 7.14 | Secure disposal or reuse of equipment | PDF |
+| 8.1 | User endpoint devices | PNG |
+| 8.4 | Access to source code | PNG |
+
+#### Non-Synthetic Data: Real World and Expert Crafted Artifacts.
+
+| # | Artifact | Control # | Data Type |
+|---|----------|-----------|-----------|
+| R1 | `ISO_IEC_27001_2022en.pdf` | N/A | Real World |
+| R2 | `BC_isp_v50_aug2025.pdf` | N/A | Real World |
+| R3 | `NIST SP 800-61 Rev 3.pdf` | N/A | Real World |
+| R4 | `NIST SP 800-34r1.pdf` | N/A | Real World |
+| R5 | `NIST SP 800-100.pdf` | N/A | Real World |
+| E1 | `5-2_Org_Chart.pdf` | 5.2 | Expert Crafted |
+| E2 | `C_Global_Enterprises_Inc_Asset_Inventory.xls` | 5.9, 5.11 | Expert Crafted |
+| E3 | `SC_GlobalFinance_Partners_Asset_Data.xlsx` | 5.9, 5.11 | Expert Crafted |
+| E4 | `SC_QuickServe_Restaurants_LLC_Asset_Data.xl` | 5.9, 5.11 | Expert Crafted |
+| E5 | `SC_TechInnovate_Inc_Asset_Data.xlsx` | 5.9, 5.11 | Expert Crafted |
+| E6 | `SC_WestRange_Logistics_Inc_Asset_Data.xlsx` | 5.9, 5.11 | Expert Crafted |
+| E7 | `NC_BuildRight_Construction_Asset_Data.xlsx` | 5.9, 5.11 | Expert Crafted |
+| E8 | `NC_MetroRetail_Group_Asset_Data.xlsx` | 5.9, 5.11 | Expert Crafted |
+| E9 | `7-7_cover-a-guy-working-on-a-pc-18-1080p.mp` | 7.7 | Expert Crafted |
+| E10 | `8-1_Okta_User_List.png` | 8.1 | Expert Crafted |
+| E11 | `8-4_Code_Repo_Access_List.png` | 8.4 | Expert Crafted |
+
+#### Synthetic Data: AI-Generated Audit Artifacts using Sonnet_4.5.
+
+| #  | Artifact                               | Control # | Seed                   | 
+| -- | -------------------------------------- | --------- | ---------------------- | 
+| S1 | `5-1_information_security_policy.docx` | 5.1       | E1, R1, R4             |                                                               
+| S2 | `5-29_BCP`                             | 5.29      | E1, S1, R1, R4         |                                                                                                                                                                               
+| S3 | `5-24_Incident_Management_Policy.docx` | 5.24      | E1, S1, R1, R3         |                                                                                                               
+| S4 | `5-27_incident_response_report.docx`   | 5.27      | E1, S1, S3, R1, R3, R  | 
+| S5 | `6-4_Verbal_Warning.txt`               | 6.4       | E1, S1, R1, R5         | 
+| S6 | `6-4_Written_Warning.txt`              | 6.4       | E1, S1, S5, R1, R5     |
+| S7 | `6-4_Termination_Letter.txt`           | 6.4       | E1, S1, S5, S6, R1, R5 |
+
