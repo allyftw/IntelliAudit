@@ -13,6 +13,8 @@ import astroExpressiveCode from "astro-expressive-code";
 
 // https://astro.build/config
 export default defineConfig({
+  site: "https://allyftw.github.io",
+  base: "/intelliaudit/",
   vite: {
     plugins: [tailwindcss()],
   },
