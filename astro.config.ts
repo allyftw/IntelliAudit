@@ -11,11 +11,13 @@ import react from "@astrojs/react";
 
 import astroExpressiveCode from "astro-expressive-code";
 
+console.log("ASTRO BASE SHOULD BE:", "/intelliaudit/");
+
 // https://astro.build/config
 export default defineConfig({
   site: "https://allyftw.github.io",
   base: "/intelliaudit/",
-  
+
   vite: {
     plugins: [tailwindcss()],
   },
